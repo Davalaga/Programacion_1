@@ -3,136 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sesión 2: Pensamiento Algorítmico</title>
+    <title>Sesión 2: El Desafío Algorítmico</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: auto; padding: 20px; background-color: #f4f7f6; }
-        h1 { text-align: center; color: #2c3e50; font-size: 3em; text-transform: uppercase; border-bottom: 5px solid #e67e22; padding-bottom: 10px; margin-bottom: 30px; }
-        .objetivo-box { background-color: #ffffff; border-left: 10px solid #3498db; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 40px; }
-        h2 { color: #e67e22; border-bottom: 2px solid #bdc3c7; padding-bottom: 10px; margin-top: 40px; }
-        .section-ipo, .section-leyes { background: #fff; padding: 25px; border-radius: 8px; margin-bottom: 30px; }
-        .ipo-grid { display: flex; justify-content: space-around; text-align: center; margin-top: 20px; }
-        .ipo-item { background: #ecf0f1; padding: 15px; border-radius: 10px; width: 30%; font-weight: bold; border: 1px solid #bdc3c7; }
-        .example-box { background: #fdf2e9; border: 1px dashed #e67e22; padding: 15px; margin: 15px 0; border-radius: 5px; }
-        .ley-card { background: #ebf5fb; margin: 10px 0; padding: 15px; border-radius: 8px; border-right: 5px solid #2980b9; }
-        .actividad-practica { background: #2c3e50; color: white; padding: 30px; border-radius: 15px; }
-        .regla-oro { color: #f1c40f; font-weight: bold; text-decoration: underline; }
-        .footer { text-align: center; margin-top: 50px; padding: 20px; border-top: 1px solid #ccc; }
-        blockquote { font-style: italic; color: #7f8c8d; border-left: 5px solid #bdc3c7; padding-left: 15px; }
+        :root { --bg: #0f172a; --card-bg: #1e293b; --primary: #38bdf8; --secondary: #f471b5; --accent: #fbbf24; --text: #f1f5f9; }
+        body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: var(--text); margin: 0; padding: 20px; line-height: 1.6; }
+        
+        .hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #0ea5e9 0%, #d946ef 100%); border-radius: 24px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        h1 { font-size: 3.5rem; margin: 0; text-transform: uppercase; letter-spacing: -2px; }
+        
+        .container { max-width: 1000px; margin: auto; }
+        .objetivo-box { background: rgba(56, 189, 248, 0.1); border: 2px solid var(--primary); padding: 25px; border-radius: 20px; margin-bottom: 40px; text-align: center; font-size: 1.2rem; }
+
+        h2 { color: var(--accent); font-size: 2rem; border-bottom: 3px solid var(--accent); display: inline-block; margin-bottom: 20px; }
+
+        /* Estilo IPO Visual */
+        .ipo-visual { display: flex; justify-content: space-around; align-items: center; margin: 40px 0; background: var(--card-bg); padding: 30px; border-radius: 20px; }
+        .node { text-align: center; width: 120px; }
+        .node-icon { font-size: 3rem; margin-bottom: 10px; }
+        .arrow { font-size: 2rem; color: var(--primary); font-weight: bold; }
+
+        /* Sistema de Tarjetas (Flip Cards) */
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
+        .flip-card { background-color: transparent; width: 100%; height: 250px; perspective: 1000px; cursor: pointer; }
+        .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; }
+        .flip-card:active .flip-card-inner, .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+        .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; }
+        .flip-card-front { background: var(--card-bg); border: 2px solid #334155; }
+        .flip-card-back { background: var(--primary); color: var(--bg); transform: rotateY(180deg); font-weight: bold; }
+
+        .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .rule-item { background: #1e293b; padding: 20px; border-radius: 15px; border-left: 6px solid var(--secondary); }
+        
+        .regla-oro { color: var(--accent); font-weight: bold; }
+        footer { text-align: center; margin-top: 60px; padding: 40px; border-top: 1px solid #334155; }
+        .btn-flow { background: var(--accent); color: var(--bg); padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .btn-flow:hover { background: #fff; transform: scale(1.1); }
     </style>
 </head>
 <body>
 
-    <h1>Sesión 2: Anatomía de un Algoritmo</h1>
+<div class="container">
+    <header class="hero">
+        <h1>Sesión 2</h1>
+        <p>Dominando la lógica del Científico de Datos</p>
+    </header>
 
     <div class="objetivo-box">
-        <strong>Objetivo de la clase:</strong> Identificar las características esenciales de un algoritmo (entrada, proceso, salida y finitud) y desarrollar la capacidad de traducir problemas cotidianos en procedimientos lógicos precisos[cite: 101, 273].
+        <strong>EL RETO:</strong> Hoy aprenderás a pensar como una máquina para que mañana las máquinas piensen por ti. Diseñaremos procesos que nunca fallen.
     </div>
 
-    <section class="section-ipo">
-        <h2>1. El Modelo IPO (Input-Process-Output)</h2>
-        <p>En el mundo de la Ciencia de Datos, nada sucede por arte de magia. Todo sistema computacional se rige por el modelo fundamental <strong>IPO</strong>. Según la literatura académica:</p>
+    <section>
+        <h2>1. El Motor IPO</h2>
+        <p>Imagina que eres un chef de datos. Para que tu receta funcione, necesitas tres cosas:</p>
         
-        <blockquote>
-            "Un algoritmo se puede definir como un conjunto finito de pasos que transforman una entrada (datos iniciales) en una salida (información de valor) a través de un proceso lógico definido" (Downey, 2016)[cite: 389].
-        </blockquote>
-
-        
-
-        <div class="ipo-grid">
-            <div class="ipo-item">ENTRADA<br><small>(Datos Brutos)</small></div>
-            <div class="ipo-item">PROCESO<br><small>(Algoritmo/Lógica)</small></div>
-            <div class="ipo-item">SALIDA<br><small>(Resultado/Información)</small></div>
+        <div class="ipo-visual">
+            <div class="node"><div class="node-icon">📥</div><strong>Entrada</strong><br>Datos Brutos</div>
+            <div class="arrow">➜</div>
+            <div class="node"><div class="node-icon">⚙️</div><strong>Proceso</strong><br>Lógica Pura</div>
+            <div class="arrow">➜</div>
+            <div class="node"><div class="node-icon">📤</div><strong>Salida</strong><br>Valor Real</div>
         </div>
 
-        <h3>Ejemplos Claros</h3>
-        <div class="example-box">
-            <strong>Caso: Cálculo de Promedio de Notas</strong><br>
-            <ul>
-                <li><strong>Entrada:</strong> Tres calificaciones numéricas (e.j., 3.5, 4.0, 5.0).</li>
-                <li><strong>Proceso:</strong> Sumar las tres notas y dividir el resultado por 3.</li>
-                <li><strong>Salida:</strong> El promedio final (4.16).</li>
-            </ul>
-        </div>
-
-        <div class="example-box">
-            <strong>Caso: Clasificación de Riesgo Crediticio (Data Science)</strong><br>
-            <ul>
-                <li><strong>Entrada:</strong> Edad del cliente, ingresos mensuales y deudas actuales.</li>
-                <li><strong>Proceso:</strong> Si las deudas superan el 50% de los ingresos, marcar como "Riesgo Alto"; de lo contrario, "Riesgo Bajo".</li>
-                <li><strong>Salida:</strong> Etiqueta de clasificación del cliente.</li>
-            </ul>
-        </div>
-
-        <h3>Reto Rápido: Establece el IPO</h3>
-        <p><em>¿Cuál sería el modelo IPO para un algoritmo que debe calcular el precio total de un producto incluyendo el IVA (19%)?</em></p>
+        <p>En Ciencia de Datos, un error en la entrada arruina el proceso. ¡Cuidado con lo que alimentas al algoritmo!</p>
     </section>
 
-    <hr>
-
-    <section class="section-leyes">
-        <h2>2. Las 4 Leyes de un Algoritmo</h2>
-        <p>Para un Científico de Datos, un código "que funciona a veces" no sirve. Necesitamos algoritmos robustos que sigan estas leyes fundamentales[cite: 101, 102]:</p>
-
-        <div class="ley-card">
-            <h3>I. Finitud</h3>
-            <p><strong>En palabras simples:</strong> Todo algoritmo DEBE terminar en algún momento. No puede ser un bucle infinito.</p>
-            <p><em>En Data Science:</em> Si un algoritmo de análisis no termina, nunca obtendremos el reporte para tomar decisiones.</p>
-        </div>
-
-        <div class="ley-card">
-            <h3>II. Definición (Precisión)</h3>
-            <p><strong>En palabras simples:</strong> Cada paso debe ser unívoco. Si dos personas siguen el algoritmo con los mismos datos, deben llegar al mismo resultado.</p>
-            <p><em>En Data Science:</em> La reproducibilidad es clave. Si tu modelo da resultados distintos cada vez sin razón, tu ciencia no es confiable.</p>
-        </div>
-
-        <div class="ley-card">
-            <h3>III. Entrada / Salida</h3>
-            <p><strong>En palabras simples:</strong> Un algoritmo siempre recibe algo (aunque sea el vacío) y siempre debe producir un resultado tangible.</p>
-        </div>
-
-        <div class="ley-card">
-            <h3>IV. Efectividad</h3>
-            <p><strong>En palabras simples:</strong> Las instrucciones deben ser realizables. No podemos pedir "adivina el futuro", pero sí "calcula la tendencia basada en el pasado".</p>
-        </div>
-
+    <section>
+        <h2>¿Cumplen las 4 Leyes?</h2>
+        <p>Haz clic en las tarjetas para descubrir el fallo lógico.</p>
         
+        <div class="grid-cards">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Caso 1: El Optimista</h3>
+                        <p>1. Piensa un número.<br>2. Súmale un poco de suerte.<br>3. Muestra el resultado.</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>❌ FALLA LÓGICA</h3>
+                        <p>Rompe la <strong>Precisión</strong> y <strong>Efectividad</strong>. ¿Cómo se mide la "suerte"? Una máquina no puede procesar conceptos subjetivos.</p>
+                    </div>
+                </div>
+            </div>
 
-        <h3>Análisis de Caso: ¿Cumple las leyes?</h3>
-        <p><strong>Algoritmo propuesto:</strong><br>
-        1. Piensa un número.<br>
-        2. Súmale un poco de suerte.<br>
-        3. Muestra el resultado.</p>
-        <p><em>Preguntas: ¿Es preciso? ¿Es efectivo? ¿Qué ley se rompe aquí?</em></p>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Caso 2: El Infinito</h3>
+                        <p>1. Mira todos los números reales.<br>2. Encuentra el más grande de todos.<br>3. Escríbelo.</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>⚠️ NIVEL AVANZADO</h3>
+                        <p>Rompe la <strong>Finitud</strong>. Los números reales son infinitos. El algoritmo nunca terminaría de buscar y la memoria de la computadora explotaría.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="actividad-practica">
-        <h2>Actividad Práctica: "Algoritmos en Papel"</h2>
-        <p><strong>Metodología:</strong> Trabajo en parejas. Deberán diseñar algoritmos informales usando listas numeradas para problemas de gestión de datos[cite: 102].</p>
-        <p><strong>Objetivo:</strong> Entrenar el cerebro para descomponer problemas complejos en pasos atómicos y lógicos antes de tocar un teclado[cite: 12, 19].</p>
+    <section style="margin-top: 50px;">
+        <h2>Las Reglas del Juego</h2>
+        <div class="rules-grid">
+            <div class="rule-item"><strong>Finitud:</strong> Todo debe tener un final.</div>
+            <div class="rule-item"><strong>Precisión:</strong> Prohibido ser ambiguo.</div>
+            <div class="rule-item"><strong>Efectividad:</strong> Pasos que se puedan hacer.</div>
+            <div class="rule-item"><strong>E/S:</strong> Entra algo, sale algo.</div>
+        </div>
+    </section>
+
+    <section>
+        <h2 style="color: var(--secondary);">🎮 Actividad: Detectives de Código</h2>
+        <p>Analiza estos 6 algoritmos con tu equipo. ¿Qué les falta? Gira la tarjeta cuando tengan una respuesta.</p>
         
+        <div class="grid-cards">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front"><h3>1. La Receta Vacía</h3><p>Paso 1: Mezclar ingredientes.<br>Paso 2: Hornear 20 min.</p></div>
+                    <div class="flip-card-back"><p>Falta la <strong>ENTRADA</strong>. ¿Qué ingredientes? Sin insumos no hay proceso.</p></div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front"><h3>2. El Ciclo Loco</h3><p>Paso 1: Sumar 1 al número.<br>Paso 2: Repetir paso 1 para siempre.</p></div>
+                    <div class="flip-card-back"><p>Falla la <strong>FINITUD</strong>. No hay condición de parada.</p></div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front"><h3>3. El Secreto</h3><p>Paso 1: Tomar nota.<br>Paso 2: Multiplicar por 2.</p></div>
+                    <div class="flip-card-back"><p>Falta la <strong>SALIDA</strong>. El resultado se queda en memoria pero nunca se muestra al usuario.</p></div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front"><h3>4. El Dibujante Magno</h3><p>Paso 1: Dibujar un círculo cuadrado.</p></div>
+                    <div class="flip-card-back"><p>Falla la <strong>EFECTIVIDAD</strong>. Es lógicamente imposible de realizar.</p></div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front"><h3>5. La Cita Médica</h3><p>Paso 1: Llegar un poco temprano a la cita.</p></div>
+                    <div class="flip-card-back"><p>Falla la <strong>PRECISIÓN</strong>. ¿Qué es "un poco"? ¿5 min? ¿1 hora? Se requiere un dato exacto.</p></div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front"><h3>6. El Validador</h3><p>Paso 1: Recibir edad.<br>Paso 2: Si es mayor de edad... (nada más).</p></div>
+                    <div class="flip-card-back"><p>Falla el <strong>PROCESO</strong>. Está incompleto. ¿Qué pasa si es mayor? ¿Qué pasa si no?</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: rgba(244, 113, 181, 0.1); padding: 30px; border-radius: 20px; margin-top: 50px;">
+        <h2>Reflexión de Datos</h2>
+        <p>Como futuro científico de datos, tu trabajo no es escribir mucho código, sino escribir <strong>lógica perfecta</strong>. Un algoritmo ambiguo en un sistema de IA puede causar discriminación o errores catastróficos.</p>
         <ul>
-            <li><span class="regla-oro">REGLA DE ORO 1:</span> Prohibido usar código o flechas. Solo lenguaje natural numerado.</li>
-            <li><span class="regla-oro">REGLA DE ORO 2:</span> Cada paso debe ser tan simple que una persona "tonta pero rápida" pueda hacerlo.</li>
-            <li><span class="regla-oro">REGLA DE ORO 3:</span> Verifiquen la Finitud: ¿Su algoritmo termina siempre?</li>
+            <li><span class="regla-oro">Dato valioso:</span> La mayoría de errores de programación no son de escritura, son de lógica previa.</li>
         </ul>
     </section>
 
-    <section style="margin-top: 40px;">
-        <h2>Reflexión para el Científico de Datos</h2>
-        <p>¿Por qué perdemos tiempo en esto si yo quiero aprender IA? Porque <strong>un algoritmo mal diseñado genera datos falsos</strong>. Aprender a pensar de forma estructurada te permitirá:</p>
-        <ul>
-            <li>Depurar errores más rápido al entender el flujo lógico[cite: 90].</li>
-            <li>Optimizar procesos masivos de datos (Eficiencia)[cite: 12].</li>
-            <li>Comunicar soluciones técnicas a equipos no técnicos de forma clara[cite: 325].</li>
-        </ul>
-    </section>
-
-    <div class="footer">
-        <h2>¿Qué viene en nuestra siguiente clase?</h2>
-        <p>Daremos el salto a la representación gráfica formal. Conoceremos a nuestro primer aliado: <strong>Flowgorithm</strong>[cite: 105].</p>
-        <p><strong>Actividad Obligatoria:</strong> Descargar e instalar Flowgorithm en su computador personal. Exploren los bloques de "Input" y "Output".</p>
-        <p><a href="http://www.flowgorithm.org" target="_blank" style="color: #e67e22; font-weight: bold;">Página Oficial de Flowgorithm</a></p>
-    </div>
+    <footer>
+        <h2>🚀 ¿Próximo Nivel?</h2>
+        <p>Aprenderemos a dibujar estos pensamientos con <strong>Flowgorithm</strong>.</p><br>
+        <a href="http://www.flowgorithm.org" class="btn-flow" target="_blank">Descargar Flowgorithm Aquí</a>
+    </footer>
+</div>
 
 </body>
 </html>
