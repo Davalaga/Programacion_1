@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesión 1: El Paradigma | Programación I</title>
+    <style>
+        :root { --bg: #0f172a; --card-bg: #1e293b; --primary: #38bdf8; --secondary: #f471b5; --accent: #10b981; --text: #f1f5f9; }
+        body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: var(--text); margin: 0; padding: 20px; line-height: 1.6; }
+        
+        .hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); border-radius: 24px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        h1 { font-size: 3.5rem; margin: 0; text-transform: uppercase; letter-spacing: -2px; }
+        
+        .container { max-width: 1000px; margin: auto; }
+        .objetivo-box { background: rgba(99, 102, 241, 0.1); border-left: 8px solid #6366f1; padding: 25px; border-radius: 15px; margin-bottom: 40px; }
+
+        h2 { color: var(--primary); font-size: 2.2rem; border-bottom: 2px solid rgba(56, 189, 248, 0.2); padding-bottom: 10px; margin-top: 50px; }
+
+        /* Paradigma Visual */
+        .paradigma-container { display: flex; justify-content: space-between; align-items: center; margin: 40px 0; background: var(--card-bg); padding: 30px; border-radius: 20px; text-align: center; }
+        .paradigma-box { flex: 1; padding: 15px; }
+        .paradigma-arrow { font-size: 2rem; color: var(--secondary); font-weight: bold; }
+
+        /* Flip Cards para Competencias */
+        .grid-competencias { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
+        .flip-card { background-color: transparent; width: 100%; height: 250px; perspective: 1000px; cursor: pointer; }
+        .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; }
+        .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+        .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; }
+        .flip-card-front { background: var(--card-bg); border: 2px solid #334155; }
+        .flip-card-back { background: var(--secondary); color: white; transform: rotateY(180deg); font-weight: bold; }
+
+        /* Tabla de Parciales */
+        .tabla-parciales { width: 100%; border-collapse: collapse; margin-top: 20px; background: var(--card-bg); border-radius: 15px; overflow: hidden; }
+        .tabla-parciales th { background: #334155; color: var(--primary); padding: 15px; text-align: left; }
+        .tabla-parciales td { padding: 15px; border-bottom: 1px solid #334155; }
+        .badge-date { background: var(--accent); color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; }
+
+        /* Lecturas Sugeridas */
+        .reading-list { display: grid; gap: 20px; margin-top: 20px; }
+        .reading-item { background: #0f172a; border: 1px solid var(--primary); padding: 20px; border-radius: 15px; transition: 0.3s; text-decoration: none; color: inherit; }
+        .reading-item:hover { transform: scale(1.02); background: rgba(56, 189, 248, 0.05); }
+
+        .btn-next { display: inline-block; background: var(--secondary); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; margin-top: 30px; transition: 0.3s; }
+        .btn-next:hover { box-shadow: 0 0 20px var(--secondary); transform: translateY(-3px); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header class="hero">
+        <h1>Sesión 1</h1>
+        <p>Programación I: El Motor de la Ciencia de Datos</p>
+    </header>
+
+    <div class="objetivo-box">
+        <strong>Objetivo:</strong> Comprender la estructura del curso y el paradigma fundamental que conecta la lógica humana con la ejecución computacional para el análisis de datos.
+    </div>
+
+    <section>
+        <h2>1. El Paradigma Central</h2>
+        <p>En este curso, no aprenderemos a "escribir código" de forma aislada. Aprenderemos un proceso de traducción sistemática:</p>
+        <div class="paradigma-container">
+            <div class="paradigma-box"><h3>🧠 Algoritmo</h3><p>La idea lógica</p></div>
+            <div class="paradigma-arrow">➔</div>
+            <div class="paradigma-box"><h3>💻 Programación</h3><p>La formalización</p></div>
+            <div class="paradigma-arrow">➔</div>
+            <div class="paradigma-box"><h3>📊 Ciencia de Datos</h3><p>El valor real</p></div>
+        </div>
+    </section>
+
+    <section>
+        <h2>2. Tus Superpoderes (Competencias)</h2>
+        <p>Pasa el mouse para descubrir qué habilidades desarrollarás este semestre:</p>
+        <div class="grid-competencias">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front"><h3>Cognitiva</h3><p>Entender la lógica</p></div>
+                    <div class="flip-card-back"><p>Analizar problemas complejos y traducirlos en algoritmos claros y estructurados.</p></div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front"><h3>Comunicativa</h3><p>Hablar código</p></div>
+                    <div class="flip-card-back"><p>Documentar y explicar tus soluciones de forma técnica y profesional.</p></div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front"><h3>Investigativa</h3><p>Experimentar</p></div>
+                    <div class="flip-card-back"><p>Validar tus hipótesis mediante pruebas, depuración y análisis crítico de datos.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Mapa del Tesoro (Módulos Temáticos)</h2>
+        <p>Nuestra ruta de aprendizaje se divide en 4 bloques estratégicos:</p>
+        <ul>
+            <li><strong>Bloque 1:</strong> Pensamiento Algorítmico y Diagramas de Flujo (Lógica Pura).</li>
+            <li><strong>Bloque 2:</strong> Implementación en Python (Variables, Control y Ciclos).</li>
+            <li><strong>Bloque 3:</strong> Modularidad (Funciones y Organización).</li>
+            <li><strong>Bloque 4:</strong> Estructuras de Datos (Listas, Diccionarios y Manejo de Información).</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>4. Fechas de Parciales (¡Marca tu calendario!)</h2>
+        <table class="tabla-parciales">
+            <thead>
+                <tr>
+                    <th>Evaluación</th>
+                    <th>Temática Principal</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Parcial 1</td>
+                    <td>Algoritmos y Flowgorithm (20%)</td>
+                    <td><span class="badge-date">20 de Febrero</span></td>
+                </tr>
+                <tr>
+                    <td>Parcial 2</td>
+                    <td>Python: Ciclos y Funciones (20%)</td>
+                    <td><span class="badge-date">08 de Abril</span></td>
+                </tr>
+                <tr>
+                    <td>Parcial 3</td>
+                    <td>Estructuras de Datos y Cadenas (20%)</td>
+                    <td><span class="badge-date">04 de Mayo</span></td>
+                </tr>
+                <tr>
+                    <td>Examen Final</td>
+                    <td>Integración Total (20%)</td>
+                    <td><span class="badge-date">Semana 17</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>5. Lecturas Imprescindibles</h2>
+        <p>Para ser un gran científico de datos, hay que leer a los maestros. Te invito a explorar estos dos artículos fundamentales:</p>
+        
+        <div class="reading-list">
+            <a href="https://www.cs.cmu.edu/~15110-s13/Wing06-ct.pdf" target="_blank" class="reading-item">
+                <h3>📖 Pensamiento Computacional - Jeannette Wing</h3>
+                <p>¿Por qué pensar como un científico de la computación es la nueva alfabetización del siglo XXI? Un texto corto que cambiará tu forma de ver los problemas.</p>
+            </a>
+            <a href="https://1stepgrow.com/the-role-of-programming-in-data-science/" target="_blank" class="reading-item">
+                <h3>📖 Programación: El Motor de la Ciencia de Datos</h3>
+                <p>Si la ciencia de datos es el auto, la programación es el motor. Descubre por qué no puedes ser uno sin dominar la otra.</p>
+            </a>
+        </div>
+    </section>
+
+    <footer style="text-align: center; margin-bottom: 50px;">
+        <a href="../Sesion_02/index.html" class="btn-next">Ir a la Sesión 2 ➔</a>
+    </footer>
+</div>
+
+</body>
+</html>
