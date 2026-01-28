@@ -3,84 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sesión 2: El Desafío Algorítmico</title>
+    <title>Sesión 2: El Arte de la Lógica | Programación I</title>
     <style>
         :root { --bg: #0f172a; --card-bg: #1e293b; --primary: #38bdf8; --secondary: #f471b5; --accent: #fbbf24; --text: #f1f5f9; }
         body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: var(--text); margin: 0; padding: 20px; line-height: 1.6; }
         
-        .hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #0ea5e9 0%, #d946ef 100%); border-radius: 24px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        h1 { font-size: 3.5rem; margin: 0; text-transform: uppercase; letter-spacing: -2px; }
+        .hero { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%); border-radius: 24px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        h1 { font-size: 3rem; margin: 0; text-transform: uppercase; letter-spacing: -1px; }
         
         .container { max-width: 1000px; margin: auto; }
-        .objetivo-box { background: rgba(56, 189, 248, 0.1); border: 2px solid var(--primary); padding: 25px; border-radius: 20px; margin-bottom: 40px; text-align: center; font-size: 1.2rem; }
+        .objetivo-box { background: rgba(56, 189, 248, 0.1); border-left: 8px solid var(--primary); padding: 25px; border-radius: 15px; margin-bottom: 40px; font-size: 1.1rem; }
 
-        h2 { color: var(--accent); font-size: 2rem; border-bottom: 3px solid var(--accent); display: inline-block; margin-bottom: 20px; }
+        h2 { color: var(--accent); font-size: 2.2rem; margin-top: 50px; border-bottom: 2px solid rgba(251, 191, 36, 0.3); padding-bottom: 10px; }
+        h3 { color: var(--primary); margin-top: 25px; }
+
+        .teoria-block { background: var(--card-bg); padding: 25px; border-radius: 20px; margin-bottom: 30px; border: 1px solid #334155; }
 
         /* Estilo IPO Visual */
-        .ipo-visual { display: flex; justify-content: space-around; align-items: center; margin: 40px 0; background: var(--card-bg); padding: 30px; border-radius: 20px; }
-        .node { text-align: center; width: 120px; }
-        .node-icon { font-size: 3rem; margin-bottom: 10px; }
-        .arrow { font-size: 2rem; color: var(--primary); font-weight: bold; }
+        .ipo-visual { display: flex; justify-content: space-around; align-items: center; margin: 30px 0; background: #0f172a; padding: 20px; border-radius: 15px; border: 1px solid var(--primary); }
+        .node { text-align: center; width: 150px; }
+        .node-icon { font-size: 2.5rem; margin-bottom: 5px; }
+        
+        /* Ejemplos Box */
+        .example-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .example-card { background: #2d3748; padding: 20px; border-radius: 15px; border-top: 4px solid var(--secondary); }
+        .tag { display: inline-block; background: var(--primary); color: var(--bg); padding: 2px 10px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; }
+
+        /* Tarjetas de las Leyes */
+        .laws-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin: 30px 0; }
+        .law-box { background: linear-gradient(145deg, #1e293b, #111827); padding: 20px; border-radius: 15px; text-align: center; border: 1px solid #334155; transition: 0.3s; }
+        .law-box:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .law-icon { font-size: 2rem; color: var(--accent); display: block; margin-bottom: 10px; }
 
         /* Sistema de Tarjetas (Flip Cards) */
         .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
-        .flip-card { background-color: transparent; width: 100%; height: 250px; perspective: 1000px; cursor: pointer; }
+        .flip-card { background-color: transparent; width: 100%; height: 280px; perspective: 1000px; cursor: pointer; }
         .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; }
-        .flip-card:active .flip-card-inner, .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
-        .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; }
+        .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+        .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 25px; box-sizing: border-box; }
         .flip-card-front { background: var(--card-bg); border: 2px solid #334155; }
-        .flip-card-back { background: var(--primary); color: var(--bg); transform: rotateY(180deg); font-weight: bold; }
+        .flip-card-back { background: var(--primary); color: var(--bg); transform: rotateY(180deg); font-weight: bold; font-size: 1.1rem; }
 
-        .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .rule-item { background: #1e293b; padding: 20px; border-radius: 15px; border-left: 6px solid var(--secondary); }
-        
         .regla-oro { color: var(--accent); font-weight: bold; }
-        footer { text-align: center; margin-top: 60px; padding: 40px; border-top: 1px solid #334155; }
-        .btn-flow { background: var(--accent); color: var(--bg); padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; }
-        .btn-flow:hover { background: #fff; transform: scale(1.1); }
+        footer { text-align: center; margin-top: 60px; padding: 40px; background: var(--card-bg); border-radius: 24px 24px 0 0; }
+        .btn-flow { background: var(--accent); color: var(--bg); padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; transition: 0.3s; }
+        .btn-flow:hover { background: #fff; box-shadow: 0 0 20px var(--accent); }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header class="hero">
-        <h1>Sesión 2</h1>
-        <p>Dominando la lógica del Científico de Datos</p>
+        <h1>Sesión 2: Anatomía de un Algoritmo</h1>
+        <p>Construyendo el pensamiento lógico para Ciencia de Datos</p>
     </header>
 
     <div class="objetivo-box">
-        <strong>EL RETO:</strong> Hoy aprenderás a pensar como una máquina para que mañana las máquinas piensen por ti. Diseñaremos procesos que nunca fallen.
+        <strong>Objetivo:</strong> Comprender la estructura fundamental de cualquier proceso computacional (Modelo IPO) y dominar las leyes que garantizan que un algoritmo sea correcto y eficiente.
     </div>
 
-    <section>
-        <h2>1. El Motor IPO</h2>
-        <p>Imagina que eres un chef de datos. Para que tu receta funcione, necesitas tres cosas:</p>
+    <section class="teoria-block">
+        <h2>1. El Corazón de todo Programa: Modelo IPO</h2>
+        <p>Antes de escribir una sola línea de código, debemos entender que todo algoritmo es un transformador de realidad. Recibe algo del mundo, hace algo con ello y devuelve un resultado.</p>
         
         <div class="ipo-visual">
-            <div class="node"><div class="node-icon">📥</div><strong>Entrada</strong><br>Datos Brutos</div>
-            <div class="arrow">➜</div>
-            <div class="node"><div class="node-icon">⚙️</div><strong>Proceso</strong><br>Lógica Pura</div>
-            <div class="arrow">➜</div>
-            <div class="node"><div class="node-icon">📤</div><strong>Salida</strong><br>Valor Real</div>
+            <div class="node"><div class="node-icon">📥</div><strong>Entrada</strong><br><small>Los datos que llegan</small></div>
+            <div style="font-size: 2rem; color: var(--primary);">➔</div>
+            <div class="node"><div class="node-icon">⚙️</div><strong>Proceso</strong><br><small>La lógica aplicada</small></div>
+            <div style="font-size: 2rem; color: var(--primary);">➔</div>
+            <div class="node"><div class="node-icon">📤</div><strong>Salida</strong><br><small>La información útil</small></div>
         </div>
 
-        <p>En Ciencia de Datos, un error en la entrada arruina el proceso. ¡Cuidado con lo que alimentas al algoritmo!</p>
+        <h3>Ejemplos para analizar</h3>
+        <div class="example-grid">
+            <div class="example-card">
+                <span class="tag">Académico</span>
+                <strong>Calcular Nota Final</strong>
+                <p>• <b>Entrada:</b> Notas de 3 parciales.<br>
+                   • <b>Proceso:</b> Sumar notas y dividir por 3.<br>
+                   • <b>Salida:</b> El promedio del estudiante.</p>
+            </div>
+            <div class="example-card">
+                <span class="tag">Finanzas</span>
+                <strong>Conversor de Moneda</strong>
+                <p>• <b>Entrada:</b> Pesos colombianos y tasa del día.<br>
+                   • <b>Proceso:</b> Dividir pesos entre la tasa.<br>
+                   • <b>Salida:</b> Valor equivalente en Dólares.</p>
+            </div>
+            <div class="example-card">
+                <span class="tag">Data Science</span>
+                <strong>Recomendación de Películas</strong>
+                <p>• <b>Entrada:</b> Historial de lo que viste hoy.<br>
+                   • <b>Proceso:</b> Buscar géneros similares.<br>
+                   • <b>Salida:</b> Sugerencia de "Qué ver ahora".</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="teoria-block">
+        <h2>2. Las 4 Leyes Fundamentales</h2>
+        <p>Para que un conjunto de pasos sea considerado un "Algoritmo", debe cumplir estas cuatro reglas de oro. Si falta una, el sistema fallará.</p>
+        
+        <div class="laws-container">
+            <div class="law-box">
+                <span class="law-icon">⌛</span>
+                <strong>Finitud</strong>
+                <p>El algoritmo debe terminar. No puede ser infinito; debe consumir recursos limitados.</p>
+            </div>
+            <div class="law-box">
+                <span class="law-icon">🎯</span>
+                <strong>Precisión</strong>
+                <p>Cada paso debe ser claro y sin ambigüedades. No hay espacio para el "quizás".</p>
+            </div>
+            <div class="law-box">
+                <span class="law-icon">🛠️</span>
+                <strong>Efectividad</strong>
+                <p>Cada instrucción debe ser lo suficientemente básica para que se pueda realizar físicamente.</p>
+            </div>
+            <div class="law-box">
+                <span class="law-icon">📦</span>
+                <strong>Entrada/Salida</strong>
+                <p>Debe recibir datos iniciales y producir un resultado que sea visible o útil.</p>
+            </div>
+        </div>
     </section>
 
     <section>
-        <h2>¿Cumplen las 4 Leyes?</h2>
-        <p>Haz clic en las tarjetas para descubrir el fallo lógico.</p>
+        <h2 style="color: var(--secondary);">¿Se cumplen las leyes? (Análisis de Casos)</h2>
+        <p>Pasa el mouse sobre las tarjetas para ver la solución después de discutirlo con tus compañeros.</p>
         
         <div class="grid-cards">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <h3>Caso 1: El Optimista</h3>
-                        <p>1. Piensa un número.<br>2. Súmale un poco de suerte.<br>3. Muestra el resultado.</p>
+                        <h3>Caso A: El Algoritmo "Suertudo"</h3>
+                        <p>1. Recibir un número.<br>2. Súmale un poco de alegría.<br>3. Muestra el resultado.</p>
                     </div>
                     <div class="flip-card-back">
-                        <h3>❌ FALLA LÓGICA</h3>
-                        <p>Rompe la <strong>Precisión</strong> y <strong>Efectividad</strong>. ¿Cómo se mide la "suerte"? Una máquina no puede procesar conceptos subjetivos.</p>
+                        <h3>❌ ERROR LÓGICO</h3>
+                        <p>Rompe la ley de <b>PRECISIÓN</b>. ¿Cómo se suma la "alegría"? Una computadora necesita valores exactos, no sentimientos.</p>
                     </div>
                 </div>
             </div>
@@ -88,12 +149,12 @@
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <h3>Caso 2: El Infinito</h3>
-                        <p>1. Mira todos los números reales.<br>2. Encuentra el más grande de todos.<br>3. Escríbelo.</p>
+                        <h3>Caso B: El Buscador Eterno</h3>
+                        <p>1. Empezar en el número 1.<br>2. Sumarle 1 al anterior.<br>3. Repetir paso 2 por siempre.</p>
                     </div>
                     <div class="flip-card-back">
-                        <h3>⚠️ NIVEL AVANZADO</h3>
-                        <p>Rompe la <strong>Finitud</strong>. Los números reales son infinitos. El algoritmo nunca terminaría de buscar y la memoria de la computadora explotaría.</p>
+                        <h3>❌ ERROR LÓGICO</h3>
+                        <p>Rompe la ley de <b>FINITUD</b>. Nunca termina. Esto bloquearía cualquier procesador de datos.</p>
                     </div>
                 </div>
             </div>
@@ -101,73 +162,64 @@
     </section>
 
     <section style="margin-top: 50px;">
-        <h2>Las Reglas del Juego</h2>
-        <div class="rules-grid">
-            <div class="rule-item"><strong>Finitud:</strong> Todo debe tener un final.</div>
-            <div class="rule-item"><strong>Precisión:</strong> Prohibido ser ambiguo.</div>
-            <div class="rule-item"><strong>Efectividad:</strong> Pasos que se puedan hacer.</div>
-            <div class="rule-item"><strong>E/S:</strong> Entra algo, sale algo.</div>
-        </div>
-    </section>
-
-    <section>
-        <h2 style="color: var(--secondary);">🎮 Actividad: Detectives de Código</h2>
-        <p>Analiza estos 6 algoritmos con tu equipo. ¿Qué les falta? Gira la tarjeta cuando tengan una respuesta.</p>
+        <h2 style="color: var(--accent);">🎮 Actividad: Detectives de Algoritmos</h2>
+        <p>Encuentra el dato o la ley que falta en estas 6 situaciones. ¡Gira la tarjeta para validar!</p>
         
         <div class="grid-cards">
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front"><h3>1. La Receta Vacía</h3><p>Paso 1: Mezclar ingredientes.<br>Paso 2: Hornear 20 min.</p></div>
-                    <div class="flip-card-back"><p>Falta la <strong>ENTRADA</strong>. ¿Qué ingredientes? Sin insumos no hay proceso.</p></div>
+                    <div class="flip-card-front"><h3>1. El Horno</h3><p>Paso 1: Mezclar todo.<br>Paso 2: Hornear 20 min.</p></div>
+                    <div class="flip-card-back"><p>Falta la <b>ENTRADA</b>. ¿Mezclar qué? Sin ingredientes no hay receta.</p></div>
                 </div>
             </div>
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front"><h3>2. El Ciclo Loco</h3><p>Paso 1: Sumar 1 al número.<br>Paso 2: Repetir paso 1 para siempre.</p></div>
-                    <div class="flip-card-back"><p>Falla la <strong>FINITUD</strong>. No hay condición de parada.</p></div>
+                    <div class="flip-card-front"><h3>2. El Contador</h3><p>Paso 1: Sumar A + B.</p></div>
+                    <div class="flip-card-back"><p>Falta la <b>SALIDA</b>. El cálculo se hizo, pero el usuario nunca ve el resultado.</p></div>
                 </div>
             </div>
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front"><h3>3. El Secreto</h3><p>Paso 1: Tomar nota.<br>Paso 2: Multiplicar por 2.</p></div>
-                    <div class="flip-card-back"><p>Falta la <strong>SALIDA</strong>. El resultado se queda en memoria pero nunca se muestra al usuario.</p></div>
+                    <div class="flip-card-front"><h3>3. El Viajero</h3><p>Paso 1: Camina un ratico hasta la esquina.</p></div>
+                    <div class="flip-card-back"><p>Falla la <b>PRECISIÓN</b>. ¿Cuánto es "un ratico"? ¿10 metros? ¿2 cuadras?</p></div>
                 </div>
             </div>
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front"><h3>4. El Dibujante Magno</h3><p>Paso 1: Dibujar un círculo cuadrado.</p></div>
-                    <div class="flip-card-back"><p>Falla la <strong>EFECTIVIDAD</strong>. Es lógicamente imposible de realizar.</p></div>
+                    <div class="flip-card-front"><h3>4. La Tarea</h3><p>Paso 1: Resolver el hambre en el mundo.</p></div>
+                    <div class="flip-card-back"><p>Falla la <b>EFECTIVIDAD</b>. Es un paso demasiado complejo para una instrucción atómica.</p></div>
                 </div>
             </div>
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front"><h3>5. La Cita Médica</h3><p>Paso 1: Llegar un poco temprano a la cita.</p></div>
-                    <div class="flip-card-back"><p>Falla la <strong>PRECISIÓN</strong>. ¿Qué es "un poco"? ¿5 min? ¿1 hora? Se requiere un dato exacto.</p></div>
+                    <div class="flip-card-front"><h3>5. El Filtro</h3><p>Paso 1: Recibir lista.<br>Paso 2: Si un número es mayor a 10...</p></div>
+                    <div class="flip-card-back"><p>Falla el <b>PROCESO</b>. Está incompleto. ¿Qué hago si es mayor a 10? ¿Lo borro? ¿Lo sumo?</p></div>
                 </div>
             </div>
             <div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front"><h3>6. El Validador</h3><p>Paso 1: Recibir edad.<br>Paso 2: Si es mayor de edad... (nada más).</p></div>
-                    <div class="flip-card-back"><p>Falla el <strong>PROCESO</strong>. Está incompleto. ¿Qué pasa si es mayor? ¿Qué pasa si no?</p></div>
+                    <div class="flip-card-front"><h3>6. El GPS</h3><p>Paso 1: Gira a la derecha si te parece bonito.</p></div>
+                    <div class="flip-card-back"><p>Falla la <b>PRECISIÓN</b>. Las decisiones no pueden ser subjetivas ("si parece bonito").</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section style="background: rgba(244, 113, 181, 0.1); padding: 30px; border-radius: 20px; margin-top: 50px;">
-        <h2>Reflexión de Datos</h2>
-        <p>Como futuro científico de datos, tu trabajo no es escribir mucho código, sino escribir <strong>lógica perfecta</strong>. Un algoritmo ambiguo en un sistema de IA puede causar discriminación o errores catastróficos.</p>
-        <ul>
-            <li><span class="regla-oro">Dato valioso:</span> La mayoría de errores de programación no son de escritura, son de lógica previa.</li>
-        </ul>
+    <section style="background: rgba(251, 191, 36, 0.1); padding: 30px; border-radius: 20px; margin-top: 50px;">
+        <h2>Reflexión Final</h2>
+        <p>Un Científico de Datos no es quien mejor programa, sino quien mejor <b>diseña la solución</b>. Si tu lógica (el algoritmo) tiene fallas, no importa qué tan potente sea tu computadora: el resultado será basura.</p>
+        <p><span class="regla-oro">Concepto Clave:</span> "GIGO" (Garbage In, Garbage Out). Si entra basura, sale basura.</p>
     </section>
 
     <footer>
-        <h2>🚀 ¿Próximo Nivel?</h2>
-        <p>Aprenderemos a dibujar estos pensamientos con <strong>Flowgorithm</strong>.</p><br>
-        <a href="http://www.flowgorithm.org" class="btn-flow" target="_blank">Descargar Flowgorithm Aquí</a>
+        <h2>¿Listo para el siguiente nivel?</h2>
+        <p>En la próxima clase dejaremos de usar palabras y empezaremos a usar <b>Símbolos Universales</b>.</p>
+        <a href="http://www.flowgorithm.org" class="btn-flow" target="_blank">Descargar Flowgorithm</a>
+        <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.7;">Tarea: Instalar y traer listo para la Sesión 3.</p>
     </footer>
 </div>
 
+</body>
+</html>
 </body>
 </html>
