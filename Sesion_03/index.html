@@ -730,69 +730,187 @@
         </div>
     </section>
 
-    <section class="info-card" style="border: 2px solid var(--accent); margin-top: 50px;">
+        <section class="info-card" style="border: 2px solid var(--accent); margin-top: 50px;">
         <h2 class="section-title" style="color: var(--accent); font-weight: 800;">9. Segundo Reto: El Promediador de Notas</h2>
+        <p style="font-size: 1.25rem; color: #ffffff; margin-bottom: 30px;">
+            Ahora que dominas la suma, vamos a calcular un promedio. Este proceso requiere más precisión, pues usaremos decimales y aprenderemos a agrupar operaciones.
+        </p>
+
         <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px;">
+            
             <div style="background: #000000; padding: 25px; border-radius: 15px; border-left: 10px solid #64748b;">
                 <h3 style="margin: 0; color: #94a3b8; font-size: 1.5rem;">Estación 1: La Preparación</h3>
+                <p style="color: #ffffff; font-size: 1.1rem; margin: 10px 0;">Como las notas pueden ser 3.5 o 4.2, usaremos el tipo <b>Real</b>.</p>
                 <code style="color: #94a3b8; font-size: 1.2rem; background: #1e293b; padding: 5px 10px; border-radius: 5px;">
                     Declarar n1, n2, n3, prom como Real
                 </code>
             </div>
+
+            <div style="background: #000000; padding: 25px; border-radius: 15px; border-left: 10px solid #22c55e;">
+                <h3 style="margin: 0; color: #22c55e; font-size: 1.5rem;">Estación 2: La Captura</h3>
+                <p style="color: #ffffff; font-size: 1.1rem; margin: 10px 0;">Solicitaremos tres valores diferentes al estudiante.</p>
+                <code style="color: #22c55e; font-size: 1.2rem; background: #1e293b; padding: 5px 10px; border-radius: 5px;">
+                    Leer n1, n2, n3
+                </code>
+            </div>
+
             <div style="background: #000000; padding: 25px; border-radius: 15px; border-left: 10px solid var(--primary);">
                 <h3 style="margin: 0; color: var(--primary); font-size: 1.5rem;">Estación 3: La Transformación</h3>
+                <p style="color: #ffffff; font-size: 1.1rem; margin: 10px 0;"><b>¡Ojo!</b> Debemos sumar primero (usando paréntesis) y luego dividir por 3.</p>
                 <code style="color: var(--primary); font-size: 1.2rem; background: #1e293b; padding: 5px 10px; border-radius: 5px;">
                     prom = (n1 + n2 + n3) / 3
                 </code>
             </div>
+
+            <div style="background: #000000; padding: 25px; border-radius: 15px; border-left: 10px solid var(--accent);">
+                <h3 style="margin: 0; color: var(--accent); font-size: 1.5rem;">Estación 4: La Entrega</h3>
+                <p style="color: #ffffff; font-size: 1.1rem; margin: 10px 0;">Mostramos el promedio final calculado.</p>
+                <code style="color: var(--accent); font-size: 1.2rem; background: #1e293b; padding: 5px 10px; border-radius: 5px;">
+                    Escribir "Tu promedio final es: " & prom
+                </code>
+            </div>
+
         </div>
-        <div style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); padding: 30px; border-radius: 20px; border: 2px solid var(--accent); margin-top: 40px;">
+
+        <h3 style="color: var(--secondary); font-weight: 800;">Paso a paso en Flowgorithm:</h3>
+        <div style="display: flex; flex-direction: column; gap: 10px; color: #ffffff; font-size: 1.1rem; background: #000; padding: 20px; border-radius: 15px;">
+            <p>1. <b>Declarar:</b> Variables <code>n1, n2, n3, prom</code>. Cambia el Tipo a <b>Real</b>.</p>
+            <p>2. <b>Entrada:</b> Crea tres bloques de Entrada (uno para cada nota).</p>
+            <p>3. <b>Asignación:</b> Variable: <code>prom</code> | Expresión: <code>(n1 + n2 + n3) / 3</code>.</p>
+            <p>4. <b>Salida:</b> Escribe: <code>"Tu promedio es: " & prom</code>.</p>
+        </div>
+
+        
+
+        <div style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); 
+                    padding: 30px; border-radius: 20px; border: 2px solid var(--accent); margin-top: 40px;">
             <h2 style="color: var(--accent); margin-top: 0; font-weight: 800;">🚀 Reto de Ejecución</h2>
             <p style="color: #ffffff; font-size: 1.1rem;">
-                Prueba con <b>4.0, 3.5 y 4.5</b>. Si el resultado es <b>4.0</b>, ¡impecable!
+                Prueba tu programa con estas notas: <b>4.0, 3.5 y 4.5</b>. Si el resultado es <b>4.0</b>, ¡tu lógica es impecable!
             </p>
         </div>
     </section>
 
     <section class="info-card" style="border: 2px solid #f59e0b; margin-top: 50px;">
         <h2 class="section-title" style="color: #f59e0b; font-weight: 800;">10. El Cerebro del Algoritmo: La Toma de Decisiones</h2>
-        <div style="background: #000000; padding: 25px; border-radius: 15px; border-left: 10px solid #f59e0b; margin-bottom: 20px;">
-            <h3 style="margin: 0; color: #f59e0b; font-size: 1.5rem;">Estación 4: El Condicional (SI)</h3>
-            <div style="background: #1e293b; padding: 15px; border-radius: 10px; color: #fbbf24; font-family: monospace; margin-top:10px;">
-                SI mayor18 ENTONCES:<br>
-                &nbsp;&nbsp;&nbsp;Escribir "Es mayor de edad"<br>
-                SINO:<br>
-                &nbsp;&nbsp;&nbsp;Escribir "Es menor de edad"
+        <p style="font-size: 1.25rem; color: #ffffff; margin-bottom: 30px;">
+            En programación, no siempre seguimos un camino recto. Un <b>Condicional</b> permite que el algoritmo elija entre dos caminos basándose en una variable booleana.
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px;">
+            
+            <div style="background: #000000; padding: 25px; border-radius: 15px; border-left: 10px solid #64748b;">
+                <h3 style="margin: 0; color: #94a3b8; font-size: 1.5rem;">Estación 1: La Preparación</h3>
+                <p style="color: #ffffff; font-size: 1.1rem; margin: 10px 0;">Declaramos nuestra variable de control con un nombre claro.</p>
+                <code style="color: #94a3b8; font-size: 1.2rem; background: #1e293b; padding: 5px 10px; border-radius: 5px; display: inline-block;">
+                    Declarar edad como Entero, mayor18 como Booleano
+                </code>
+            </div>
+
+            <div style="background: #000000; padding: 25px; border-radius: 15px; border-left: 10px solid #22c55e;">
+                <h3 style="margin: 0; color: #22c55e; font-size: 1.5rem;">Estación 2: La Captura</h3>
+                <code style="color: #22c55e; font-size: 1.2rem; background: #1e293b; padding: 5px 10px; border-radius: 5px; display: inline-block;">
+                    Leer edad
+                </code>
+            </div>
+
+            <div style="background: #000000; padding: 25px; border-radius: 15px; border-left: 10px solid var(--primary);">
+                <h3 style="margin: 0; color: var(--primary); font-size: 1.5rem;">Estación 3: La Evaluación</h3>
+                <p style="color: #ffffff; font-size: 1.1rem; margin: 10px 0;">Evaluamos la condición y guardamos el resultado en nuestra variable lógica.</p>
+                <code style="color: var(--primary); font-size: 1.2rem; background: #1e293b; padding: 5px 10px; border-radius: 5px; display: inline-block;">
+                    mayor18 = edad >= 18
+                </code>
+            </div>
+
+            <div style="background: #000000; padding: 25px; border-radius: 15px; border-left: 10px solid #f59e0b;">
+                <h3 style="margin: 0; color: #f59e0b; font-size: 1.5rem;">Estación 4: El Condicional (SI)</h3>
+                <p style="color: #ffffff; font-size: 1.1rem; margin: 10px 0;">Aquí el flujo se bifurca: si la condición es verdadera va por un lado, si no, por el otro.</p>
+                <div style="background: #1e293b; padding: 15px; border-radius: 10px; color: #fbbf24; font-family: monospace;">
+                    SI mayor18 ENTONCES:<br>
+                    &nbsp;&nbsp;&nbsp;Escribir "Es mayor de edad"<br>
+                    SINO:<br>
+                    &nbsp;&nbsp;&nbsp;Escribir "Es menor de edad"
+                </div>
             </div>
         </div>
-        <div style="background: rgba(245, 158, 11, 0.1); padding: 20px; border-radius: 15px; border: 1px dashed #f59e0b; text-align: center;">
+
+        <h3 style="color: #fbbf24; font-weight: 800;">Paso a paso en Flowgorithm:</h3>
+        <div style="display: flex; flex-direction: column; gap: 10px; color: #ffffff; font-size: 1.1rem; background: #000; padding: 20px; border-radius: 15px;">
+            <p>1. <b>Declarar:</b> Variables <code>edad</code> (Entero) y <code>mayor18</code> (Booleano).</p>
+            <p>2. <b>Entrada:</b> Lee la variable <code>edad</code>.</p>
+            <p>3. <b>Asignación:</b> <code>mayor18 = edad >= 18</code>.</p>
+            <p>4. <b>Control:</b> Agrega un bloque <b>Si (If)</b>. Doble clic y escribe la condición: <code>mayor18</code>.</p>
+            <p>5. <b>Salidas:</b> 
+                <br>&nbsp;&nbsp;&nbsp;• En la rama <b>Verdadero (True)</b>: Salida > <code>"Es mayor de edad"</code>.
+                <br>&nbsp;&nbsp;&nbsp;• En la rama <b>Falso (False)</b>: Salida > <code>"Es menor de edad"</code>.
+            </p>
+        </div>
+
+        
+
+        <div style="background: rgba(245, 158, 11, 0.1); padding: 20px; border-radius: 15px; border: 1px dashed #f59e0b; margin-top: 30px; text-align: center;">
             <p style="margin: 0; color: #ffffff; font-size: 1.1rem;">
-                🚀 <b>Dato Legal-Tech:</b> Este es el principio básico de los contratos inteligentes o <i>Smart Contracts</i>.
+                🚀 <b>Dato Legal-Tech:</b> Este es el principio básico de los contratos inteligentes o <i>Smart Contracts</i>: <b>Si A ocurre, entonces ejecuta B.</b>
             </p>
         </div>
     </section>
 
     <section class="info-card" style="border: 2px solid var(--primary); margin-top: 50px; background: #000000;">
         <h2 class="section-title" style="color: var(--primary); font-weight: 800; border-color: var(--primary);">11. Laboratorio de Data Science: Retos de Lógica</h2>
+        <p style="font-size: 1.2rem; color: #ffffff; margin-bottom: 30px;">
+            Como futuros científicos de datos, deben dominar la lógica detrás del procesamiento de información. Resuelvan estos retos en <b>Flowgorithm</b> aplicando las 4 estaciones: <b>Declarar, Capturar, Transformar y Entregar.</b>
+        </p>
+
         <div style="display: grid; grid-template-columns: 1fr; gap: 25px;">
+            
             <div style="background: #1e293b; padding: 25px; border-radius: 20px; border: 1px solid #334155;">
-                <h3 style="color: #22c55e;">Reto 1: Estimador de Error de Predicción</h3>
-                <p style="color: #ffffff;">Pide <b>Valor Real</b> y <b>Valor Predicho</b>. $Error = ValorReal - ValorPredicho$</p>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h3 style="margin: 0; color: #22c55e;">Reto 1: Estimador de Error de Predicción</h3>
+                    <span style="background: #22c55e; color: #000; padding: 4px 12px; border-radius: 50px; font-weight: 800; font-size: 0.8rem;">MEDIO</span>
+                </div>
+                <p style="color: #ffffff; margin-top: 15px;">
+                    <b>Contexto:</b> Estás evaluando un modelo de IA simple. Necesitas calcular qué tan lejos estuvo la predicción del valor real.
+                    <br><br>
+                    <b>Instrucciones:</b> Pide al usuario el <b>Valor Real</b> y el <b>Valor Predicho</b> (ambos decimales). Calcula el <b>Error Absoluto</b> restando ambos valores y muestra el resultado.
+                </p>
+                <p style="color: var(--primary); font-size: 0.9rem;"><i>Pista: Usa tipo <b>Real</b>. La fórmula básica es: $Error = ValorReal - ValorPredicho$</i></p>
             </div>
+
             <div style="background: #1e293b; padding: 25px; border-radius: 20px; border: 1px solid #334155;">
-                <h3 style="color: #f59e0b;">Reto 2: Clasificador de Anomalías (Outliers)</h3>
-                <p style="color: #ffffff;">Si la temperatura es < 0 o > 50, muestra: "VALOR ATÍPICO DETECTADO".</p>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h3 style="margin: 0; color: #f59e0b;">Reto 2: Clasificador de Anomalías (Outliers)</h3>
+                    <span style="background: #f59e0b; color: #000; padding: 4px 12px; border-radius: 50px; font-weight: 800; font-size: 0.8rem;">MEDIO - ALTO</span>
+                </div>
+                <p style="color: #ffffff; margin-top: 15px;">
+                    <b>Contexto:</b> En limpieza de datos, un valor atípico puede arruinar un análisis.
+                    <br><br>
+                    <b>Instrucciones:</b> Supongamos que un sensor de temperatura solo debe registrar valores entre <b>0°C</b> y <b>50°C</b>. Pide la <b>Temperatura</b> capturada. 
+                    <br>• Si la temperatura está fuera de ese rango (menor a 0 o mayor a 50), muestra: "VALOR ATÍPICO DETECTADO".
+                    <br>• Si está en el rango, muestra: "Dato válido para el dataset".
+                </p>
             </div>
+
             <div style="background: #1e293b; padding: 25px; border-radius: 20px; border: 1px solid #334155;">
-                <h3 style="color: var(--accent);">Reto 3: Filtro de Calidad de Dataset</h3>
-                <p style="color: #ffffff;">Apto solo si <b>Edad >= 18</b> Y <b>Ingreso > 0</b>.</p>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h3 style="margin: 0; color: var(--accent);">Reto 3: Filtro de Calidad de Dataset</h3>
+                    <span style="background: var(--accent); color: #000; padding: 4px 12px; border-radius: 50px; font-weight: 800; font-size: 0.8rem;">ALTO</span>
+                </div>
+                <p style="color: #ffffff; margin-top: 15px;">
+                    <b>Contexto:</b> Antes de entrenar un modelo, debemos filtrar los registros incompletos o erróneos.
+                    <br><br>
+                    <b>Instrucciones:</b> Pide la <b>Edad</b> de una persona y su <b>Ingreso Mensual</b>. 
+                    <br>• Un registro es "Apto para el modelo" solo si la persona tiene <b>18 años o más</b> Y su ingreso es <b>mayor a 0</b>. 
+                    <br>• Si alguna condición no se cumple, muestra: "Registro descartado: Error de integridad".
+                </p>
+                <p style="color: var(--primary); font-size: 0.9rem;"><i>Pista: Usa el operador lógico <b>and</b> para evaluar ambas condiciones al mismo tiempo.</i></p>
             </div>
+
         </div>
 
         <div style="background: linear-gradient(90deg, #ef4444, #f59e0b); padding: 2px; border-radius: 15px; margin-top: 40px;">
             <div style="background: #000; padding: 20px; border-radius: 13px; text-align: center;">
                 <p style="margin: 0; color: #ffffff; font-weight: bold; font-size: 1.2rem;">
-                    ⚠️ TRABAJO AUTÓNOMO: Entrega LUNES sesión presencial.
+                    ⚠️ TRABAJO AUTÓNOMO: Guarda tus tres archivos (.fprg). Estos ejercicios se entregarán y revisarán el día LUNES durante la sesión presencial.
                 </p>
             </div>
         </div>
