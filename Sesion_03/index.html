@@ -214,7 +214,27 @@
     </style>
 </head>
 <body>
-
+<script>
+    function calcularPuntaje() {
+        const respuestasCorrectas = {
+            p1: 'c', p2: 'b', p3: 'c', p4: 'b', p5: 'c',
+            p6: 'b', p7: 'c', p8: 'b', p9: 'b', p10: 'c'
+        };
+        let puntaje = 0;
+        const total = 10;
+        
+        for (let i = 1; i <= total; i++) {
+            const seleccion = document.querySelector(`input[name="p${i}"]:checked`);
+            if (seleccion && seleccion.value === respuestasCorrectas[`p${i}`]) {
+                puntaje++;
+            }
+        }
+        
+        document.getElementById('display-score').innerText = puntaje + " / " + total;
+        document.getElementById('area-resultado').style.display = 'block';
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+</script>
 <div class="main-container">
 
     <header class="hero">
@@ -931,27 +951,7 @@
 
 </div>
 
-<script>
-    function calcularPuntaje() {
-        const respuestasCorrectas = {
-            p1: 'c', p2: 'b', p3: 'c', p4: 'b', p5: 'c',
-            p6: 'b', p7: 'c', p8: 'b', p9: 'b', p10: 'c'
-        };
-        let puntaje = 0;
-        const total = 10;
-        
-        for (let i = 1; i <= total; i++) {
-            const seleccion = document.querySelector(`input[name="p${i}"]:checked`);
-            if (seleccion && seleccion.value === respuestasCorrectas[`p${i}`]) {
-                puntaje++;
-            }
-        }
-        
-        document.getElementById('display-score').innerText = puntaje + " / " + total;
-        document.getElementById('area-resultado').style.display = 'block';
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    }
-</script>
+
 
 </body>
 </html>
