@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesión 3: Lógica Algorítmica con Flowgorithm</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #818cf8;
+            --secondary: #c084fc;
+            --accent: #f471b5;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; }
+
+        .info-card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            border-bottom: 4px solid var(--primary);
+            display: inline-block;
+        }
+
+        /* Estilos Flip Cards Section 4 */
+        .grid-retos { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 25px; 
+            margin-top: 30px; 
+        }
+        .card-reto { 
+            background-color: transparent; 
+            width: 100%; 
+            height: 280px; 
+            perspective: 1000px; 
+            cursor: pointer; 
+        }
+        .card-reto-inner { 
+            position: relative; 
+            width: 100%; 
+            height: 100%; 
+            text-align: center; 
+            transition: transform 0.6s; 
+            transform-style: preserve-3d; 
+        }
+        .card-reto:hover .card-reto-inner { transform: rotateY(180deg); }
+        .card-reto-front, .card-reto-back { 
+            position: absolute; 
+            width: 100%; 
+            height: 100%; 
+            backface-visibility: hidden; 
+            border-radius: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 20px; 
+            box-sizing: border-box; 
+        }
+        .card-reto-front { background: #000000; border: 2px solid #334155; color: #ffffff; font-size: 1.1rem; font-weight: 600; }
+        .card-reto-back { background: #1e293b; transform: rotateY(180deg); border: 2px solid var(--primary); }
+        .mini-shape { width: 100px; height: 50px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(255,255,255,0.2); }
+        .ans-text { color: #ffffff; font-weight: 800; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Estilos Juego de Variables */
+        .pregunta-card { background: #000000; padding: 30px; border-radius: 20px; border: 2px solid var(--primary); margin-bottom: 30px; }
+        .pregunta-texto { font-size: 1.4rem; font-weight: 700; color: #ffffff; margin-bottom: 20px; }
+        .opcion-label { display: block; background: #1e293b; padding: 15px 20px; border-radius: 12px; border: 2px solid #334155; color: #ffffff; cursor: pointer; transition: 0.3s; margin-bottom: 10px; }
+        .opcion-input { display: none; }
+        .opcion-input:checked + .opcion-label { border-color: var(--secondary); background: rgba(129, 140, 248, 0.2); box-shadow: 0 0 10px var(--secondary); }
+        .btn-resultado { display: block; width: 100%; background: linear-gradient(90deg, var(--primary), var(--secondary)); color: #000; padding: 20px; border: none; border-radius: 50px; font-size: 1.5rem; font-weight: 800; cursor: pointer; margin-top: 40px; text-transform: uppercase; }
+        .resultado-final { display: none; background: #000; padding: 40px; border-radius: 24px; border: 4px solid var(--accent); margin-top: 40px; text-align: center; }
+        .score-num { font-size: 4rem; color: var(--accent); font-weight: 900; }
+
+        table { width: 100%; border-collapse: collapse; background: #000; color: #fff; border-radius: 15px; overflow: hidden; margin-top: 20px; }
+        th, td { padding: 15px; border: 1px solid #334155; text-align: left; }
+        th { background: var(--card-bg); color: var(--primary); }
+        code { background: #1e293b; padding: 2px 6px; border-radius: 4px; color: var(--secondary); font-family: monospace; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <section class="info-card">
+        <h1 class="section-title">Sesión 3: Fundamentos de Lógica Algorítmica</h1>
+        <p style="font-size: 1.2rem;">Bienvenidos a su primer laboratorio de pensamiento computacional aplicado a la <b>Ciencia de Datos</b>. Hoy aprenderemos a estructurar soluciones antes de escribir una sola línea de código en Python.</p>
+    </section>
+
+    <section class="info-card">
+        <h2 class="section-title" style="color: var(--secondary);">1. Instalación de Flowgorithm</h2>
+        <p>Flowgorithm es nuestra herramienta gráfica para entender el flujo de los datos.</p>
+        <ul>
+            <li>Visita <a href="http://www.flowgorithm.org/download/" style="color: var(--primary);">flowgorithm.org</a> e instala la versión para Windows.</li>
+            <li>Si usas Mac o Linux, puedes ejecutarlo mediante <b>Wine</b> o una máquina virtual.</li>
+        </ul>
+    </section>
+
+    <section class="info-card">
+        <h2 class="section-title">2. Diccionario de Formas</h2>
+        <p>Cada bloque en un diagrama tiene una función única en el procesamiento de datos:</p>
+        <ul>
+            <li><b>Óvalo (Inicio/Fin):</b> El punto de partida y llegada del proceso.</li>
+            <li><b>Paralelogramo Verde (Salida):</b> Muestra información al usuario.</li>
+            <li><b>Paralelogramo Azul (Entrada):</b> Captura datos del teclado.</li>
+            <li><b>Rectángulo (Proceso/Asignación):</b> Realiza cálculos matemáticos.</li>
+            <li><b>Rombo (Decisión):</b> Evalúa una condición lógica.</li>
+        </ul>
+    </section>
+
+    <section class="info-card" style="border: 2px solid var(--accent);">
+        <h2 class="section-title" style="color: var(--accent);">3. El Desafío de las Formas</h2>
+        <p>¿Qué bloque usarías? <b>Gira la tarjeta para descubrir la forma y la respuesta.</b></p>
+        <div class="grid-retos">
+            <div class="card-reto">
+                <div class="card-reto-inner">
+                    <div class="card-reto-front">Mostrar el mensaje "Calculando..."</div>
+                    <div class="card-reto-back">
+                        <div class="mini-shape" style="background: var(--accent); clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);"></div>
+                        <div class="ans-text">SALIDA</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-reto">
+                <div class="card-reto-inner">
+                    <div class="card-reto-front">Pedir al usuario su número de ID</div>
+                    <div class="card-reto-back">
+                        <div class="mini-shape" style="background: #22c55e; clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);"></div>
+                        <div class="ans-text">ENTRADA</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-reto">
+                <div class="card-reto-inner">
+                    <div class="card-reto-front">Realizar la operación: A = B * C</div>
+                    <div class="card-reto-back">
+                        <div class="mini-shape" style="background: var(--primary);"></div>
+                        <div class="ans-text">PROCESO</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-card" style="border: 2px solid var(--secondary);">
+        <h2 class="section-title" style="color: var(--secondary);">4. Variables: Los Contenedores</h2>
+        <p>Antes de usar un dato, debemos declarar su tipo:</p>
+        <table>
+            <tr><th>Tipo</th><th>¿Qué guarda?</th><th>Ejemplo</th></tr>
+            <tr><td><b>Entero</b></td><td>Números exactos</td><td>10, -5</td></tr>
+            <tr><td><b>Real</b></td><td>Números con decimales</td><td>3.14, 0.5</td></tr>
+            <tr><td><b>Cadena</b></td><td>Texto</td><td>"Hola", "Data"</td></tr>
+            <tr><td><b>Booleano</b></td><td>Lógica</td><td>Verdadero, Falso</td></tr>
+        </table>
+        <h3 style="color: var(--primary); margin-top: 25px;">Reglas de Oro:</h3>
+        <ul>
+            <li>Empezar con letra (<code>valor1</code> SI, <code>1valor</code> NO).</li>
+            <li>Sin espacios ni caracteres especiales (<code>ñ, $, @</code>).</li>
+            <li>Ser descriptivo (<code>promedio</code> mejor que <code>p</code>).</li>
+        </ul>
+    </section>
+
+    <section class="info-card">
+        <h2 class="section-title">5. El Gran Juego de las Variables</h2>
+        <div id="quiz">
+            <div class="pregunta-card">
+                <div class="pregunta-texto">1. ¿Cuál es un nombre de variable VÁLIDO?</div>
+                <input type="radio" name="p1" value="a" id="p1a" class="opcion-input"><label for="p1a" class="opcion-label">A. 1er_dato</label>
+                <input type="radio" name="p1" value="b" id="p1b" class="opcion-input"><label for="p1b" class="opcion-label">B. promedio-total</label>
+                <input type="radio" name="p1" value="c" id="p1c" class="opcion-input"><label for="p1c" class="opcion-label">C. nota_final</label>
+            </div>
+            <div class="pregunta-card">
+                <div class="pregunta-texto">2. ¿Qué tipo de dato es 25.8?</div>
+                <input type="radio" name="p2" value="a" id="p2a" class="opcion-input"><label for="p2a" class="opcion-label">A. Entero</label>
+                <input type="radio" name="p2" value="b" id="p2b" class="opcion-input"><label for="p2b" class="opcion-label">B. Real</label>
+                <input type="radio" name="p2" value="c" id="p2c" class="opcion-input"><label for="p2c" class="opcion-label">C. Booleano</label>
+            </div>
+            <button class="btn-resultado" onclick="calcularPuntaje()">Ver mi resultado final</button>
+            <div id="area-resultado" class="resultado-final">
+                <div class="score-num" id="display-score">0 / 2</div>
+                <p>¡Buen trabajo! Sigue adelante.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-card" style="border: 2px solid var(--primary);">
+        <h2 class="section-title">6. El Viaje del Dato (Suma Simple)</h2>
+        <div style="background: #000; padding: 20px; border-radius: 15px; border-left: 10px solid #64748b; margin-bottom:15px;">
+            <b>Estación 1: Declarar.</b> <code>Declarar num1, num2, resultado como Entero</code>
+        </div>
+        <div style="background: #000; padding: 20px; border-radius: 15px; border-left: 10px solid #22c55e; margin-bottom:15px;">
+            <b>Estación 2: Entrada.</b> <code>Leer num1, num2</code>
+        </div>
+        <div style="background: #000; padding: 20px; border-radius: 15px; border-left: 10px solid var(--primary); margin-bottom:15px;">
+            <b>Estación 3: Proceso.</b> <code>resultado = num1 + num2</code>
+        </div>
+        <div style="background: #000; padding: 20px; border-radius: 15px; border-left: 10px solid var(--accent);">
+            <b>Estación 4: Salida.</b> <code>Mostrar "Suma es: ", resultado</code>
+        </div>
+    </section>
+
+    <section class="info-card" style="border: 2px solid var(--secondary);">
+        <h2 class="section-title" style="color: var(--secondary);">7. Tutorial: Paso a Paso</h2>
+        <ol style="font-size: 1.1rem; line-height: 2;">
+            <li><b>Declarar:</b> Clic en flecha > Declaración. Escribe: <code>num1, num2, resultado</code> (Entero).</li>
+            <li><b>Pedir dato:</b> Salida > <code>"Ingresa el primer número"</code>.</li>
+            <li><b>Leer dato:</b> Entrada > <code>num1</code>.</li>
+            <li><b>Repetir:</b> Salida y Entrada para <code>num2</code>.</li>
+            <li><b>Calcular:</b> Asignación > Var: <code>resultado</code> | Expr: <code>num1 + num2</code>.</li>
+            <li><b>Resultado:</b> Salida > <code>"La suma es: " & resultado</code>.</li>
+        </ol>
+        <div style="background: #0f172a; padding: 20px; border-radius: 15px; border: 2px solid var(--primary); margin-top: 20px;">
+            <h3 style="margin-top:0;">🚀 Ejecución:</h3>
+            <p>Presiona <b>Play (Flecha verde)</b>, ingresa los números en la consola y presiona Enter.</p>
+        </div>
+    </section>
+
+    <section class="info-card">
+        <h2 class="section-title">8. Ejemplo: Promedio de 3 Notas</h2>
+        <p><b>Lógica:</b></p>
+        <code style="display:block; padding:15px;">
+            Declarar n1, n2, n3, prom como Real<br>
+            Leer n1, n2, n3<br>
+            prom = (n1 + n2 + n3) / 3<br>
+            Escribir "Promedio: " & prom
+        </code>
+    </section>
+
+    <section class="info-card" style="border: 2px solid #f59e0b;">
+        <h2 class="section-title" style="color: #f59e0b;">9. Toma de Decisiones (Condicional)</h2>
+        <p><b>Caso: Mayoría de Edad</b></p>
+        <div style="background: #1e293b; padding: 20px; border-radius: 10px;">
+            1. <b>Declarar:</b> <code>edad</code> (Entero), <code>mayor18</code> (Booleano).<br>
+            2. <b>Asignar:</b> <code>mayor18 = edad >= 18</code>.<br>
+            3. <b>Control:</b> Bloque <b>Si (If)</b> con condición <code>mayor18</code>.<br>
+            4. <b>Ramas:</b> Si Verdadero: <code>"Es mayor de edad"</code> | Si Falso: <code>"Es menor de edad"</code>.
+        </div>
+    </section>
+
+    <section class="info-card">
+        <h2 class="section-title">10. Laboratorio de Data Science: Retos</h2>
+        <div style="background: #1e293b; padding: 20px; border-radius: 15px; margin-bottom: 15px;">
+            <h3 style="color: #22c55e;">Reto 1: Estimador de Error</h3>
+            <p>Pide <b>Valor Real</b> y <b>Valor Predicho</b>. Calcula y muestra el Error Absoluto ($E = Real - Predicho$).</p>
+        </div>
+        <div style="background: #1e293b; padding: 20px; border-radius: 15px; margin-bottom: 15px;">
+            <h3 style="color: #f59e0b;">Reto 2: Clasificador de Anomalías</h3>
+            <p>Pide <b>Temperatura</b>. Si es menor a 0 o mayor a 50, muestra "VALOR ATÍPICO". Si no, "Dato válido".</p>
+        </div>
+        <div style="background: #1e293b; padding: 20px; border-radius: 15px;">
+            <h3 style="color: var(--accent);">Reto 3: Filtro de Calidad</h3>
+            <p>Pide <b>Edad</b> e <b>Ingreso</b>. El registro es apto solo si Edad $\geq$ 18 <b>AND</b> Ingreso $>$ 0.</p>
+        </div>
+        <div style="background: linear-gradient(90deg, #ef4444, #f59e0b); padding: 20px; border-radius: 15px; margin-top: 30px; text-align: center; color: #000; font-weight: 800;">
+            ⚠️ TRABAJO AUTÓNOMO: Guarda tus archivos (.fprg). Se entregan el día LUNES durante la clase.
+        </div>
+    </section>
+</div>
+
+<script>
+    function calcularPuntaje() {
+        const correctas = { p1: 'c', p2: 'b' };
+        let puntos = 0;
+        for (let i = 1; i <= 2; i++) {
+            const sel = document.querySelector(`input[name="p${i}"]:checked`);
+            if (sel && sel.value === correctas[`p${i}`]) puntos++;
+        }
+        document.getElementById('display-score').innerText = puntos + " / 2";
+        document.getElementById('area-resultado').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
