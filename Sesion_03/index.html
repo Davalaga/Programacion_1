@@ -14,18 +14,17 @@
             --primary: #22d3ee; /* Cian brillante */
             --secondary: #818cf8; 
             --accent: #f471b5; 
-            --text: #ffffff;    /* Blanco puro */
-            --text-dim: #cbd5e1; /* Gris muy claro */
+            --text: #ffffff;    
+            --text-dim: #cbd5e1; 
         }
         
-        body { margin: 0; background-color: var(--bg); color: var(--text); }
-
         .main-container { 
             font-family: 'Outfit', sans-serif; 
-            max-width: 1000px;
-            margin: 0 auto;
+            background-color: var(--bg); 
+            color: var(--text); 
             padding: 40px; 
             line-height: 1.6; 
+            border-radius: 15px;
         }
         
         .hero { 
@@ -81,36 +80,143 @@
             border-radius: 4px;
             font-weight: bold;
         }
+    </style>
 
-        /* Estilos del Reto de Formas */
-        .grid-retos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; margin-top: 30px; }
-        .card-reto { background-color: transparent; width: 100%; height: 280px; perspective: 1000px; cursor: pointer; }
-        .card-reto-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; }
+    <style>
+        .grid-retos { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 25px; 
+            margin-top: 30px; 
+        }
+        .card-reto { 
+            background-color: transparent; 
+            width: 100%; 
+            height: 280px; 
+            perspective: 1000px; 
+            cursor: pointer; 
+        }
+        .card-reto-inner { 
+            position: relative; 
+            width: 100%; 
+            height: 100%; 
+            text-align: center; 
+            transition: transform 0.6s; 
+            transform-style: preserve-3d; 
+        }
         .card-reto:hover .card-reto-inner { transform: rotateY(180deg); }
-        .card-reto-front, .card-reto-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; }
-        .card-reto-front { background: #000000; border: 2px solid #334155; color: #ffffff; font-size: 1.1rem; font-weight: 600; }
-        .card-reto-back { background: #1e293b; transform: rotateY(180deg); border: 2px solid var(--primary); }
-        .mini-shape { width: 100px; height: 50px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #ffffff; font-size: 0.8rem; box-shadow: 0 0 15px rgba(255,255,255,0.2); }
-        .ans-text { color: #ffffff; font-weight: 800; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 1px; }
+        .card-reto-front, .card-reto-back { 
+            position: absolute; 
+            width: 100%; 
+            height: 100%; 
+            backface-visibility: hidden; 
+            border-radius: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 20px; 
+            box-sizing: border-box; 
+        }
+        .card-reto-front { 
+            background: #000000; 
+            border: 2px solid #334155; 
+            color: #ffffff; 
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .card-reto-back { 
+            background: #1e293b;
+            transform: rotateY(180deg); 
+            border: 2px solid var(--primary);
+        }
+        .mini-shape {
+            width: 100px;
+            height: 50px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            color: #ffffff;
+            font-size: 0.8rem;
+            box-shadow: 0 0 15px rgba(255,255,255,0.2);
+        }
+        .ans-text {
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
 
-        /* Estilos del Juego de Variables */
+    <style>
         .juego-container { margin-top: 40px; padding: 20px; }
-        .pregunta-card { background: #000000; padding: 30px; border-radius: 20px; border: 2px solid var(--primary); margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
-        .pregunta-texto { font-size: 1.4rem; font-weight: 700; color: #ffffff; margin-bottom: 20px; }
+        .pregunta-card { 
+            background: #000000; 
+            padding: 30px; 
+            border-radius: 20px; 
+            border: 2px solid var(--primary); 
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        .pregunta-texto { 
+            font-size: 1.4rem; 
+            font-weight: 700; 
+            color: #ffffff; 
+            margin-bottom: 20px; 
+        }
         .opciones-list { display: flex; flex-direction: column; gap: 12px; }
-        .opcion-label { display: block; background: #1e293b; padding: 15px 20px; border-radius: 12px; border: 2px solid #334155; color: #ffffff; cursor: pointer; transition: 0.3s; font-size: 1.1rem; }
+        .opcion-label {
+            display: block;
+            background: #1e293b;
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: 2px solid #334155;
+            color: #ffffff;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1.1rem;
+        }
         .opcion-input { display: none; }
-        .opcion-input:checked + .opcion-label { border-color: var(--secondary); background: rgba(129, 140, 248, 0.2); box-shadow: 0 0 10px var(--secondary); }
-        .btn-resultado { display: block; width: 100%; background: linear-gradient(90deg, var(--primary), var(--secondary)); color: #000000; padding: 20px; border: none; border-radius: 50px; font-size: 1.5rem; font-weight: 800; cursor: pointer; margin-top: 40px; text-transform: uppercase; transition: 0.3s; }
+        .opcion-input:checked + .opcion-label {
+            border-color: var(--secondary);
+            background: rgba(129, 140, 248, 0.2);
+            box-shadow: 0 0 10px var(--secondary);
+        }
+        .btn-resultado {
+            display: block;
+            width: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: #000000;
+            padding: 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            cursor: pointer;
+            margin-top: 40px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
         .btn-resultado:hover { transform: scale(1.02); box-shadow: 0 0 30px var(--primary); }
-        .resultado-final { display: none; background: #000000; padding: 40px; border-radius: 24px; border: 4px solid var(--accent); margin-top: 40px; text-align: center; }
+        .resultado-final {
+            display: none;
+            background: #000000;
+            padding: 40px;
+            border-radius: 24px;
+            border: 4px solid var(--accent);
+            margin-top: 40px;
+            text-align: center;
+        }
         .score-num { font-size: 4rem; color: var(--accent); font-weight: 900; }
     </style>
 </head>
 <body>
 
 <div class="main-container">
-    
+
     <header class="hero">
         <h1>Sesión 3</h1>
         <p style="font-size: 1.2rem; font-weight: 400; opacity: 0.9;">Diagramas de Flujo: Dibujando la Lógica del Dato</p>
@@ -133,57 +239,127 @@
     </section>
 
     <section class="info-card" style="border-top: 4px solid var(--accent);">
-        <h2 class="section-title" style="color: var(--accent); border-color: rgba(244, 113, 181, 0.3);">2. Instalación y Configuración</h2>
+        <h2 class="section-title" style="color: var(--accent); border-color: rgba(244, 113, 181, 0.3);">
+            2. Instalación y Configuración
+        </h2>
         <p>Flowgorithm es un software gratuito, ligero y potente. Sigue estos pasos para prepararlo en tu equipo:</p>
+        
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin: 25px 0;">
-            <div class="step-card"><span style="font-size: 2rem;">🌐</span><p><b>Paso 1:</b> Visita <a href="http://www.flowgorithm.org" target="_blank" style="color: var(--primary); text-decoration: underline;">flowgorithm.org</a>.</p></div>
-            <div class="step-card"><span style="font-size: 2rem;">📥</span><p><b>Paso 2:</b> Ve a la pestaña <b>Download</b> en el menú.</p></div>
-            <div class="step-card"><span style="font-size: 2rem;">💻</span><p><b>Paso 3:</b> Descarga la versión según tu sistema operativo.</p></div>
-            <div class="step-card"><span style="font-size: 2rem;">🚀</span><p><b>Paso 4:</b> Ejecuta el instalador y sigue las instrucciones.</p></div>
+            <div class="step-card">
+                <span style="font-size: 2rem;">🌐</span>
+                <p><b>Paso 1:</b> Visita <a href="http://www.flowgorithm.org" target="_blank" style="color: var(--primary); text-decoration: underline;">flowgorithm.org</a>.</p>
+            </div>
+            <div class="step-card">
+                <span style="font-size: 2rem;">📥</span>
+                <p><b>Paso 2:</b> Ve a la pestaña <b>Download</b> en el menú.</p>
+            </div>
+            <div class="step-card">
+                <span style="font-size: 2rem;">💻</span>
+                <p><b>Paso 3:</b> Descarga la versión según tu sistema operativo.</p>
+            </div>
+            <div class="step-card">
+                <span style="font-size: 2rem;">🚀</span>
+                <p><b>Paso 4:</b> Ejecuta el instalador y sigue las instrucciones.</p>
+            </div>
         </div>
-        <div style="background: rgba(244, 113, 181, 0.15); padding: 25px; border-radius: 15px; border: 2px dashed var(--accent); margin-top: 30px;">
-            <p style="margin: 0; font-weight: bold; color: #ffffff; font-size: 1.1rem;">💡 Tip de Oro: ¿Está en inglés?</p>
-            <p style="margin: 10px 0 0 0; color: #ffffff;">Para cambiar el idioma, dirígete al menú superior: <code>Tools > Change Language</code> y selecciona <b>Spanish/Español</b>.</p>
+
+        <div style="background: rgba(244, 113, 181, 0.15); 
+                    padding: 25px; border-radius: 15px; border: 2px dashed var(--accent); margin-top: 30px;">
+            <p style="margin: 0; font-weight: bold; color: #ffffff; font-size: 1.1rem;">
+                💡 Tip de Oro: ¿Está en inglés?
+            </p>
+            <p style="margin: 10px 0 0 0; color: #ffffff;">
+                Para cambiar el idioma, dirígete al menú superior: 
+                <code>Tools > Change Language</code> 
+                y selecciona <b>Spanish/Español</b>.
+            </p>
         </div>
     </section>
 
     <section class="info-card" style="border: 2px solid var(--primary);">
-        <h2 class="section-title" style="font-weight: 700; color: var(--primary); font-size: 2.2rem;">3. Entendiendo las Formas Básicas</h2>
-        <p style="font-size: 1.25rem; color: #ffffff; margin-bottom: 30px;">En el diseño de algoritmos, <b>cada forma tiene un propósito</b>. Al usar estos símbolos universales, cualquier persona podrá entender tu lógica sin importar el idioma o el lenguaje de programación.</p>
+        <h2 class="section-title" style="font-weight: 700; color: var(--primary); font-size: 2.2rem;">
+            3. Entendiendo las Formas Básicas
+        </h2>
+        <p style="font-size: 1.25rem; color: #ffffff; margin-bottom: 30px;">
+            En el diseño de algoritmos, <b>cada forma tiene un propósito</b>. Al usar estos símbolos universales, cualquier persona podrá entender tu lógica sin importar el idioma o el lenguaje de programación.
+        </p>
+        
         <div style="display: flex; flex-direction: column; gap: 40px;">
             <div style="background: #000000; padding: 30px; border-radius: 20px; border: 3px solid var(--secondary); display: grid; grid-template-columns: 160px 1fr; gap: 30px; align-items: center;">
-                <div style="background: var(--secondary); height: 75px; border-radius: 50px; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #ffffff; font-size: 1.2rem;">INICIO/FIN</div>
+                <div style="background: var(--secondary); height: 75px; border-radius: 50px; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #ffffff; font-size: 1.2rem; box-shadow: 0 0 20px var(--secondary);">INICIO/FIN</div>
                 <div>
-                    <h3 style="margin: 0; color: var(--secondary); font-size: 1.7rem;">Terminal</h3>
-                    <p style="margin: 10px 0; color: #ffffff;">Marca el inicio y el cierre obligatorio de tu proceso.</p>
+                    <h3 style="margin: 0; color: var(--secondary); font-size: 1.7rem; font-weight: 700;">Terminal</h3>
+                    <p style="margin: 10px 0; font-size: 1.15rem; color: #ffffff;">
+                        Marca el inicio y el cierre obligatorio de tu proceso. Un algoritmo siempre debe ser finito.
+                    </p>
+                    <p style="margin: 0; font-size: 1.05rem; color: var(--accent); font-weight: 700;">
+                        📌 Punto de control: Sin esto, la máquina no sabe cuándo detenerse.
+                    </p>
                 </div>
             </div>
+            
             <div style="background: #000000; padding: 30px; border-radius: 20px; border: 3px solid #22c55e; display: grid; grid-template-columns: 160px 1fr; gap: 30px; align-items: center;">
-                <div style="background: #22c55e; height: 75px; clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%); display: flex; align-items: center; justify-content: center; font-weight: 800; color: #ffffff; font-size: 1.2rem;">ENTRADA</div>
+                <div style="background: #22c55e; height: 75px; clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%); display: flex; align-items: center; justify-content: center; font-weight: 800; color: #ffffff; font-size: 1.2rem; box-shadow: 0 0 20px #22c55e;">ENTRADA</div>
                 <div>
-                    <h3 style="margin: 0; color: #22c55e; font-size: 1.7rem;">Lectura de Datos</h3>
-                    <p style="margin: 10px 0; color: #ffffff;">Solicita información al usuario.</p>
+                    <h3 style="margin: 0; color: #22c55e; font-size: 1.7rem; font-weight: 700;">Lectura de Datos</h3>
+                    <p style="margin: 10px 0; font-size: 1.15rem; color: #ffffff;">
+                        Es el bloque que solicita información al usuario para que el programa pueda trabajar.
+                    </p>
+                    <p style="margin: 0; font-size: 1.05rem; color: #4ade80; font-weight: 700;">
+                        📌 Uso: "Ingrese la temperatura actual" o "Escriba su nombre".
+                    </p>
                 </div>
             </div>
+            
             <div style="background: #000000; padding: 30px; border-radius: 20px; border: 3px solid var(--primary); display: grid; grid-template-columns: 160px 1fr; gap: 30px; align-items: center;">
-                <div style="background: var(--primary); height: 75px; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #000000; font-size: 1.2rem;">ASIGNACIÓN</div>
+                <div style="background: var(--primary); height: 75px; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #000000; font-size: 1.2rem; box-shadow: 0 0 20px var(--primary);">ASIGNACIÓN</div>
                 <div>
-                    <h3 style="margin: 0; color: var(--primary); font-size: 1.7rem;">Proceso</h3>
-                    <p style="margin: 10px 0; color: #ffffff;">Cálculos matemáticos y guardado en variables.</p>
+                    <h3 style="margin: 0; color: var(--primary); font-size: 1.7rem; font-weight: 700;">Proceso</h3>
+                    <p style="margin: 10px 0; font-size: 1.15rem; color: #ffffff;">
+                        Aquí se realizan todos los cálculos matemáticos y se guardan resultados en variables.
+                    </p>
+                    <p style="margin: 0; font-size: 1.05rem; color: var(--primary); font-weight: 700;">
+                        📌 Uso: "Suma = A + B" o "IVA = Precio * 0.19".
+                    </p>
                 </div>
             </div>
+            
             <div style="background: #000000; padding: 30px; border-radius: 20px; border: 3px solid #f59e0b; display: grid; grid-template-columns: 160px 1fr; gap: 30px; align-items: center;">
-                <div style="background: #f59e0b; height: 90px; width: 90px; margin: auto; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); display: flex; align-items: center; justify-content: center; font-weight: 800; color: #000000;">SI / NO</div>
+                <div style="background: #f59e0b; height: 90px; width: 90px; margin: auto; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); display: flex; align-items: center; justify-content: center; font-weight: 800; color: #000000; font-size: 1rem; box-shadow: 0 0 20px #f59e0b;">SI / NO</div>
                 <div>
-                    <h3 style="margin: 0; color: #f59e0b; font-size: 1.7rem;">Decisión</h3>
-                    <p style="margin: 10px 0; color: #ffffff;">Caminos basados en condiciones (Verdadero/Falso).</p>
+                    <h3 style="margin: 0; color: #f59e0b; font-size: 1.7rem; font-weight: 700;">Decisión</h3>
+                    <p style="margin: 10px 0; font-size: 1.15rem; color: #ffffff;">
+                        Permite que el algoritmo tome diferentes caminos basados en una condición (Verdadero o Falso).
+                    </p>
+                    <p style="margin: 0; font-size: 1.05rem; color: #fbbf24; font-weight: 700;">
+                        📌 Uso: "¿Es la nota mayor a 3.0?" o "¿El cliente es mayor de edad?".
+                    </p>
                 </div>
             </div>
-            <div style="background: #000000; padding: 30px; border-radius: 20px; border: 3px solid var(--accent); display: grid; grid-template-columns: 160px 1fr; gap: 30px; align-items: center;">
-                <div style="background: var(--accent); height: 75px; clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%); display: flex; align-items: center; justify-content: center; font-weight: 800; color: #ffffff; font-size: 1.2rem;">SALIDA</div>
+            
+            <div style="background: #000000; padding: 30px; border-radius: 20px; border: 3px solid #8b5cf6; display: grid; grid-template-columns: 160px 1fr; gap: 30px; align-items: center;">
+                <div style="background: #8b5cf6; height: 75px; clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); display: flex; align-items: center; justify-content: center; font-weight: 800; color: #ffffff; font-size: 1.1rem; box-shadow: 0 0 20px #8b5cf6;">BUCLE</div>
                 <div>
-                    <h3 style="margin: 0; color: var(--accent); font-size: 1.7rem;">Escritura</h3>
-                    <p style="margin: 10px 0; color: #ffffff;">Muestra resultados al mundo exterior.</p>
+                    <h3 style="margin: 0; color: #8b5cf6; font-size: 1.7rem; font-weight: 700;">Ciclo (Para / For)</h3>
+                    <p style="margin: 10px 0; font-size: 1.15rem; color: #ffffff;">
+                        Ideal para repetir una acción una cantidad específica de veces. Es la base de la automatización masiva de datos.
+                    </p>
+                    <p style="margin: 0; font-size: 1.05rem; color: #a78bfa; font-weight: 700;">
+                        📌 Uso: "Repetir para cada estudiante en la lista" o "Calcular el promedio de 100 datos".
+                    </p>
+                </div>
+            </div>
+            
+            <div style="background: #000000; padding: 30px; border-radius: 20px; border: 3px solid var(--accent); display: grid; grid-template-columns: 160px 1fr; gap: 30px; align-items: center;">
+                <div style="background: var(--accent); height: 75px; clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%); display: flex; align-items: center; justify-content: center; font-weight: 800; color: #ffffff; font-size: 1.2rem; box-shadow: 0 0 20px var(--accent);">SALIDA</div>
+                <div>
+                    <h3 style="margin: 0; color: var(--accent); font-size: 1.7rem; font-weight: 700;">Escritura</h3>
+                    <p style="margin: 10px 0; font-size: 1.15rem; color: #ffffff;">
+                        Es el canal de comunicación del programa hacia el mundo exterior para mostrar resultados.
+                    </p>
+                    <p style="margin: 0; font-size: 1.05rem; color: var(--accent); font-weight: 700;">
+                        📌 Uso: "El resultado final es 42" o "Proceso completado".
+                    </p>
                 </div>
             </div>
         </div>
@@ -191,61 +367,433 @@
 
     <section class="info-card" style="margin-top: 50px; border: 2px solid var(--accent);">
         <h2 class="section-title" style="color: var(--accent); font-weight: 800;">4. El Desafío de las Formas</h2>
+        <p style="font-size: 1.3rem; color: #ffffff; margin-bottom: 20px;">
+            ¿Qué bloque de Flowgorithm usarías en cada caso? <b>Gira la tarjeta para descubrir la respuesta y la figura.</b>
+        </p>
+        
         <div class="grid-retos">
-            <div class="card-reto"><div class="card-reto-inner"><div class="card-reto-front">1. Mostrar el mensaje "Calculando..."</div><div class="card-reto-back"><div class="mini-shape" style="background: var(--accent); clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);"></div><div class="ans-text">SALIDA</div></div></div></div>
-            <div class="card-reto"><div class="card-reto-inner"><div class="card-reto-front">2. Pedir número de ID</div><div class="card-reto-back"><div class="mini-shape" style="background: #22c55e; clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);"></div><div class="ans-text">ENTRADA</div></div></div></div>
-            <div class="card-reto"><div class="card-reto-inner"><div class="card-reto-front">3. Área = Base * Altura</div><div class="card-reto-back"><div class="mini-shape" style="background: var(--primary);"></div><div class="ans-text">PROCESO</div></div></div></div>
-            <div class="card-reto"><div class="card-reto-inner"><div class="card-reto-front">4. ¿Es mayor a $100.000?</div><div class="card-reto-back"><div class="mini-shape" style="background: #f59e0b; width: 60px; height: 60px; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);"></div><div class="ans-text">DECISIÓN</div></div></div></div>
+            <div class="card-reto">
+                <div class="card-reto-inner">
+                    <div class="card-reto-front">1. Mostrar el mensaje "Calculando resultados..."</div>
+                    <div class="card-reto-back">
+                        <div class="mini-shape" style="background: var(--accent); clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);"></div>
+                        <div class="ans-text" style="color: var(--accent);">SALIDA</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-reto">
+                <div class="card-reto-inner">
+                    <div class="card-reto-front">2. Pedir al usuario su número de identificación</div>
+                    <div class="card-reto-back">
+                        <div class="mini-shape" style="background: #22c55e; clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);"></div>
+                        <div class="ans-text" style="color: #22c55e;">ENTRADA</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-reto">
+                <div class="card-reto-inner">
+                    <div class="card-reto-front">3. Realizar la operación: Área = Base * Altura</div>
+                    <div class="card-reto-back">
+                        <div class="mini-shape" style="background: var(--primary);"></div>
+                        <div class="ans-text" style="color: var(--primary);">PROCESO</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-reto">
+                <div class="card-reto-inner">
+                    <div class="card-reto-front">4. Definir dónde termina el algoritmo</div>
+                    <div class="card-reto-back">
+                        <div class="mini-shape" style="background: var(--secondary); border-radius: 50px;"></div>
+                        <div class="ans-text" style="color: var(--secondary);">FIN</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-reto">
+                <div class="card-reto-inner">
+                    <div class="card-reto-front">5. ¿Es el precio mayor a $100.000?</div>
+                    <div class="card-reto-back">
+                        <div class="mini-shape" style="background: #f59e0b; width: 60px; height: 60px; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);"></div>
+                        <div class="ans-text" style="color: #f59e0b;">DECISIÓN</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-reto">
+                <div class="card-reto-inner">
+                    <div class="card-reto-front">6. Generar la tabla del 5 automáticamente</div>
+                    <div class="card-reto-back">
+                        <div class="mini-shape" style="background: #8b5cf6; clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);"></div>
+                        <div class="ans-text" style="color: #8b5cf6;">CICLO (PARA)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-reto">
+                <div class="card-reto-inner">
+                    <div class="card-reto-front">7. Inicializar el contador en cero (i = 0)</div>
+                    <div class="card-reto-back">
+                        <div class="mini-shape" style="background: var(--primary);"></div>
+                        <div class="ans-text" style="color: var(--primary);">PROCESO</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-reto">
+                <div class="card-reto-inner">
+                    <div class="card-reto-front">8. Validar si la contraseña es correcta</div>
+                    <div class="card-reto-back">
+                        <div class="mini-shape" style="background: #f59e0b; width: 60px; height: 60px; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);"></div>
+                        <div class="ans-text" style="color: #f59e0b;">DECISIÓN</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-reto">
+                <div class="card-reto-inner">
+                    <div class="card-reto-front">9. Obtener la temperatura de 10 ciudades</div>
+                    <div class="card-reto-back">
+                        <div class="mini-shape" style="background: #22c55e; clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);"></div>
+                        <div class="ans-text" style="color: #22c55e;">ENTRADA</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-reto">
+                <div class="card-reto-inner">
+                    <div class="card-reto-front">10. Analizar cada fila de una base de datos de ventas</div>
+                    <div class="card-reto-back">
+                        <div class="mini-shape" style="background: #8b5cf6; clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);"></div>
+                        <div class="ans-text" style="color: #8b5cf6;">CICLO</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="info-card" style="border: 2px solid var(--secondary);">
-        <h2 class="section-title" style="color: var(--secondary); font-weight: 800;">5. Declaración de Variables</h2>
-        <table style="width: 100%; border-collapse: collapse; background: #000000; color: #ffffff; border-radius: 15px; overflow: hidden; margin-top: 20px;">
-            <thead><tr style="background: var(--card-bg); color: var(--primary);"><th style="padding: 15px;">Tipo</th><th style="padding: 15px;">Guarda</th><th style="padding: 15px;">Ejemplo</th></tr></thead>
-            <tbody>
-                <tr><td style="padding: 15px; color: var(--accent);">Entero</td><td>Números exactos</td><td><code>10, -5</code></td></tr>
-                <tr><td style="padding: 15px; color: var(--accent);">Real</td><td>Decimales</td><td><code>3.1416</code></td></tr>
-                <tr><td style="padding: 15px; color: var(--accent);">Cadena</td><td>Texto</td><td><code>"Hola"</code></td></tr>
-                <tr><td style="padding: 15px; color: var(--accent);">Booleano</td><td>Lógica</td><td><code>Verdadero</code></td></tr>
-            </tbody>
-        </table>
+        <h2 class="section-title" style="color: var(--secondary); font-weight: 800;">5. Declaración de Variables: Los Contenedores</h2>
+        <p style="font-size: 1.25rem; color: #ffffff;">
+            Una <b>variable</b> es un espacio en la memoria de la computadora donde guardamos un dato que puede cambiar durante el proceso. Pero antes de usarla, debemos <b>Declararla</b>.
+        </p>
+
+        <div style="background: #000000; padding: 30px; border-radius: 20px; border: 3px solid #64748b; display: grid; grid-template-columns: 160px 1fr; gap: 30px; align-items: center; margin-bottom: 40px;">
+            <div style="background: #64748b; height: 75px; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #ffffff; font-size: 1.1rem; box-shadow: 0 0 20px #64748b;">DECLARAR</div>
+            <div>
+                <h3 style="margin: 0; color: #94a3b8; font-size: 1.7rem; font-weight: 700;">Bloque de Declaración</h3>
+                <p style="margin: 10px 0; font-size: 1.15rem; color: #ffffff;">
+                    Es el primer paso de cualquier algoritmo serio. Aquí le decimos a la máquina: "Voy a usar una variable llamada X y guardará este tipo de dato".
+                </p>
+            </div>
+        </div>
+
+        <h3 style="color: var(--primary); font-size: 1.8rem;">Tipos de Datos más comunes</h3>
+        <p style="color: #ffffff; font-size: 1.1rem;">En Flowgorithm (y en la mayoría de lenguajes), trabajaremos con estos 4 tipos principales:</p>
+        
+        <div style="overflow-x: auto; margin-top: 20px;">
+            <table style="width: 100%; border-collapse: collapse; background: #000000; color: #ffffff; border-radius: 15px; overflow: hidden;">
+                <thead>
+                    <tr style="background: var(--card-bg); color: var(--primary);">
+                        <th style="padding: 15px; border: 1px solid #334155;">Tipo</th>
+                        <th style="padding: 15px; border: 1px solid #334155;">¿Qué guarda?</th>
+                        <th style="padding: 15px; border: 1px solid #334155;">Ejemplo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 15px; border: 1px solid #334155; font-weight: 800; color: var(--accent);">Entero (Integer)</td>
+                        <td style="padding: 15px; border: 1px solid #334155;">Números exactos, sin decimales.</td>
+                        <td style="padding: 15px; border: 1px solid #334155;"><code>10, -5, 1024</code></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 15px; border: 1px solid #334155; font-weight: 800; color: var(--accent);">Real (Real)</td>
+                        <td style="padding: 15px; border: 1px solid #334155;">Números con precisión decimal.</td>
+                        <td style="padding: 15px; border: 1px solid #334155;"><code>3.1416, -0.5, 99.9</code></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 15px; border: 1px solid #334155; font-weight: 800; color: var(--accent);">Cadena (String)</td>
+                        <td style="padding: 15px; border: 1px solid #334155;">Texto, palabras o símbolos.</td>
+                        <td style="padding: 15px; border: 1px solid #334155;"><code>"Hola", "Data_2026", "Externado"</code></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 15px; border: 1px solid #334155; font-weight: 800; color: var(--accent);">Booleano (Boolean)</td>
+                        <td style="padding: 15px; border: 1px solid #334155;">Valores lógicos binarios.</td>
+                        <td style="padding: 15px; border: 1px solid #334155;"><code>Verdadero, Falso</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="background: rgba(34, 211, 238, 0.1); padding: 25px; border-radius: 15px; border: 1px solid var(--primary); margin-top: 30px;">
+            <h3 style="margin-top: 0; color: var(--primary);">⚠️ Reglas para nombrar tus variables</h3>
+            <ul style="color: #ffffff; font-size: 1.1rem; line-height: 1.8;">
+                <li><b>Debe empezar con una letra:</b> <code>nota1</code> es válido, <code>1nota</code> NO lo es.</li>
+                <li><b>Sin espacios:</b> Usa <code>nombre_usuario</code> o <code>nombreUsuario</code>.</li>
+                <li><b>Sin caracteres especiales:</b> No uses tildes, ñ, ni símbolos como @ o #.</li>
+                <li><b>Sé descriptivo:</b> Es mejor usar <code>promedioFinal</code> que simplemente <code>p</code>.</li>
+            </ul>
+        </div>
     </section>
 
     <section class="info-card" style="border: 2px solid var(--accent);">
         <h2 class="section-title" style="color: var(--accent); font-weight: 800;">6. El Desafío Final de las Variables</h2>
+        <p style="font-size: 1.3rem; color: #ffffff;">
+            Selecciona la respuesta que consideres correcta para cada situación. ¡Tu puntaje se revelará al final!
+        </p>
+
         <div class="juego-container">
             <div class="pregunta-card">
-                <div class="pregunta-texto">1. ¿Cuál es un nombre de variable VÁLIDO?</div>
+                <div class="pregunta-texto">1. ¿Cuál es un nombre de variable VÁLIDO en Flowgorithm?</div>
                 <div class="opciones-list">
                     <input type="radio" name="p1" value="a" id="p1a" class="opcion-input"><label for="p1a" class="opcion-label">A. 1er_puntaje</label>
-                    <input type="radio" name="p1" value="c" id="p1c" class="opcion-input"><label for="p1c" class="opcion-label">C. puntaje1 (Correcta)</label>
+                    <input type="radio" name="p1" value="b" id="p1b" class="opcion-input"><label for="p1b" class="opcion-label">B. puntaje-final</label>
+                    <input type="radio" name="p1" value="c" id="p1c" class="opcion-input"><label for="p1c" class="opcion-label">C. puntaje1</label>
+                    <input type="radio" name="p1" value="d" id="p1d" class="opcion-input"><label for="p1d" class="opcion-label">D. puntaje final</label>
                 </div>
             </div>
+            <div class="pregunta-card">
+                <div class="pregunta-texto">2. Para guardar un promedio, ¿cuál nombre es más DESCRIPTIVO?</div>
+                <div class="opciones-list">
+                    <input type="radio" name="p2" value="a" id="p2a" class="opcion-input"><label for="p2a" class="opcion-label">A. p</label>
+                    <input type="radio" name="p2" value="b" id="p2b" class="opcion-input"><label for="p2b" class="opcion-label">B. promedio_notas</label>
+                    <input type="radio" name="p2" value="c" id="p2c" class="opcion-input"><label for="p2c" class="opcion-label">C. valor1</label>
+                    <input type="radio" name="p2" value="d" id="p2d" class="opcion-input"><label for="p2d" class="opcion-label">D. n</label>
+                </div>
+            </div>
+            <div class="pregunta-card">
+                <div class="pregunta-texto">3. ¿Qué tipo de dato usarías para la temperatura "25.8°C"?</div>
+                <div class="opciones-list">
+                    <input type="radio" name="p3" value="a" id="p3a" class="opcion-input"><label for="p3a" class="opcion-label">A. Entero</label>
+                    <input type="radio" name="p3" value="b" id="p3b" class="opcion-input"><label for="p3b" class="opcion-label">B. Booleano</label>
+                    <input type="radio" name="p3" value="c" id="p3c" class="opcion-input"><label for="p3c" class="opcion-label">C. Real</label>
+                    <input type="radio" name="p3" value="d" id="p3d" class="opcion-input"><label for="p3d" class="opcion-label">D. Cadena</label>
+                </div>
+            </div>
+            <div class="pregunta-card">
+                <div class="pregunta-texto">4. ¿Cuál es el error en la variable "precio_$" ?</div>
+                <div class="opciones-list">
+                    <input type="radio" name="p4" value="a" id="p4a" class="opcion-input"><label for="p4a" class="opcion-label">A. Empieza con minúscula</label>
+                    <input type="radio" name="p4" value="b" id="p4b" class="opcion-input"><label for="p4b" class="opcion-label">B. El símbolo "$" es prohibido</label>
+                    <input type="radio" name="p4" value="c" id="p4c" class="opcion-input"><label for="p4c" class="opcion-label">C. Es muy corta</label>
+                    <input type="radio" name="p4" value="d" id="p4d" class="opcion-input"><label for="p4d" class="opcion-label">D. No tiene números</label>
+                </div>
+            </div>
+            <div class="pregunta-card">
+                <div class="pregunta-texto">5. Si guardas si un usuario "Es_Mayor_Edad", ¿qué tipo es mejor?</div>
+                <div class="opciones-list">
+                    <input type="radio" name="p5" value="a" id="p5a" class="opcion-input"><label for="p5a" class="opcion-label">A. Cadena</label>
+                    <input type="radio" name="p5" value="b" id="p5b" class="opcion-input"><label for="p5b" class="opcion-label">B. Real</label>
+                    <input type="radio" name="p5" value="c" id="p5c" class="opcion-input"><label for="p5c" class="opcion-label">C. Booleano</label>
+                    <input type="radio" name="p5" value="d" id="p5d" class="opcion-input"><label for="p5d" class="opcion-label">D. Entero</label>
+                </div>
+            </div>
+            <div class="pregunta-card">
+                <div class="pregunta-texto">6. ¿Por qué es riesgoso usar "año_actual"?</div>
+                <div class="opciones-list">
+                    <input type="radio" name="p6" value="a" id="p6a" class="opcion-input"><label for="p6a" class="opcion-label">A. Es muy larga</label>
+                    <input type="radio" name="p6" value="b" id="p6b" class="opcion-input"><label for="p6b" class="opcion-label">B. La letra "ñ" no es estándar</label>
+                    <input type="radio" name="p6" value="c" id="p6c" class="opcion-input"><label for="p6c" class="opcion-label">C. Debe llevar números</label>
+                </div>
+            </div>
+            <div class="pregunta-card">
+                <div class="pregunta-texto">7. ¿Cuál es el nombre correcto para una constante de tasa_iva?</div>
+                <div class="opciones-list">
+                    <input type="radio" name="p7" value="a" id="p7a" class="opcion-input"><label for="p7a" class="opcion-label">A. IVA%</label>
+                    <input type="radio" name="p7" value="b" id="p7b" class="opcion-input"><label for="p7b" class="opcion-label">B. valor iva</label>
+                    <input type="radio" name="p7" value="c" id="p7c" class="opcion-input"><label for="p7c" class="opcion-label">C. tasa_iva</label>
+                </div>
+            </div>
+            <div class="pregunta-card">
+                <div class="pregunta-texto">8. ¿Qué tipo de dato es el nombre "Juan Pérez"?</div>
+                <div class="opciones-list">
+                    <input type="radio" name="p8" value="a" id="p8a" class="opcion-input"><label for="p8a" class="opcion-label">A. Real</label>
+                    <input type="radio" name="p8" value="b" id="p8b" class="opcion-input"><label for="p8b" class="opcion-label">B. Cadena (String)</label>
+                    <input type="radio" name="p8" value="c" id="p8c" class="opcion-input"><label for="p8c" class="opcion-label">C. Entero</label>
+                </div>
+            </div>
+            <div class="pregunta-card">
+                <div class="pregunta-texto">9. En Ciencia de Datos, ¿por qué "variable_x" es un MAL nombre?</div>
+                <div class="opciones-list">
+                    <input type="radio" name="p9" value="a" id="p9a" class="opcion-input"><label for="p9a" class="opcion-label">A. Es incorrecto técnicamente</label>
+                    <input type="radio" name="p9" value="b" id="p9b" class="opcion-input"><label for="p9b" class="opcion-label">B. No explica qué dato contiene</label>
+                    <input type="radio" name="p9" value="c" id="p9c" class="opcion-input"><label for="p9c" class="opcion-label">C. Es muy corto</label>
+                </div>
+            </div>
+            <div class="pregunta-card">
+                <div class="pregunta-texto">10. Para un contador de vueltas (1, 2, 3...), ¿qué tipo usas?</div>
+                <div class="opciones-list">
+                    <input type="radio" name="p10" value="a" id="p10a" class="opcion-input"><label for="p10a" class="opcion-label">A. Booleano</label>
+                    <input type="radio" name="p10" value="b" id="p10b" class="opcion-input"><label for="p10b" class="opcion-label">B. Real</label>
+                    <input type="radio" name="p10" value="c" id="p10c" class="opcion-input"><label for="p10c" class="opcion-label">C. Entero</label>
+                </div>
+            </div>
+
             <button class="btn-resultado" onclick="calcularPuntaje()">Ver mi resultado final</button>
+
             <div id="area-resultado" class="resultado-final">
+                <h3 style="color: #ffffff; margin-top: 0;">¡Desafío Completado!</h3>
                 <div class="score-num" id="display-score">0 / 10</div>
+                <p style="color: #ffffff; font-size: 1.1rem; margin-top: 15px;">
+                    ¡Buen trabajo! Recuerda que la precisión en los nombres es el primer paso para un código profesional.
+                </p>
             </div>
         </div>
     </section>
 
     <section class="info-card" style="border: 2px solid var(--primary);">
-        <h2 class="section-title">7. Construyendo la Lógica: El Viaje del Dato</h2>
+        <h2 class="section-title" style="color: var(--primary); font-weight: 800;">7. Construyendo la Lógica: El Viaje del Dato</h2>
+        <p style="font-size: 1.25rem; color: #ffffff; margin-bottom: 30px;">
+            Para que una computadora resuelva un problema, los datos deben recorrer <b>4 estaciones obligatorias</b>. Analicemos el ejemplo más básico: <b>Sumar dos números.</b>
+        </p>
+
         <div style="display: flex; flex-direction: column; gap: 20px;">
-            <div style="border-left: 10px solid #22c55e; padding: 15px; background: #000;"><h3>Captura: Leer Numero1</h3></div>
-            <div style="border-left: 10px solid var(--primary); padding: 15px; background: #000;"><h3>Proceso: Resultado = N1 + N2</h3></div>
+            <div style="background: #000000; padding: 25px; border-radius: 15px; border-left: 10px solid #64748b;">
+                <h3 style="margin: 0; color: #94a3b8; font-size: 1.5rem;">Estación 1: La Preparación (Declarar)</h3>
+                <p style="color: #ffffff; font-size: 1.1rem; margin: 10px 0;">Definimos qué variables necesitamos y qué tipo de datos guardarán en memoria.</p>
+                <code style="color: #94a3b8; font-size: 1.2rem; background: #1e293b; padding: 5px 10px; border-radius: 5px; display: inline-block;">
+                    Declarar Numero1, Numero2, Resultado como Entero
+                </code>
+            </div>
+
+            <div style="background: #000000; padding: 25px; border-radius: 15px; border-left: 10px solid #22c55e;">
+                <h3 style="margin: 0; color: #22c55e; font-size: 1.5rem;">Estación 2: La Captura (Entrada)</h3>
+                <p style="color: #ffffff; font-size: 1.1rem; margin: 10px 0;">El algoritmo solicita los valores al usuario para llenar las variables.</p>
+                <code style="color: #22c55e; font-size: 1.2rem; background: #1e293b; padding: 5px 10px; border-radius: 5px; display: inline-block;">
+                    Leer Numero1, Numero2
+                </code>
+            </div>
+
+            <div style="background: #000000; padding: 25px; border-radius: 15px; border-left: 10px solid var(--primary);">
+                <h3 style="margin: 0; color: var(--primary); font-size: 1.5rem;">Estación 3: La Transformación (Proceso)</h3>
+                <p style="color: #ffffff; font-size: 1.1rem; margin: 10px 0;">Ocurre la acción lógica o matemática sobre los datos capturados.</p>
+                <code style="color: var(--primary); font-size: 1.2rem; background: #1e293b; padding: 5px 10px; border-radius: 5px; display: inline-block;">
+                    Resultado = Numero1 + Numero2
+                </code>
+            </div>
+
+            <div style="background: #000000; padding: 25px; border-radius: 15px; border-left: 10px solid var(--accent);">
+                <h3 style="margin: 0; color: var(--accent); font-size: 1.5rem;">Estación 4: La Entrega (Salida)</h3>
+                <p style="color: #ffffff; font-size: 1.1rem; margin: 10px 0;">Entregamos el resultado procesado para que sea útil al usuario.</p>
+                <code style="color: var(--accent); font-size: 1.2rem; background: #1e293b; padding: 5px 10px; border-radius: 5px; display: inline-block;">
+                    Escribir "La suma total es: ", Resultado
+                </code>
+            </div>
         </div>
     </section>
 
-    <section class="info-card" style="border: 2px solid var(--primary); background: #000000;">
-        <h2 class="section-title">11. Laboratorio de Data Science: Retos</h2>
-        <div style="background: #1e293b; padding: 25px; border-radius: 20px;">
-            <h3 style="color: #22c55e;">Reto 1: Estimador de Error</h3>
-            <p>$Error = ValorReal - ValorPredicho$</p>
+    <section class="info-card" style="border: 2px solid var(--secondary);">
+        <h2 class="section-title" style="color: var(--secondary); font-weight: 800;">8. Tutorial: Tu primer algoritmo en Flowgorithm</h2>
+        <p style="font-size: 1.25rem; color: #ffffff; margin-bottom: 30px;">
+            Sigue este procedimiento exacto para construir tu primer programa. Lo haremos paso a paso directamente en el aula.
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div style="background: #000000; padding: 15px; border-radius: 12px; border-left: 5px solid #64748b;">
+                <p style="margin: 0; color: #ffffff; font-size: 1.1rem;">
+                    1. <b>Declarar:</b> Clic en la flecha > Declaración. Doble clic y escribe <code>num1, num2, resultado</code> (selecciona tipo <b>"Entero"</b>).
+                </p>
+            </div>
+            <div style="background: #000000; padding: 15px; border-radius: 12px; border-left: 5px solid var(--accent);">
+                <p style="margin: 0; color: #ffffff; font-size: 1.1rem;">
+                    2. <b>Pedir el primer dato:</b> Agrega una figura de Salida. Escribe <code>"Ingresa el primer número"</code>.
+                </p>
+            </div>
+            <div style="background: #000000; padding: 15px; border-radius: 12px; border-left: 5px solid #22c55e;">
+                <p style="margin: 0; color: #ffffff; font-size: 1.1rem;">
+                    3. <b>Leer el dato:</b> Agrega una figura de Entrada. Escribe la variable <code>num1</code>.
+                </p>
+            </div>
+            <div style="background: #000000; padding: 15px; border-radius: 12px; border-left: 5px solid var(--accent);">
+                <p style="margin: 0; color: #ffffff; font-size: 1.1rem;">
+                    4. <b>Pedir el segundo dato:</b> Agrega una figura de Salida. Escribe <code>"Ingresa el segundo número"</code>.
+                </p>
+            </div>
+            <div style="background: #000000; padding: 15px; border-radius: 12px; border-left: 5px solid #22c55e;">
+                <p style="margin: 0; color: #ffffff; font-size: 1.1rem;">
+                    5. <b>Leer el dato:</b> Agrega una figura de Entrada. Escribe la variable <code>num2</code>.
+                </p>
+            </div>
+            <div style="background: #000000; padding: 15px; border-radius: 12px; border-left: 5px solid var(--primary);">
+                <p style="margin: 0; color: #ffffff; font-size: 1.1rem;">
+                    6. <b>Calcular:</b> Agrega una figura de Asignación. <br>
+                    <b>A la izquierda (variable):</b> <code>resultado</code> | <b>A la derecha (expresión):</b> <code>num1 + num2</code>
+                </p>
+            </div>
+            <div style="background: #000000; padding: 15px; border-radius: 12px; border-left: 5px solid var(--accent);">
+                <p style="margin: 0; color: #ffffff; font-size: 1.1rem;">
+                    7. <b>Mostrar resultado:</b> Agrega una figura de Salida. Escribe: <code>"La suma es: " & resultado</code> 
+                </p>
+            </div>
         </div>
+
+        <div style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); 
+                    padding: 30px; border-radius: 20px; border: 2px solid var(--primary); margin-top: 40px;">
+            <h2 style="color: var(--primary); margin-top: 0; font-weight: 800;">🚀 ¿Cómo se corre en este espacio?</h2>
+            <ul style="color: #ffffff; font-size: 1.1rem; line-height: 1.8;">
+                <li>Busca en la barra superior el botón de <b>Play (Flecha verde)</b>.</li>
+                <li>Escribe tus números en la consola y presiona <b>Enter</b>.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="info-card" style="border: 2px solid var(--accent); margin-top: 50px;">
+        <h2 class="section-title" style="color: var(--accent); font-weight: 800;">9. Segundo Reto: El Promediador de Notas</h2>
+        <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px;">
+            <div style="background: #000000; padding: 25px; border-radius: 15px; border-left: 10px solid #64748b;">
+                <h3 style="margin: 0; color: #94a3b8; font-size: 1.5rem;">Estación 1: La Preparación</h3>
+                <code style="color: #94a3b8; font-size: 1.2rem; background: #1e293b; padding: 5px 10px; border-radius: 5px;">
+                    Declarar n1, n2, n3, prom como Real
+                </code>
+            </div>
+            <div style="background: #000000; padding: 25px; border-radius: 15px; border-left: 10px solid var(--primary);">
+                <h3 style="margin: 0; color: var(--primary); font-size: 1.5rem;">Estación 3: La Transformación</h3>
+                <code style="color: var(--primary); font-size: 1.2rem; background: #1e293b; padding: 5px 10px; border-radius: 5px;">
+                    prom = (n1 + n2 + n3) / 3
+                </code>
+            </div>
+        </div>
+        <div style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); padding: 30px; border-radius: 20px; border: 2px solid var(--accent); margin-top: 40px;">
+            <h2 style="color: var(--accent); margin-top: 0; font-weight: 800;">🚀 Reto de Ejecución</h2>
+            <p style="color: #ffffff; font-size: 1.1rem;">
+                Prueba con <b>4.0, 3.5 y 4.5</b>. Si el resultado es <b>4.0</b>, ¡impecable!
+            </p>
+        </div>
+    </section>
+
+    <section class="info-card" style="border: 2px solid #f59e0b; margin-top: 50px;">
+        <h2 class="section-title" style="color: #f59e0b; font-weight: 800;">10. El Cerebro del Algoritmo: La Toma de Decisiones</h2>
+        <div style="background: #000000; padding: 25px; border-radius: 15px; border-left: 10px solid #f59e0b; margin-bottom: 20px;">
+            <h3 style="margin: 0; color: #f59e0b; font-size: 1.5rem;">Estación 4: El Condicional (SI)</h3>
+            <div style="background: #1e293b; padding: 15px; border-radius: 10px; color: #fbbf24; font-family: monospace; margin-top:10px;">
+                SI mayor18 ENTONCES:<br>
+                &nbsp;&nbsp;&nbsp;Escribir "Es mayor de edad"<br>
+                SINO:<br>
+                &nbsp;&nbsp;&nbsp;Escribir "Es menor de edad"
+            </div>
+        </div>
+        <div style="background: rgba(245, 158, 11, 0.1); padding: 20px; border-radius: 15px; border: 1px dashed #f59e0b; text-align: center;">
+            <p style="margin: 0; color: #ffffff; font-size: 1.1rem;">
+                🚀 <b>Dato Legal-Tech:</b> Este es el principio básico de los contratos inteligentes o <i>Smart Contracts</i>.
+            </p>
+        </div>
+    </section>
+
+    <section class="info-card" style="border: 2px solid var(--primary); margin-top: 50px; background: #000000;">
+        <h2 class="section-title" style="color: var(--primary); font-weight: 800; border-color: var(--primary);">11. Laboratorio de Data Science: Retos de Lógica</h2>
+        <div style="display: grid; grid-template-columns: 1fr; gap: 25px;">
+            <div style="background: #1e293b; padding: 25px; border-radius: 20px; border: 1px solid #334155;">
+                <h3 style="color: #22c55e;">Reto 1: Estimador de Error de Predicción</h3>
+                <p style="color: #ffffff;">Pide <b>Valor Real</b> y <b>Valor Predicho</b>. $Error = ValorReal - ValorPredicho$</p>
+            </div>
+            <div style="background: #1e293b; padding: 25px; border-radius: 20px; border: 1px solid #334155;">
+                <h3 style="color: #f59e0b;">Reto 2: Clasificador de Anomalías (Outliers)</h3>
+                <p style="color: #ffffff;">Si la temperatura es < 0 o > 50, muestra: "VALOR ATÍPICO DETECTADO".</p>
+            </div>
+            <div style="background: #1e293b; padding: 25px; border-radius: 20px; border: 1px solid #334155;">
+                <h3 style="color: var(--accent);">Reto 3: Filtro de Calidad de Dataset</h3>
+                <p style="color: #ffffff;">Apto solo si <b>Edad >= 18</b> Y <b>Ingreso > 0</b>.</p>
+            </div>
+        </div>
+
         <div style="background: linear-gradient(90deg, #ef4444, #f59e0b); padding: 2px; border-radius: 15px; margin-top: 40px;">
             <div style="background: #000; padding: 20px; border-radius: 13px; text-align: center;">
-                <p style="color: #ffffff; font-weight: bold;">⚠️ TRABAJO AUTÓNOMO: Entrega LUNES sesión presencial.</p>
+                <p style="margin: 0; color: #ffffff; font-weight: bold; font-size: 1.2rem;">
+                    ⚠️ TRABAJO AUTÓNOMO: Entrega LUNES sesión presencial.
+                </p>
             </div>
         </div>
     </section>
@@ -254,14 +802,23 @@
 
 <script>
     function calcularPuntaje() {
-        const respuestasCorrectas = { p1: 'c', p2: 'b', p3: 'c', p4: 'b', p5: 'c', p6: 'b', p7: 'c', p8: 'b', p9: 'b', p10: 'c' };
+        const respuestasCorrectas = {
+            p1: 'c', p2: 'b', p3: 'c', p4: 'b', p5: 'c',
+            p6: 'b', p7: 'c', p8: 'b', p9: 'b', p10: 'c'
+        };
         let puntaje = 0;
-        for (let i = 1; i <= 10; i++) {
+        const total = 10;
+        
+        for (let i = 1; i <= total; i++) {
             const seleccion = document.querySelector(`input[name="p${i}"]:checked`);
-            if (seleccion && seleccion.value === respuestasCorrectas[`p${i}`]) puntaje++;
+            if (seleccion && seleccion.value === respuestasCorrectas[`p${i}`]) {
+                puntaje++;
+            }
         }
-        document.getElementById('display-score').innerText = puntaje + " / 10";
+        
+        document.getElementById('display-score').innerText = puntaje + " / " + total;
         document.getElementById('area-resultado').style.display = 'block';
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     }
 </script>
 
