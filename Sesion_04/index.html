@@ -103,6 +103,13 @@
         }
     </style>
     
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+          }
+        };
+    </script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
@@ -130,7 +137,7 @@
         </ul>
     </section>
 
-        <section class="info-card" style="border: 2px solid #f59e0b; background: #0f172a; padding: 25px;">
+    <section class="info-card" style="border: 2px solid #f59e0b; background: #0f172a; padding: 25px;">
     <h2 class="section-title" style="color: #f59e0b; font-weight: 800; margin-bottom: 25px; font-family: 'Outfit', sans-serif !important;">
         2. Anatomía de una Decisión (Flujo Lógico)
     </h2>
@@ -178,7 +185,7 @@
     </div>
 </section>
 
-        <section class="info-card" style="border: 2px solid var(--secondary); background: #0f172a; padding: 25px;">
+<section class="info-card" style="border: 2px solid var(--secondary); background: #0f172a; padding: 25px;">
     <h2 class="section-title" style="color: var(--secondary); font-weight: 800; margin-bottom: 25px; font-family: 'Outfit', sans-serif !important;">
         3. Condicionales Anidados (Estructura en Cascada)
     </h2>
@@ -232,7 +239,7 @@
     </div>
 </section>
 
-        <style>
+<style>
     /* Estilos del Laboratorio de Lógica */
     .lab-container { margin-top: 40px; }
     
@@ -363,7 +370,7 @@
             <div class="opciones-list">
                 <input type="radio" name="r3" value="a" id="r3a" class="opcion-input"><label for="r3a" class="opcion-label">A. $T > 18.5$</label>
                 <input type="radio" name="r3" value="b" id="r3b" class="opcion-input"><label for="r3b" class="opcion-label">B. $T == 18.5$</label>
-                <input type="radio" name="r3" value="c" id="r3c" class="opcion-input"><label for="r3c" class="opcion-label">C. $T >= 18.5$</label>
+                <input type="radio" name="r3" value="c" id="r3c" class="opcion-input"><label for="r3c" class="opcion-label">C. $T \geq 18.5$</label>
             </div>
         </div>
 
@@ -442,6 +449,7 @@
         window.scrollTo({ top: display.offsetTop, behavior: 'smooth' });
     }
 </script>
+
 <style>
     .grid-proyectos-pro {
         display: grid;
@@ -540,7 +548,7 @@
 
             <div class="seccion-interna">
                 <span class="subtitulo-interno">Cálculo</span>
-                <p class="texto-detalle">Debe calcular el IMC usando la fórmula: $$IMC = \\frac{peso}{altura^{2}}$$</p>
+                <p class="texto-detalle">Debe calcular el IMC usando la fórmula: $$IMC = \frac{peso}{altura^{2}}$$</p>
             </div>
 
             <div class="seccion-interna">
@@ -548,7 +556,7 @@
                 <ul class="texto-detalle lista-logica">
                     <li>Si el $IMC < 18.5$, mostrar "Bajo peso".</li>
                     <li>Si el $IMC$ está entre $18.5$ y $24.9$, mostrar "Peso normal".</li>
-                    <li>Si el $IMC \\geq 25$, mostrar "Sobrepeso".</li>
+                    <li>Si el $IMC \geq 25$, mostrar "Sobrepeso".</li>
                 </ul>
             </div>
 
@@ -570,15 +578,15 @@
             <div class="seccion-interna">
                 <span class="subtitulo-interno">Lógica Condicional</span>
                 <ul class="texto-detalle lista-logica">
-                    <li>Menos de 10 unidades: Descuento del $0\\%$.</li>
-                    <li>Entre 10 y 50 unidades: Descuento del $10\\%$.</li>
-                    <li>Más de 50 unidades: Descuento del $20\\%$.</li>
+                    <li>Menos de 10 unidades: Descuento del $0\%$.</li>
+                    <li>Entre 10 y 50 unidades: Descuento del $10\%$.</li>
+                    <li>Más de 50 unidades: Descuento del $20\%$.</li>
                 </ul>
             </div>
 
             <div class="seccion-interna">
                 <span class="subtitulo-interno">Validación y Salida</span>
-                <p class="texto-detalle">Si la cantidad es $\\leq 0$, mostrar mensaje de error. De lo contrario, mostrar: Subtotal, Valor del Descuento y Total Final.</p>
+                <p class="texto-detalle">Si la cantidad es $\leq 0$, mostrar mensaje de error. De lo contrario, mostrar: Subtotal, Valor del Descuento y Total Final.</p>
             </div>
         </article>
 
@@ -613,7 +621,7 @@
 
             <div class="seccion-interna">
                 <span class="subtitulo-interno">Regla 2: Invitación</span>
-                <p class="texto-detalle">Si tiene $\\geq 18$ años, preguntar si tiene invitación ($1=SÍ, 0=NO$). 
+                <p class="texto-detalle">Si tiene $\geq 18$ años, preguntar si tiene invitación ($1=SÍ, 0=NO$). 
                 Si tiene invitación, mostrar "Bienvenido VIP", de lo contrario "Pagar en taquilla".</p>
             </div>
         </article>
@@ -643,7 +651,7 @@
             </p>
         </div>
     </div>
-</section>                
+</section>
 
 </body>
 </html>
