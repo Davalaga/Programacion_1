@@ -109,105 +109,541 @@
 <body>
 
     <div class="main-container">
-        
-        <header class="hero">
-            <div style="text-transform: uppercase; font-weight: 700; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 10px; color: var(--primary);">
-                Ciencia de Datos | Programación I
-            </div>
-            <h1>Sesión 4</h1>
-            <p>La Bifurcación: Algoritmos que eligen su camino</p>
-        </header>
+    <header class="hero">
+        <h1>Sesión 4</h1>
+        <p style="font-size: 1.2rem; font-weight: 400; opacity: 0.9;">La Bifurcación: Algoritmos que eligen su camino</p>
+    </header>
 
-        <div class="objetivo-box">
-            <span style="color: var(--accent); font-weight: 900; text-transform: uppercase; display: block; margin-bottom: 5px;">El Reto de Hoy:</span> 
-            Aprenderemos a romper la linealidad de nuestros programas. Diseñaremos un <b>Clasificador de Datos</b> capaz de evaluar condiciones lógicas y ejecutar diferentes rutas de acción.
+    <div class="objetivo-box">
+        <strong style="color: var(--accent);">El Reto de Hoy:</strong> 
+        Diseñaremos un <b>Clasificador Inteligente de Consumo Energético</b>. El algoritmo debe recibir datos de consumo y decidir si un hogar está en rango de <i>Eficiencia</i>, <i>Alerta</i> o <i>Penalización</i>.
+    </div>
+
+    <section class="info-card">
+        <h2 class="section-title">1. ¿Qué es una Bifurcación?</h2>
+        <p>Hasta ahora, nuestros programas han sido "vías de un solo carril" (secuenciales). En la Ciencia de Datos, necesitamos que el código evalúe condiciones. El símbolo clave en <b>Flowgorithm</b> para esto es el <b>Rombo de Decisión</b>.</p>
+        
+        <p>Este bloque evalúa una expresión lógica y genera dos flujos posibles:</p>
+        <ul style="color: var(--text-dim);">
+            <li><b>Rama Verdadera (True):</b> Se ejecuta si la condición se cumple.</li>
+            <li><b>Rama Falsa (False):</b> Se ejecuta si la condición no se cumple.</li>
+        </ul>
+    </section>
+
+        <section class="info-card" style="border: 2px solid #f59e0b; background: #0f172a; padding: 25px;">
+    <h2 class="section-title" style="color: #f59e0b; font-weight: 800; margin-bottom: 25px; font-family: 'Outfit', sans-serif !important;">
+        2. Anatomía de una Decisión (Flujo Lógico)
+    </h2>
+    
+    <div style="text-align: center; width: 100%; overflow-x: auto;">
+        <svg width="600" height="460" viewBox="0 0 600 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <style>
+                    /* Importación y clase específica para el SVG */
+                    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap');
+                    .svg-font { font-family: 'Outfit', sans-serif; }
+                </style>
+            </defs>
+
+            <line x1="300" y1="0" x2="300" y2="40" stroke="#cbd5e1" stroke-width="3" />
+            <path d="M295 35L300 45L305 35" fill="#cbd5e1" />
+
+            <path d="M300 50L410 110L300 170L190 110L300 50Z" fill="rgba(245, 158, 11, 0.1)" stroke="#f59e0b" stroke-width="3"/>
+            <text x="300" y="115" fill="white" class="svg-font" font-weight="700" font-size="18" text-anchor="middle">¿CONDICIÓN?</text>
+
+            <path d="M190 110H100V200" stroke="#f471b5" stroke-width="3" fill="none" />
+            <path d="M95 195L100 205L105 195" fill="#f471b5" />
+            <text x="135" y="95" fill="#f471b5" class="svg-font" font-weight="900" font-size="15" text-anchor="middle">VERDADERO</text>
+            
+            <rect x="25" y="205" width="150" height="65" rx="12" fill="rgba(244, 113, 181, 0.15)" stroke="#f471b5" stroke-width="2" />
+            <text x="100" y="242" fill="white" class="svg-font" font-weight="700" font-size="15" text-anchor="middle">ACCIÓN A</text>
+
+            <path d="M410 110H500V200" stroke="#22d3ee" stroke-width="3" fill="none" />
+            <path d="M495 195L500 205L505 195" fill="#22d3ee" />
+            <text x="465" y="95" fill="#22d3ee" class="svg-font" font-weight="900" font-size="15" text-anchor="middle">FALSO</text>
+            
+            <rect x="425" y="205" width="150" height="65" rx="12" fill="rgba(34, 211, 238, 0.15)" stroke="#22d3ee" stroke-width="2" />
+            <text x="500" y="242" fill="white" class="svg-font" font-weight="700" font-size="15" text-anchor="middle">ACCIÓN B</text>
+
+            <path d="M100 270V340H300" stroke="#cbd5e1" stroke-width="3" fill="none" />
+            <path d="M500 270V340H300" stroke="#cbd5e1" stroke-width="3" fill="none" />
+            
+            <line x1="300" y1="340" x2="300" y2="395" stroke="#cbd5e1" stroke-width="3" />
+            <path d="M295 390L300 400L305 390" fill="#cbd5e1" />
+            
+            <text x="300" y="430" fill="#cbd5e1" class="svg-font" font-style="italic" font-size="14" text-anchor="middle">
+                El algoritmo continúa su camino...
+            </text>
+        </svg>
+    </div>
+</section>
+
+        <section class="info-card" style="border: 2px solid var(--secondary); background: #0f172a; padding: 25px;">
+    <h2 class="section-title" style="color: var(--secondary); font-weight: 800; margin-bottom: 25px; font-family: 'Outfit', sans-serif !important;">
+        3. Condicionales Anidados (Estructura en Cascada)
+    </h2>
+    
+    <p style="font-family: 'Outfit', sans-serif; color: white; font-size: 1.1rem; margin-bottom: 20px;">
+        Cuando una decisión depende de otra anterior, hablamos de <b>anidamiento</b>. En Flowgorithm, esto se ve como un rombo que nace dentro de la rama "Falsa" o "Verdadera" de otro.
+    </p>
+
+    <div style="text-align: center; width: 100%; overflow-x: auto; background: #0b1120; padding: 20px; border-radius: 15px;">
+        <svg width="650" height="550" viewBox="0 0 650 550" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <style>
+                    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap');
+                    .svg-font { font-family: 'Outfit', sans-serif; }
+                </style>
+            </defs>
+
+            <line x1="325" y1="0" x2="325" y2="30" stroke="#cbd5e1" stroke-width="3" />
+            
+            <path d="M325 30L425 80L325 130L225 80L325 30Z" fill="rgba(129, 140, 248, 0.1)" stroke="var(--secondary)" stroke-width="3"/>
+            <text x="325" y="85" fill="white" class="svg-font" font-weight="700" font-size="14" text-anchor="middle">¿C < 100?</text>
+
+            <path d="M225 80H100V150" stroke="var(--accent)" stroke-width="3" fill="none" />
+            <text x="140" y="70" fill="var(--accent)" class="svg-font" font-weight="900" font-size="13" text-anchor="middle">SÍ</text>
+            <rect x="25" y="150" width="150" height="50" rx="10" fill="rgba(244, 113, 181, 0.1)" stroke="var(--accent)" stroke-width="2" />
+            <text x="100" y="180" fill="white" class="svg-font" font-weight="700" font-size="14" text-anchor="middle">Nivel: AHORRO</text>
+
+            <path d="M425 80H530V150" stroke="var(--primary)" stroke-width="3" fill="none" />
+            <text x="480" y="70" fill="var(--primary)" class="svg-font" font-weight="900" font-size="13" text-anchor="middle">NO</text>
+            
+            <path d="M530 150L630 200L530 250L430 200L530 150Z" fill="rgba(34, 211, 238, 0.1)" stroke="var(--primary)" stroke-width="3"/>
+            <text x="530" y="205" fill="white" class="svg-font" font-weight="700" font-size="14" text-anchor="middle">¿C < 200?</text>
+
+            <path d="M430 200H350V270" stroke="var(--accent)" stroke-width="3" fill="none" />
+            <text x="390" y="190" fill="var(--accent)" class="svg-font" font-weight="900" font-size="13" text-anchor="middle">SÍ</text>
+            <rect x="275" y="270" width="150" height="50" rx="10" fill="rgba(244, 113, 181, 0.1)" stroke="var(--accent)" stroke-width="2" />
+            <text x="350" y="300" fill="white" class="svg-font" font-weight="700" font-size="14" text-anchor="middle">Nivel: NORMAL</text>
+
+            <path d="M630 200V270" stroke="var(--primary)" stroke-width="3" fill="none" />
+            <text x="610" y="240" fill="var(--primary)" class="svg-font" font-weight="900" font-size="13" text-anchor="middle">NO</text>
+            <rect x="550" y="270" width="150" height="50" rx="10" fill="rgba(34, 211, 238, 0.1)" stroke="var(--primary)" stroke-width="2" />
+            <text x="625" y="300" fill="white" class="svg-font" font-weight="700" font-size="14" text-anchor="middle">Nivel: EXCESO</text>
+
+            <path d="M100 200V450H325" stroke="#cbd5e1" stroke-width="2" fill="none" stroke-dasharray="5,5" />
+            <path d="M350 320V450H325" stroke="#cbd5e1" stroke-width="2" fill="none" stroke-dasharray="5,5" />
+            <path d="M625 320V450H325" stroke="#cbd5e1" stroke-width="2" fill="none" stroke-dasharray="5,5" />
+            
+            <line x1="325" y1="450" x2="325" y2="490" stroke="#cbd5e1" stroke-width="3" />
+            <text x="325" y="520" fill="#cbd5e1" class="svg-font" font-style="italic" font-size="14" text-anchor="middle">Fin de la clasificación</text>
+        </svg>
+    </div>
+</section>
+
+        <style>
+    /* Estilos del Laboratorio de Lógica */
+    .lab-container { margin-top: 40px; }
+    
+    .pregunta-card { 
+        background: #000000; 
+        padding: 30px; 
+        border-radius: 20px; 
+        border: 2px solid var(--primary); 
+        margin-bottom: 30px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+    
+    .nivel-badge {
+        display: inline-block;
+        padding: 5px 12px;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+    }
+    
+    .facil { background: #22c55e; color: #000; }
+    .medio { background: #f59e0b; color: #000; }
+    .avanzado { background: #ef4444; color: #fff; }
+
+    .pregunta-texto { 
+        font-family: 'Outfit', sans-serif;
+        font-size: 1.3rem; 
+        font-weight: 700; 
+        color: #ffffff; 
+        margin-bottom: 20px; 
+    }
+    
+    .opciones-list { display: flex; flex-direction: column; gap: 12px; }
+    
+    .opcion-label {
+        display: block;
+        background: #1e293b;
+        padding: 15px 20px;
+        border-radius: 12px;
+        border: 2px solid #334155;
+        color: #ffffff;
+        cursor: pointer;
+        transition: 0.3s;
+        font-family: 'Outfit', sans-serif;
+    }
+    
+    .opcion-input { display: none; }
+    .opcion-input:checked + .opcion-label {
+        border-color: var(--secondary);
+        background: rgba(129, 140, 248, 0.2);
+        box-shadow: 0 0 10px var(--secondary);
+    }
+
+    .btn-evaluar {
+        display: block;
+        width: 100%;
+        background: linear-gradient(90deg, var(--accent), var(--secondary));
+        color: #ffffff;
+        padding: 20px;
+        border: none;
+        border-radius: 50px;
+        font-family: 'Outfit', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 800;
+        cursor: pointer;
+        margin-top: 20px;
+        text-transform: uppercase;
+        transition: 0.3s;
+    }
+    .btn-evaluar:hover { transform: scale(1.02); box-shadow: 0 0 30px var(--accent); }
+
+    .resultado-panel {
+        display: none;
+        background: #0b1120;
+        padding: 40px;
+        border-radius: 24px;
+        border: 4px solid var(--primary);
+        margin-top: 40px;
+        text-align: center;
+        font-family: 'Outfit', sans-serif;
+    }
+    
+    .score-circle {
+        width: 120px;
+        height: 120px;
+        line-height: 120px;
+        border-radius: 50%;
+        background: var(--primary);
+        color: #000;
+        font-size: 2.5rem;
+        font-weight: 900;
+        margin: 20px auto;
+    }
+</style>
+
+<section class="info-card" style="border: 2px solid var(--accent);">
+    <h2 class="section-title" style="color: var(--accent); font-weight: 800; font-family: 'Outfit', sans-serif !important;">
+        4. Laboratorio de Lógica Condicional
+    </h2>
+    <p style="color: white; font-family: 'Outfit', sans-serif;">Prueba tu intuición algorítmica. Lee cada caso y selecciona la respuesta correcta.</p>
+
+    <div class="lab-container">
+        <div class="pregunta-card">
+            <span class="nivel-badge facil">Nivel: Fácil</span>
+            <div class="pregunta-texto">1. Un algoritmo debe decidir si un usuario es "Apto para crédito" basándose en una respuesta de SÍ o NO. ¿Qué tipo de variable es la más eficiente para el rombo de decisión?</div>
+            <div class="opciones-list">
+                <input type="radio" name="r1" value="a" id="r1a" class="opcion-input"><label for="r1a" class="opcion-label">A. Cadena (String)</label>
+                <input type="radio" name="r1" value="b" id="r1b" class="opcion-input"><label for="r1b" class="opcion-label">B. Booleana (Lógica)</label>
+                <input type="radio" name="r1" value="c" id="r1c" class="opcion-input"><label for="r1c" class="opcion-label">C. Real (Decimal)</label>
+            </div>
         </div>
 
-        <section class="info-card" style="border: 2px solid #f59e0b;">
-            <h2 class="section-title" style="color: #f59e0b; border-color: rgba(245, 158, 11, 0.2);">2. Anatomía de una Decisión</h2>
-            <div style="text-align: center; width: 100%; overflow-x: auto;">
-                <svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <style>
-                            .svg-font { font-family: 'Outfit', sans-serif; }
-                        </style>
-                    </defs>
-                    <line x1="300" y1="0" x2="300" y2="40" stroke="#cbd5e1" stroke-width="3" />
-                    <path d="M300 50L410 110L300 170L190 110L300 50Z" fill="rgba(245, 158, 11, 0.1)" stroke="#f59e0b" stroke-width="3"/>
-                    <text x="300" y="115" fill="white" class="svg-font" font-weight="700" font-size="18" text-anchor="middle">¿CONDICIÓN?</text>
-                    <path d="M190 110H100V200" stroke="#f471b5" stroke-width="3" fill="none" />
-                    <text x="135" y="95" fill="#f471b5" class="svg-font" font-weight="900" font-size="15" text-anchor="middle">VERDADERO</text>
-                    <rect x="25" y="200" width="150" height="60" rx="12" fill="rgba(244, 113, 181, 0.15)" stroke="#f471b5" stroke-width="2" />
-                    <text x="100" y="235" fill="white" class="svg-font" font-weight="700" font-size="14" text-anchor="middle">ACCIÓN A</text>
-                    <path d="M410 110H500V200" stroke="#22d3ee" stroke-width="3" fill="none" />
-                    <text x="465" y="95" fill="#22d3ee" class="svg-font" font-weight="900" font-size="15" text-anchor="middle">FALSO</text>
-                    <rect x="425" y="200" width="150" height="60" rx="12" fill="rgba(34, 211, 238, 0.15)" stroke="#22d3ee" stroke-width="2" />
-                    <text x="500" y="235" fill="white" class="svg-font" font-weight="700" font-size="14" text-anchor="middle">ACCIÓN B</text>
-                    <path d="M100 260V320H300" stroke="#cbd5e1" stroke-width="3" fill="none" />
-                    <path d="M500 260V320H300" stroke="#cbd5e1" stroke-width="3" fill="none" />
-                    <text x="300" y="370" fill="#cbd5e1" class="svg-font" font-style="italic" font-size="14" text-anchor="middle">El algoritmo continúa...</text>
-                </svg>
+        <div class="pregunta-card">
+            <span class="nivel-badge facil">Nivel: Fácil</span>
+            <div class="pregunta-texto">2. En Flowgorithm, ¿qué sucede físicamente después de un bloque de decisión?</div>
+            <div class="opciones-list">
+                <input type="radio" name="r2" value="a" id="r2a" class="opcion-input"><label for="r2a" class="opcion-label">A. El algoritmo termina automáticamente.</label>
+                <input type="radio" name="r2" value="b" id="r2b" class="opcion-input"><label for="r2b" class="opcion-label">B. El flujo se divide en dos caminos independientes (SÍ/NO).</label>
+                <input type="radio" name="r2" value="c" id="r2c" class="opcion-input"><label for="r2c" class="opcion-label">C. El programa pide un nuevo dato al usuario.</label>
             </div>
-        </section>
+        </div>
 
-        <section class="info-card" style="border: 2px solid var(--secondary);">
-            <h2 class="section-title" style="color: var(--secondary); border-color: rgba(129, 140, 248, 0.2);">3. Decisiones Anidadas</h2>
-            <div style="text-align: center; width: 100%; overflow-x: auto;">
-                <svg width="600" height="420" viewBox="0 0 600 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M300 30L400 80L300 130L200 80L300 30Z" fill="rgba(129, 140, 248, 0.1)" stroke="var(--secondary)" stroke-width="3"/>
-                    <text x="300" y="85" fill="white" class="svg-font" font-weight="700" font-size="14" text-anchor="middle">¿Condición 1?</text>
-                    <path d="M400 80H500V150" stroke="var(--primary)" stroke-width="3" fill="none" />
-                    <text x="450" y="70" fill="var(--primary)" class="svg-font" font-weight="900" font-size="12">FALSO</text>
-                    <path d="M500 150L580 190L500 230L420 190L500 150Z" fill="rgba(34, 211, 238, 0.1)" stroke="var(--primary)" stroke-width="3"/>
-                    <text x="500" y="195" fill="white" class="svg-font" font-weight="700" font-size="12" text-anchor="middle">¿Condición 2?</text>
-                    <text x="300" y="380" fill="#cbd5e1" class="svg-font" font-style="italic" font-size="14" text-anchor="middle">Estructura en cascada</text>
-                </svg>
+        <div class="pregunta-card">
+            <span class="nivel-badge medio">Nivel: Medio</span>
+            <div class="pregunta-texto">3. Para validar que un experimento es exitoso, la temperatura $T$ debe ser mayor o igual a $18.5$ grados. ¿Qué expresión debe ir en el rombo?</div>
+            <div class="opciones-list">
+                <input type="radio" name="r3" value="a" id="r3a" class="opcion-input"><label for="r3a" class="opcion-label">A. $T > 18.5$</label>
+                <input type="radio" name="r3" value="b" id="r3b" class="opcion-input"><label for="r3b" class="opcion-label">B. $T == 18.5$</label>
+                <input type="radio" name="r3" value="c" id="r3c" class="opcion-input"><label for="r3c" class="opcion-label">C. $T >= 18.5$</label>
             </div>
-        </section>
+        </div>
 
-        <h2 class="section-title">5. Laboratorio Práctico: Desafíos de Clasificación</h2>
+        <div class="pregunta-card">
+            <span class="nivel-badge medio">Nivel: Medio</span>
+            <div class="pregunta-texto">4. Si quieres filtrar registros donde la edad sea mayor a 18 Y el ingreso superior a 2.000.000, ¿qué operador lógico usarías en Flowgorithm?</div>
+            <div class="opciones-list">
+                <input type="radio" name="r4" value="a" id="r4a" class="opcion-input"><label for="r4a" class="opcion-label">A. AND (Y)</label>
+                <input type="radio" name="r4" value="b" id="r4b" class="opcion-input"><label for="r4b" class="opcion-label">B. OR (O)</label>
+                <input type="radio" name="r4" value="c" id="r4c" class="opcion-input"><label for="r4c" class="opcion-label">C. NOT (NO)</label>
+            </div>
+        </div>
+
+        <div class="pregunta-card">
+            <span class="nivel-badge avanzado">Nivel: Avanzado</span>
+            <div class="pregunta-texto">5. Necesitas clasificar la calidad del aire en 3 niveles (Bueno, Regular, Alerta). ¿Cómo se estructura esto correctamente?</div>
+            <div class="opciones-list">
+                <input type="radio" name="r5" value="a" id="r5a" class="opcion-input"><label for="r5a" class="opcion-label">A. Usando un solo rombo con tres salidas.</label>
+                <input type="radio" name="r5" value="b" id="r5b" class="opcion-input"><label for="r5b" class="opcion-label">B. Usando un condicional anidado (un rombo dentro de la rama falsa de otro).</label>
+                <input type="radio" name="r5" value="c" id="r5c" class="opcion-input"><label for="r5c" class="opcion-label">C. Usando tres bloques de entrada de datos.</label>
+            </div>
+        </div>
+
+        <div class="pregunta-card">
+            <span class="nivel-badge avanzado">Nivel: Avanzado</span>
+            <div class="pregunta-texto">6. En un sistema anidado: si la condición "Ingreso > 5000" es Falsa, y luego "Residente == SÍ" es Verdadera. ¿Qué concluye el algoritmo?</div>
+            <div class="opciones-list">
+                <input type="radio" name="r6" value="a" id="r6a" class="opcion-input"><label for="r6a" class="opcion-label">A. Es residente con ingresos altos.</label>
+                <input type="radio" name="r6" value="b" id="r6b" class="opcion-input"><label for="r6b" class="opcion-label">B. Es residente con ingresos iguales o menores a 5000.</label>
+                <input type="radio" name="r6" value="c" id="r6c" class="opcion-input"><label for="r6c" class="opcion-label">C. No es residente pero gana bien.</label>
+            </div>
+        </div>
+
+        <button class="btn-evaluar" onclick="calcularPuntajeSesion4()">Finalizar y obtener puntaje</button>
+
+        <div id="panel-resultado-s4" class="resultado-panel">
+            <h2 style="margin-top: 0;">¡Análisis de Resultados!</h2>
+            <div class="score-circle" id="valor-puntaje">0</div>
+            <p id="mensaje-final" style="font-size: 1.2rem; font-weight: 700;"></p>
+            <p style="margin-top: 15px; color: var(--text-dim);">Recuerda que dominar la bifurcación es la base de los modelos de Machine Learning (Árboles de Decisión).</p>
+        </div>
+    </div>
+</section>
+
+<script>
+    function calcularPuntajeSesion4() {
+        const correctas = { r1: 'b', r2: 'b', r3: 'c', r4: 'a', r5: 'b', r6: 'b' };
+        let puntos = 0;
+        let total = 6;
+
+        for (let i = 1; i <= total; i++) {
+            const input = document.querySelector(`input[name="r${i}"]:checked`);
+            if (input && input.value === correctas[`r${i}`]) {
+                puntos++;
+            }
+        }
+
+        const display = document.getElementById('panel-resultado-s4');
+        const scoreCircle = document.getElementById('valor-puntaje');
+        const mensaje = document.getElementById('mensaje-final');
+
+        scoreCircle.innerText = puntos + "/" + total;
+        display.style.display = 'block';
+
+        if (puntos === total) {
+            mensaje.innerText = "¡Excelente! Eres un maestro de la lógica de decisión.";
+            mensaje.style.color = "var(--primary)";
+        } else if (puntos >= 4) {
+            mensaje.innerText = "Buen trabajo. Solo falta ajustar algunos detalles de anidamiento.";
+            mensaje.style.color = "var(--secondary)";
+        } else {
+            mensaje.innerText = "Sigue practicando. Repasa la anatomía del rombo de decisión.";
+            mensaje.style.color = "var(--accent)";
+        }
+
+        window.scrollTo({ top: display.offsetTop, behavior: 'smooth' });
+    }
+</script>
+<style>
+    .grid-proyectos-pro {
+        display: grid;
+        grid-template-columns: 1fr; /* Una columna para que el texto detallado respire mejor */
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    .proyecto-card-pro {
+        background: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 20px;
+        padding: 35px;
+        transition: 0.3s;
+        border-left: 10px solid var(--primary);
+    }
+
+    .proyecto-card-pro:hover {
+        border-color: var(--primary);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .nivel-tag {
+        font-size: 0.8rem;
+        font-weight: 900;
+        padding: 5px 15px;
+        border-radius: 50px;
+        text-transform: uppercase;
+        float: right;
+    }
+
+    .titulo-reto {
+        font-family: 'Outfit', sans-serif;
+        color: var(--primary);
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        border-bottom: 1px dashed #334155;
+        padding-bottom: 10px;
+    }
+
+    .seccion-interna {
+        margin-bottom: 20px;
+        font-family: 'Outfit', sans-serif;
+    }
+
+    .subtitulo-interno {
+        color: var(--accent);
+        font-weight: 800;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    .texto-detalle {
+        color: var(--text-dim);
+        font-size: 1.05rem;
+        line-height: 1.6;
+    }
+
+    .lista-logica {
+        list-style: none;
+        padding-left: 0;
+        margin: 10px 0;
+    }
+
+    .lista-logica li::before {
+        content: "▹";
+        color: var(--primary);
+        font-weight: bold;
+        display: inline-block; 
+        width: 1em;
+        margin-left: 0.5em;
+    }
+</style>
+
+<section class="info-card" style="background: #0f172a; border: none; padding: 0;">
+    <h2 class="section-title" style="color: var(--primary); font-weight: 800; font-family: 'Outfit', sans-serif !important;">
+        5. Laboratorio Práctico: Desafíos de Clasificación
+    </h2>
+    <p style="color: white; font-family: 'Outfit', sans-serif; font-size: 1.2rem;">
+        Resuelve los siguientes problemas en <b>Flowgorithm</b>. Recuerda que la salida debe ser lo más explícita posible para el usuario final.
+    </p>
+
+    <div class="grid-proyectos-pro">
         
         <article class="proyecto-card-pro">
-            <span class="nivel-tag" style="background: #22c55e; color: #000;">Fácil</span>
-            <div style="color: var(--primary); font-size: 1.8rem; font-weight: 700; margin-bottom: 20px;">1. Clasificador de IMC</div>
-            <div style="margin-bottom: 15px;"><span class="subtitulo-interno">Contexto:</span> <p class="texto-detalle">Solicitar peso ($kg$) y altura ($m$).</p></div>
-            <div style="margin-bottom: 15px;"><span class="subtitulo-interno">Cálculo:</span> <p class="texto-detalle">$$IMC = \frac{peso}{altura^{2}}$$</p></div>
-            <div><span class="subtitulo-interno">Lógica:</span> <p class="texto-detalle">Si $IMC < 18.5$ (Bajo), entre $18.5$ y $24.9$ (Normal), $\ge 25$ (Sobrepeso).</p></div>
+            <span class="nivel-tag" style="background: #22c55e; color: #000;">Nivel: Fácil</span>
+            <div class="titulo-reto">1. Clasificador de IMC</div>
+            
+            <div class="seccion-interna">
+                <span class="subtitulo-interno">Contexto</span>
+                <p class="texto-detalle">El programa debe solicitar al usuario su peso en kilogramos ($kg$) y su altura en metros ($m$).</p>
+            </div>
+
+            <div class="seccion-interna">
+                <span class="subtitulo-interno">Cálculo</span>
+                <p class="texto-detalle">Debe calcular el IMC usando la fórmula: $$IMC = \\frac{peso}{altura^{2}}$$</p>
+            </div>
+
+            <div class="seccion-interna">
+                <span class="subtitulo-interno">Lógica Condicional</span>
+                <ul class="texto-detalle lista-logica">
+                    <li>Si el $IMC < 18.5$, mostrar "Bajo peso".</li>
+                    <li>Si el $IMC$ está entre $18.5$ y $24.9$, mostrar "Peso normal".</li>
+                    <li>Si el $IMC \\geq 25$, mostrar "Sobrepeso".</li>
+                </ul>
+            </div>
+
+            <div class="seccion-interna">
+                <span class="subtitulo-interno">Salida Esperada</span>
+                <p class="texto-detalle">El programa debe mostrar el valor del IMC calculado y la clasificación correspondiente de forma clara.</p>
+            </div>
         </article>
 
         <article class="proyecto-card-pro" style="border-left-color: var(--secondary);">
-            <span class="nivel-tag" style="background: #f59e0b; color: #000;">Medio</span>
-            <div style="color: var(--secondary); font-size: 1.8rem; font-weight: 700; margin-bottom: 20px;">2. Calculadora de Descuentos</div>
-            <div style="margin-bottom: 15px;"><span class="subtitulo-interno">Lógica:</span> <p class="texto-detalle">Unidades < 10 ($0\%$), 10-50 ($10\%$), > 50 ($20\%$).</p></div>
-            <div style="margin-bottom: 15px;"><span class="subtitulo-interno">Salida:</span> <p class="texto-detalle">Mostrar Subtotal, Descuento y Total Final.</p></div>
+            <span class="nivel-tag" style="background: #f59e0b; color: #000;">Nivel: Medio</span>
+            <div class="titulo-reto" style="color: var(--secondary);">2. Calculadora de Descuentos</div>
+            
+            <div class="seccion-interna">
+                <span class="subtitulo-interno">Contexto</span>
+                <p class="texto-detalle">Una tienda ofrece descuentos según el volumen de compra. El usuario ingresa el precio unitario y la cantidad comprada.</p>
+            </div>
+
+            <div class="seccion-interna">
+                <span class="subtitulo-interno">Lógica Condicional</span>
+                <ul class="texto-detalle lista-logica">
+                    <li>Menos de 10 unidades: Descuento del $0\\%$.</li>
+                    <li>Entre 10 y 50 unidades: Descuento del $10\\%$.</li>
+                    <li>Más de 50 unidades: Descuento del $20\\%$.</li>
+                </ul>
+            </div>
+
+            <div class="seccion-interna">
+                <span class="subtitulo-interno">Validación y Salida</span>
+                <p class="texto-detalle">Si la cantidad es $\\leq 0$, mostrar mensaje de error. De lo contrario, mostrar: Subtotal, Valor del Descuento y Total Final.</p>
+            </div>
         </article>
 
         <article class="proyecto-card-pro" style="border-left-color: var(--accent);">
-            <span class="nivel-tag" style="background: #ef4444; color: #fff;">Avanzado</span>
-            <div style="color: var(--accent); font-size: 1.8rem; font-weight: 700; margin-bottom: 20px;">3. Verificador de Triángulos</div>
-            <div style="margin-bottom: 15px;"><span class="subtitulo-interno">Lógica:</span> <p class="texto-detalle">Verificar existencia ($a+b > c$) y clasificar: Equilátero, Isósceles o Escaleno.</p></div>
+            <span class="nivel-tag" style="background: #ef4444; color: #fff;">Nivel: Avanzado</span>
+            <div class="titulo-reto" style="color: var(--accent);">3. Verificador de Triángulos</div>
+            
+            <div class="seccion-interna">
+                <span class="subtitulo-interno">Lógica de Existencia</span>
+                <p class="texto-detalle">El programa debe verificar si los lados ($a, b, c$) pueden formar un triángulo: la suma de dos lados siempre debe ser mayor al tercero.</p>
+            </div>
+
+            <div class="seccion-interna">
+                <span class="subtitulo-interno">Clasificación Anidada</span>
+                <p class="texto-detalle">Si es un triángulo válido, determine si es:</p>
+                <ul class="texto-detalle lista-logica">
+                    <li><b>Equilátero:</b> 3 lados iguales.</li>
+                    <li><b>Isósceles:</b> 2 lados iguales.</li>
+                    <li><b>Escaleno:</b> Todos los lados diferentes.</li>
+                </ul>
+            </div>
         </article>
 
         <article class="proyecto-card-pro">
-            <span class="nivel-tag" style="background: #f59e0b; color: #000;">Medio</span>
-            <div style="color: var(--primary); font-size: 1.8rem; font-weight: 700; margin-bottom: 20px;">4. Control de Acceso Anidado</div>
-            <div style="margin-bottom: 15px;"><span class="subtitulo-interno">Regla:</span> <p class="texto-detalle">Si edad $\ge 18$, preguntar por invitación. Mostrar "VIP" o "Taquilla".</p></div>
+            <span class="nivel-tag" style="background: #f59e0b; color: #000;">Nivel: Medio</span>
+            <div class="titulo-reto">4. Control de Acceso Anidado</div>
+            
+            <div class="seccion-interna">
+                <span class="subtitulo-interno">Regla 1: Edad</span>
+                <p class="texto-detalle">Si el usuario es menor de 18 años, mostrar "Acceso denegado".</p>
+            </div>
+
+            <div class="seccion-interna">
+                <span class="subtitulo-interno">Regla 2: Invitación</span>
+                <p class="texto-detalle">Si tiene $\\geq 18$ años, preguntar si tiene invitación ($1=SÍ, 0=NO$). 
+                Si tiene invitación, mostrar "Bienvenido VIP", de lo contrario "Pagar en taquilla".</p>
+            </div>
         </article>
 
         <article class="proyecto-card-pro" style="border-left-color: var(--secondary);">
-            <span class="nivel-tag" style="background: #ef4444; color: #fff;">Avanzado</span>
-            <div style="color: var(--secondary); font-size: 1.8rem; font-weight: 700; margin-bottom: 20px;">5. Determinador de Año Bisiesto</div>
-            <div style="margin-bottom: 15px;"><span class="subtitulo-interno">Lógica:</span> <p class="texto-detalle">Divisible por 4 pero no por 100, a menos que sea divisible por 400.</p></div>
-            <div style="background: #000; padding: 10px; border-radius: 8px;"><p class="texto-detalle">Pista: Usa <code>año % 4 == 0</code>.</p></div>
-        </article>
-
-        <div style="background: linear-gradient(90deg, #ef4444, #f59e0b); padding: 2px; border-radius: 15px; margin-top: 40px;">
-            <div style="background: #000; padding: 20px; border-radius: 13px; text-align: center;">
-                <p style="margin: 0; color: #ffffff; font-weight: bold;">⚠️ ENTREGA: Lunes en sesión presencial.</p>
+            <span class="nivel-tag" style="background: #ef4444; color: #fff;">Nivel: Avanzado</span>
+            <div class="titulo-reto" style="color: var(--secondary);">5. Determinador de Año Bisiesto</div>
+            
+            <div class="seccion-interna">
+                <span class="subtitulo-interno">Análisis Lógico</span>
+                <p class="texto-detalle">Un año es bisiesto si es divisible por 4. Los años divisibles por 100 no lo son, a menos que también sean divisibles por 400.</p>
             </div>
-        </div>
 
+            <div class="seccion-interna">
+                <span class="subtitulo-interno">Pista Técnica</span>
+                <p class="texto-detalle" style="background: #000; padding: 10px; border-radius: 8px;">
+                    Usa la operación <b>MOD</b> para verificar la divisibilidad. Ejemplo: <code>año % 4 == 0</code>.
+                </p>
+            </div>
+        </article>
     </div>
+
+    <div style="background: linear-gradient(90deg, #ef4444, #f59e0b); padding: 2px; border-radius: 15px; margin-top: 40px;">
+        <div style="background: #000; padding: 20px; border-radius: 13px; text-align: center;">
+            <p style="margin: 0; color: #ffffff; font-weight: bold; font-family: 'Outfit', sans-serif;">
+                ⚠️ ENTREGA: Guarda tus archivos .fprg y súbelos a la plataforma el día lunes.
+            </p>
+        </div>
+    </div>
+</section>                
 
 </body>
 </html>
