@@ -159,104 +159,135 @@
 <body>
 
     <div class="main-container">
-    <header class="hero" style="background: linear-gradient(135deg, #0f172a 0%, #22d3ee 100%);">
-        <div style="text-transform: uppercase; font-weight: 700; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 10px; color: #ffffff;">
-            Ciencia de Datos | Programación I
-        </div>
-        <h1 style="font-family: 'Outfit', sans-serif !important; color: #ffffff;">Sesión 05</h1>
-        <p style="font-family: 'Outfit', sans-serif !important; color: #ffffff;">Funciones e Intérpretes: Transformación de Datos</p>
-    </header>
+        
+        <header class="hero">
+            <div style="text-transform: uppercase; font-weight: 700; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 10px; color: #ffffff;">
+                Ciencia de Datos | Programación I
+            </div>
+            <h1>Sesión 05</h1>
+            <p>Funciones e Intérpretes: Transformación de Datos</p>
+        </header>
 
-    <div class="objetivo-box">
-        <span style="color: var(--accent); font-weight: 900; text-transform: uppercase; display: block; margin-bottom: 5px; font-family: 'Outfit', sans-serif !important;">
-            El Propósito de Hoy:
-        </span> 
-        <p style="font-family: 'Outfit', sans-serif !important; margin: 0; font-size: 1.2rem;">
-            Antes de construir algoritmos que tomen decisiones o repitan pasos, es fundamental aprender a <b>transformar el dato</b>. El objetivo de hoy es dominar el uso de <b>funciones básicas de programación</b> (matemáticas, de cadena y de conversión) para manipular información de manera precisa dentro de los diagramas de flujo.
-        </p>
-    </div>
-</div>
-
-        <section class="info-card">
-    <p style="font-family: 'Outfit', sans-serif; color: white; font-size: 1.15rem; margin-bottom: 30px;">
-        Para aprender a programar "bien" (y no solo a completar ejercicios), lo más importante no es memorizar comandos, sino entender cómo fluyen los datos y cómo puedes manipularlos.
-        Aquí tienes los conceptos y funciones esenciales que transforman a un principiante en un programador con bases sólidas, explicados desde la lógica de <b>Flowgorithm</b>:
-    </p>
-
-    <h2 class="section-title">1. El manejo de Cadenas (Strings)</h2>
-    <p style="font-family: 'Outfit', sans-serif; color: white;">
-        Cuando trabajas con texto, no solo te interesa lo que dice, sino su estructura.
-    </p>
-
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-        <div style="background: rgba(34, 211, 238, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--primary);">
-            <code style="font-size: 1.2rem;">Len(s)</code>
-            <p style="color: var(--text-dim); margin-top: 10px;">
-                <b>Longitud:</b> Devuelve cuántos caracteres tiene una cadena. Es vital para validaciones (ej. "¿Tiene esta contraseña más de 8 caracteres?").
+        <div class="objetivo-box">
+            <span style="color: var(--accent); font-weight: 900; text-transform: uppercase; display: block; margin-bottom: 5px;">El Propósito de Hoy:</span> 
+            <p style="margin: 0; font-size: 1.2rem;">
+                Antes de construir algoritmos que tomen decisiones o repitan pasos, es fundamental aprender a <b>transformar el dato</b>. El objetivo de hoy es dominar el uso de <b>funciones básicas de programación</b> (matemáticas, de cadena y de conversión) para manipular información de manera precisa.
             </p>
         </div>
-        <div style="background: rgba(244, 113, 181, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--accent);">
-            <code style="font-size: 1.2rem;">Char(s, i)</code>
-            <p style="color: var(--text-dim); margin-top: 10px;">
-                <b>Carácter:</b> Te permite obtener una letra específica en la posición <i>i</i>. Recuerda que en programación solemos empezar a contar desde <b>0</b>.
+
+                <section class="info-card">
+            <p style="font-family: 'Outfit', sans-serif; color: white; font-size: 1.15rem; margin-bottom: 30px;">
+                Para aprender a programar "bien" (y no solo a completar ejercicios), lo más importante no es memorizar comandos, sino entender cómo fluyen los datos y cómo puedes manipularlos.
+                Aquí tienes los conceptos y funciones esenciales que transforman a un principiante en un programador con bases sólidas, explicados desde la lógica de <b>Flowgorithm</b>:
             </p>
-        </div>
-    </div>
-
-    <div style="margin-top: 30px; background: #000; padding: 20px; border-radius: 12px; border-left: 5px solid var(--warning);">
-        <p style="margin: 0; color: white;"><b>Ejemplo rápido:</b> Si <code>palabra = "Hola"</code>, entonces <code>Char(palabra, 0)</code> es <b>"H"</b>.</p>
-    </div>
-</section>
-
-<section class="info-card" style="border: 2px solid var(--primary);">
-    <h2 class="section-title" style="color: var(--primary);">🚀 Ejemplos para practicar en Flowgorithm</h2>
-    <p style="color: white;">Sigue estas instrucciones para probar la manipulación de datos en vivo:</p>
-    
-    <div style="margin-bottom: 25px;">
-        <h3 style="color: var(--accent); font-family: 'Outfit', sans-serif;">Ejemplo A: Validador de Longitud de Usuario</h3>
-        <p style="color: var(--text-dim);">Este algoritmo verifica si un nombre de usuario es apto para una base de datos (mínimo 5 caracteres).</p>
-        <div style="background: #0b1120; padding: 15px; border-radius: 10px; font-family: monospace;">
-            1. <b>Declarar:</b> <code style="color: #818cf8;">usuario</code> (String), <code style="color: #818cf8;">largo</code> (Integer)<br>
-            2. <b>Entrada:</b> Leer <code style="color: var(--primary);">usuario</code><br>
-            3. <b>Asignación:</b> <code style="color: var(--primary);">largo = Len(usuario)</code><br>
-            4. <b>Salida:</b> "Tu usuario tiene " & <code style="color: var(--primary);">largo</code> & " letras."
-        </div>
-    </div>
-
-    <div>
-        <h3 style="color: var(--accent); font-family: 'Outfit', sans-serif;">Ejemplo B: Extractor de Inicial</h3>
-        <p style="color: var(--text-dim);">Un proceso común en Ciencia de Datos para categorizar registros por su primera letra.</p>
-        <div style="background: #0b1120; padding: 15px; border-radius: 10px; font-family: monospace;">
-            1. <b>Declarar:</b> <code style="color: #818cf8;">ciudad</code> (String), <code style="color: #818cf8;">inicial</code> (String)<br>
-            2. <b>Entrada:</b> Leer <code style="color: var(--primary);">ciudad</code><br>
-            3. <b>Asignación:</b> <code style="color: var(--primary);">inicial = Char(ciudad, 0)</code><br>
-            4. <b>Salida:</b> "La categoría de la ciudad es: " & <code style="color: var(--primary);">inicial</code>
-        </div>
-    </div>
-</section>
-
-        <section class="info-card">
-            <h2 class="section-title">2. Conversión de Tipos (Casting)</h2>
-            <p>Transformar el dato para que las operaciones matemáticas no fallen:</p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                <div style="background: rgba(129, 140, 248, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--secondary);">
-                    <code style="color: var(--secondary);">ToInteger(s)</code>
-                    <p class="texto-detalle">Texto ("123") a número entero.</p>
-                </div>
+        
+            <h2 class="section-title">1. El manejo de Cadenas (Strings)</h2>
+            <p style="font-family: 'Outfit', sans-serif; color: white;">
+                Cuando trabajas con texto, no solo te interesa lo que dice, sino su estructura.
+            </p>
+        
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
                 <div style="background: rgba(34, 211, 238, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--primary);">
-                    <code style="color: var(--primary);">ToReal(s)</code>
-                    <p class="texto-detalle">Texto a número con decimales.</p>
+                    <code style="font-size: 1.2rem;">Len(s)</code>
+                    <p style="color: var(--text-dim); margin-top: 10px;">
+                        <b>Longitud:</b> Devuelve cuántos caracteres tiene una cadena. Es vital para validaciones (ej. "¿Tiene esta contraseña más de 8 caracteres?").
+                    </p>
                 </div>
                 <div style="background: rgba(244, 113, 181, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--accent);">
-                    <code style="color: var(--accent);">ToString(n)</code>
-                    <p class="texto-detalle">Número a texto para mensajes.</p>
+                    <code style="font-size: 1.2rem;">Char(s, i)</code>
+                    <p style="color: var(--text-dim); margin-top: 10px;">
+                        <b>Carácter:</b> Te permite obtener una letra específica en la posición <i>i</i>. Recuerda que en programación solemos empezar a contar desde <b>0</b>.
+                    </p>
                 </div>
             </div>
+        
+            <div style="margin-top: 30px; background: #000; padding: 20px; border-radius: 12px; border-left: 5px solid var(--warning);">
+                <p style="margin: 0; color: white;"><b>Ejemplo rápido:</b> Si <code>palabra = "Hola"</code>, entonces <code>Char(palabra, 0)</code> es <b>"H"</b>.</p>
+            </div>
+        </section>
+        
+        <section class="info-card" style="border: 2px solid var(--primary);">
+            <h2 class="section-title" style="color: var(--primary);">🚀 Ejemplos para practicar en Flowgorithm</h2>
+            <p style="color: white;">Sigue estas instrucciones para probar la manipulación de datos en vivo:</p>
+            
+            <div style="margin-bottom: 25px;">
+                <h3 style="color: var(--accent); font-family: 'Outfit', sans-serif;">Ejemplo A: Validador de Longitud de Usuario</h3>
+                <p style="color: var(--text-dim);">Este algoritmo verifica si un nombre de usuario es apto para una base de datos (mínimo 5 caracteres).</p>
+                <div style="background: #0b1120; padding: 15px; border-radius: 10px; font-family: monospace;">
+                    1. <b>Declarar:</b> <code style="color: #818cf8;">usuario</code> (String), <code style="color: #818cf8;">largo</code> (Integer)<br>
+                    2. <b>Entrada:</b> Leer <code style="color: var(--primary);">usuario</code><br>
+                    3. <b>Asignación:</b> <code style="color: var(--primary);">largo = Len(usuario)</code><br>
+                    4. <b>Salida:</b> "Tu usuario tiene " & <code style="color: var(--primary);">largo</code> & " letras."
+                </div>
+            </div>
+        
+            <div>
+                <h3 style="color: var(--accent); font-family: 'Outfit', sans-serif;">Ejemplo B: Extractor de Inicial</h3>
+                <p style="color: var(--text-dim);">Un proceso común en Ciencia de Datos para categorizar registros por su primera letra.</p>
+                <div style="background: #0b1120; padding: 15px; border-radius: 10px; font-family: monospace;">
+                    1. <b>Declarar:</b> <code style="color: #818cf8;">ciudad</code> (String), <code style="color: #818cf8;">inicial</code> (String)<br>
+                    2. <b>Entrada:</b> Leer <code style="color: var(--primary);">ciudad</code><br>
+                    3. <b>Asignación:</b> <code style="color: var(--primary);">inicial = Char(ciudad, 0)</code><br>
+                    4. <b>Salida:</b> "La categoría de la ciudad es: " & <code style="color: var(--primary);">inicial</code>
+                </div>
+            </div>
+        </section>
 
-            <div class="ejemplo-box" style="border-left-color: var(--secondary);">
-                <h3 class="subtitulo-interno">Ejemplo: Edad desde Texto</h3>
-                <p class="texto-detalle"><code>añoNum = ToInteger(añoTexto)</code><br>
-                <code>edad = 2026 - añoNum</code></p>
+                <section class="info-card">
+            <h2 class="section-title">2. Conversión de Tipos (Casting)</h2>
+            <p style="font-family: 'Outfit', sans-serif; color: white; font-size: 1.1rem;">
+                A veces recibes un número pero el programa lo trata como texto, o viceversa. Para que las operaciones matemáticas no fallen, necesitas <b>"transformar"</b> el dato:
+            </p>
+        
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 25px;">
+                <div style="background: rgba(129, 140, 248, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--secondary);">
+                    <code style="font-size: 1.2rem; color: var(--secondary);">ToInteger(s)</code>
+                    <p style="color: var(--text-dim); margin-top: 10px;">
+                        Convierte un texto (ej. <code style="color:white;">"123"</code>) en un <b>número entero</b> para poder realizar cálculos.
+                    </p>
+                </div>
+                <div style="background: rgba(34, 211, 238, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--primary);">
+                    <code style="font-size: 1.2rem; color: var(--primary);">ToReal(s)</code>
+                    <p style="color: var(--text-dim); margin-top: 10px;">
+                        Convierte una cadena en un <b>número real</b> (con decimales). Ideal para procesar precios o medidas desde archivos de texto.
+                    </p>
+                </div>
+                <div style="background: rgba(244, 113, 181, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--accent);">
+                    <code style="font-size: 1.2rem; color: var(--accent);">ToString(n)</code>
+                    <p style="color: var(--text-dim); margin-top: 10px;">
+                        Convierte un número en <b>texto</b>. Es esencial cuando quieres "pegar" (concatenar) un resultado numérico a un mensaje.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        
+        
+        <section class="info-card" style="border: 2px solid var(--secondary);">
+            <h2 class="section-title" style="color: var(--secondary);">🚀 Ejemplos para practicar en Flowgorithm</h2>
+            <p style="color: white;">Desarrolla estos algoritmos para entender cómo mutan los datos:</p>
+            
+            <div style="margin-bottom: 30px; border-bottom: 1px solid #334155; padding-bottom: 20px;">
+                <h3 style="color: var(--accent); font-family: 'Outfit', sans-serif;">Ejemplo A: El Calculador de Edad (Texto a Número)</h3>
+                <p style="color: var(--text-dim);">Imagina que el año de nacimiento llega como un String. Debemos convertirlo para restar.</p>
+                <div style="background: #0b1120; padding: 15px; border-radius: 10px; font-family: monospace; border-left: 4px solid var(--secondary);">
+                    1. <b>Declarar:</b> <code style="color: #818cf8;">añoTexto</code> (String), <code style="color: #818cf8;">añoNum</code> (Integer), <code style="color: #818cf8;">edad</code> (Integer)<br>
+                    2. <b>Entrada:</b> Leer <code style="color: var(--primary);">añoTexto</code><br>
+                    3. <b>Asignación:</b> <code style="color: var(--primary);">añoNum = ToInteger(añoTexto)</code><br>
+                    4. <b>Cálculo:</b> <code style="color: var(--primary);">edad = 2026 - añoNum</code><br>
+                    5. <b>Salida:</b> "Tu edad es: " & <code style="color: var(--primary);">edad</code>
+                </div>
+            </div>
+        
+            <div>
+                <h3 style="color: var(--accent); font-family: 'Outfit', sans-serif;">Ejemplo B: Formateador de Precios (Número a Texto)</h3>
+                <p style="color: var(--text-dim);">Convierte un valor decimal en parte de un mensaje elegante de salida.</p>
+                <div style="background: #0b1120; padding: 15px; border-radius: 10px; font-family: monospace; border-left: 4px solid var(--accent);">
+                    1. <b>Declarar:</b> <code style="color: #818cf8;">precio</code> (Real), <code style="color: #818cf8;">mensaje</code> (String)<br>
+                    2. <b>Asignación:</b> <code style="color: var(--primary);">precio = 59.99</code><br>
+                    3. <b>Conversión:</b> <code style="color: var(--primary);">mensaje = "El costo final es de $" & ToString(precio)</code><br>
+                    4. <b>Salida:</b> <code style="color: var(--primary);">mensaje</code>
+                </div>
             </div>
         </section>
 
@@ -272,103 +303,319 @@
             </div>
         </section>
 
-        <section class="info-card">
-            <h2 class="section-title">4. División Entera</h2>
-            <div style="background: #0b1120; padding: 25px; border-radius: 20px; border: 1px solid var(--primary); text-align: center;">
-                <span style="font-size: 1.5rem;">$$Dividendo = (Divisor \times Cociente) + Residuo$$</span>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;" class="grid-2-cols">
-                    <div style="padding: 10px; background: rgba(34, 211, 238, 0.1); border-radius: 10px;">
-                        <p style="color: var(--primary); font-weight: bold;">COCIENTE (\)</p>
-                        <code>13 \ 5 = 2</code>
+                <section class="info-card">
+            <h2 class="section-title">4. División Entera: Cociente y Residuo</h2>
+            <p style="font-family: 'Outfit', sans-serif; color: white; font-size: 1.1rem;">
+                En programación, a menudo necesitamos "descomponer" una división para obtener dos resultados distintos: cuántas veces cabe un número en otro (<b>Cociente</b>) y cuánto sobra (<b>Residuo</b>).
+            </p>
+        
+            <div style="background: #0b1120; padding: 25px; border-radius: 20px; border: 1px solid var(--primary); text-align: center; margin: 20px 0;">
+                <p style="color: var(--primary); font-weight: 800; margin-bottom: 10px; font-family: 'Outfit', sans-serif;">La Regla de Oro de la División:</p>
+                <span style="font-size: 1.8rem; color: #ffffff;">$$Dividendo = (Divisor \times Cociente) + Residuo$$</span>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;">
+                    <div style="padding: 15px; background: rgba(34, 211, 238, 0.1); border-radius: 10px; border: 1px solid var(--primary);">
+                        <p style="color: var(--primary); margin: 0; font-weight: bold; text-transform: uppercase;">El Cociente (\)</p>
+                        <p style="color: var(--text-dim); font-size: 0.9rem; margin: 5px 0;">Obtiene la parte entera.</p>
+                        <code style="font-size: 1.2rem;">13 \ 5 = 2</code>
                     </div>
-                    <div style="padding: 10px; background: rgba(245, 158, 11, 0.1); border-radius: 10px;">
-                        <p style="color: var(--warning); font-weight: bold;">RESIDUO (%)</p>
-                        <code>13 % 5 = 3</code>
+                    <div style="padding: 15px; background: rgba(245, 158, 11, 0.1); border-radius: 10px; border: 1px solid var(--warning);">
+                        <p style="color: var(--warning); margin: 0; font-weight: bold; text-transform: uppercase;">El Residuo (%)</p>
+                        <p style="color: var(--text-dim); font-size: 0.9rem; margin: 5px 0;">Obtiene lo que sobra.</p>
+                        <code style="font-size: 1.2rem;">13 % 5 = 3</code>
                     </div>
                 </div>
             </div>
-            <div class="ejemplo-box">
-                <h3 class="subtitulo-interno">Ejemplo: Minutos a Horas</h3>
-                <p class="texto-detalle"><code>horas = totalMin \ 60</code><br>
-                <code>sobraMin = totalMin % 60</code></p>
+        </section>
+        
+        <section class="info-card" style="border: 2px solid var(--primary);">
+            <h2 class="section-title" style="color: var(--primary);">🚀 Ejemplos para practicar en Flowgorithm</h2>
+            <p style="color: white;">Aplica la lógica de descomposición en estos dos algoritmos:</p>
+        
+            <div style="margin-bottom: 30px; border-bottom: 1px solid #334155; padding-bottom: 25px;">
+                <h3 style="color: var(--accent); font-family: 'Outfit', sans-serif;">Ejemplo A: Distribución de Empaque (Cajas)</h3>
+                <p style="color: var(--text-dim);">Un algoritmo que recibe el total de productos y calcula cuántas cajas de 12 unidades se llenan y cuántos productos quedan sueltos.</p>
+                <div style="background: #0b1120; padding: 15px; border-radius: 10px; font-family: monospace; border-left: 4px solid var(--primary);">
+                    1. <b>Declarar:</b> <code style="color: #818cf8;">total, cajas, sobra</code> (Integer)<br>
+                    2. <b>Entrada:</b> Leer <code style="color: var(--primary);">total</code><br>
+                    3. <b>Cálculo Cociente:</b> <code style="color: var(--primary);">cajas = total \ 12</code><br>
+                    4. <b>Cálculo Residuo:</b> <code style="color: var(--primary);">sobra = total % 12</code><br>
+                    5. <b>Salida:</b> "Se llenaron " & <code style="color: var(--primary);">cajas</code> & " cajas y quedaron " & <code style="color: var(--primary);">sobra</code> & " unidades sueltas."
+                </div>
+            </div>
+        
+            <div>
+                <h3 style="color: var(--accent); font-family: 'Outfit', sans-serif;">Ejemplo B: Conversor de Tiempo (Minutos a Horas)</h3>
+                <p style="color: var(--text-dim);">Convierte una cantidad total de minutos en un formato de Horas y Minutos restantes (ej. 130 min -> 2h y 10m).</p>
+                <div style="background: #0b1120; padding: 15px; border-radius: 10px; font-family: monospace; border-left: 4px solid var(--secondary);">
+                    1. <b>Declarar:</b> <code style="color: #818cf8;">minIn, horas, minOut</code> (Integer)<br>
+                    2. <b>Entrada:</b> Leer <code style="color: var(--primary);">minIn</code><br>
+                    3. <b>Asignación:</b> <code style="color: var(--primary);">horas = minIn \ 60</code><br>
+                    4. <b>Asignación:</b> <code style="color: var(--primary);">minOut = minIn % 60</code><br>
+                    5. <b>Salida:</b> <code style="color: var(--primary);">minIn</code> & " minutos son " & <code style="color: var(--primary);">horas</code> & " horas con " & <code style="color: var(--primary);">minOut</code> & " minutos."
+                </div>
             </div>
         </section>
 
-        <section class="info-card">
-            <h2 class="section-title">5. Operadores Lógicos (Pegamento)</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-                <div style="background: #0b1120; padding: 15px; border-radius: 10px; border: 1px solid var(--primary);"><b>AND (&&):</b> Todo debe ser verdad.</div>
-                <div style="background: #0b1120; padding: 15px; border-radius: 10px; border: 1px solid var(--secondary);"><b>OR (||):</b> Al menos uno es verdad.</div>
-                <div style="background: #0b1120; padding: 15px; border-radius: 10px; border: 1px solid var(--accent);"><b>NOT (!):</b> Invierte el valor.</div>
-            </div>
-            <div class="ejemplo-box" style="border-left-color: var(--accent);">
-                <h3 class="subtitulo-interno">Ejemplo: Filtro de Beca</h3>
-                <p class="texto-detalle"><code>promedio >= 4.5 AND estrato <= 2</code></p>
-            </div>
-        </section>
-
-        <section class="info-card">
-            <h2 class="section-title">6. Contador vs Acumulador</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="grid-2-cols">
+                <section class="info-card">
+            <h2 class="section-title">5. Operadores Lógicos (El pegamento de la lógica)</h2>
+            <p style="font-family: 'Outfit', sans-serif; color: white; font-size: 1.1rem;">
+                Muchos fallan aquí al intentar evaluar varias condiciones a la vez. No basta con un simple rombo; hay que saber combinar criterios para que el algoritmo sea realmente inteligente:
+            </p>
+        
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 25px;">
                 <div style="background: rgba(34, 211, 238, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--primary);">
-                    <h3 style="color: var(--primary); margin-top: 0;">🔢 Contador</h3>
-                    <code>i = i + 1</code>
-                    <p class="texto-detalle">Aumenta de 1 en 1 (constante).</p>
+                    <code style="font-size: 1.2rem; color: var(--primary);">AND (&&)</code>
+                    <p style="color: var(--text-dim); margin-top: 10px;">
+                        <b>Conjunción:</b> Solo es verdad si <b>todas</b> las condiciones se cumplen simultáneamente.
+                    </p>
+                </div>
+                <div style="background: rgba(129, 140, 248, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--secondary);">
+                    <code style="font-size: 1.2rem; color: var(--secondary);">OR (||)</code>
+                    <p style="color: var(--text-dim); margin-top: 10px;">
+                        <b>Disyunción:</b> Es verdad si <b>al menos una</b> de las condiciones se cumple.
+                    </p>
                 </div>
                 <div style="background: rgba(244, 113, 181, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--accent);">
-                    <h3 style="color: var(--accent); margin-top: 0;">💰 Acumulador</h3>
-                    <code>suma = suma + valor</code>
-                    <p class="texto-detalle">Suma valores variables (alcancía).</p>
+                    <code style="font-size: 1.2rem; color: var(--accent);">NOT (!)</code>
+                    <p style="color: var(--text-dim); margin-top: 10px;">
+                        <b>Negación:</b> Invierte el valor lógico. Útil para decir: "Haz esto mientras el usuario <b>no</b> presione salir".
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        
+        
+        [Image of truth tables for logical operators AND, OR, and NOT]
+        
+        
+        <section class="info-card" style="border: 2px solid var(--accent);">
+            <h2 class="section-title" style="color: var(--accent);">🚀 Ejemplos para practicar en Flowgorithm</h2>
+            <p style="color: white;">Lleva la lógica al siguiente nivel combinando múltiples condiciones:</p>
+        
+            <div style="margin-bottom: 30px; border-bottom: 1px solid #334155; padding-bottom: 25px;">
+                <h3 style="color: var(--primary); font-family: 'Outfit', sans-serif;">Ejemplo A: Filtro de Becas (Uso del AND)</h3>
+                <p style="color: var(--text-dim);">Un estudiante solo recibe la beca si su promedio es $\geq 4.5$ <b>Y</b> su estrato es $\leq 2$.</p>
+                <div style="background: #0b1120; padding: 15px; border-radius: 10px; font-family: monospace; border-left: 4px solid var(--primary);">
+                    1. <b>Declarar:</b> <code style="color: #818cf8;">promedio</code> (Real), <code style="color: #818cf8;">estrato</code> (Integer)<br>
+                    2. <b>Entrada:</b> Leer <code style="color: var(--primary);">promedio</code>, Leer <code style="color: var(--primary);">estrato</code><br>
+                    3. <b>Decisión:</b> <code style="color: var(--warning);">promedio >= 4.5 AND estrato <= 2</code><br>
+                    4. <b>Salida (SÍ):</b> "Beca Concedida"<br>
+                    5. <b>Salida (NO):</b> "No cumple con todos los requisitos"
+                </div>
+            </div>
+        
+            <div>
+                <h3 style="color: var(--primary); font-family: 'Outfit', sans-serif;">Ejemplo B: Alerta de Sensores (Uso del OR)</h3>
+                <p style="color: var(--text-dim);">Una alarma de laboratorio se activa si la temperatura es $> 30^{\circ}C$ <b>O</b> si la presión es $> 100$ bar.</p>
+                <div style="background: #0b1120; padding: 15px; border-radius: 10px; font-family: monospace; border-left: 4px solid var(--secondary);">
+                    1. <b>Declarar:</b> <code style="color: #818cf8;">temp</code> (Real), <code style="color: #818cf8;">presion</code> (Real)<br>
+                    2. <b>Entrada:</b> Leer <code style="color: var(--primary);">temp, presion</code><br>
+                    3. <b>Decisión:</b> <code style="color: var(--warning);">temp > 30 OR presion > 100</code><br>
+                    4. <b>Salida (SÍ):</b> "¡ALERTA CRÍTICA DETECTADA!"<br>
+                    5. <b>Salida (NO):</b> "Sistema en rangos normales"
                 </div>
             </div>
         </section>
 
-        <section class="info-card">
-            <h2 class="section-title">7. Núcleo Técnico y Redondeo</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="grid-2-cols">
-                <div style="background: #0b1120; padding: 20px; border-radius: 15px;">
-                    <h3 style="color: var(--primary);">Funciones</h3>
-                    <ul class="texto-detalle">
-                        <li><code>Abs(n)</code>: $|x|$</li>
-                        <li><code>Sqrt(n)</code>: $\sqrt{n}$</li>
-                        <li><code>Int(n)</code>: Truncar decimales.</li>
+                <section class="info-card">
+            <h2 class="section-title">6. El concepto de "Acumulador" vs "Contador"</h2>
+            <p style="font-family: 'Outfit', sans-serif; color: white; font-size: 1.1rem;">
+                Entender la diferencia en cómo usas las variables cambiará tu forma de ver los bucles (loops). No es solo asignar un valor, es entender cómo la variable <b>evoluciona</b> en el tiempo:
+            </p>
+        
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 25px;">
+                <div style="background: rgba(34, 211, 238, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--primary);">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <span style="font-size: 1.5rem;">🔢</span>
+                        <h3 style="color: var(--primary); margin: 0; font-family: 'Outfit', sans-serif;">El Contador</h3>
+                    </div>
+                    <p style="color: var(--text-dim); font-size: 0.95rem;">
+                        Funciona como una persona contando gente en una fila. Aumenta (o disminuye) en una <b>cantidad constante</b> (generalmente 1).
+                    </p>
+                    <div style="background: #000; padding: 10px; border-radius: 8px; text-align: center; margin-top: 10px;">
+                        <code style="color: var(--primary); font-size: 1.2rem;">i = i + 1</code>
+                    </div>
+                </div>
+        
+                <div style="background: rgba(244, 113, 181, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--accent);">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <span style="font-size: 1.5rem;">💰</span>
+                        <h3 style="color: var(--accent); margin: 0; font-family: 'Outfit', sans-serif;">El Acumulador</h3>
+                    </div>
+                    <p style="color: var(--text-dim); font-size: 0.95rem;">
+                        Funciona como una alcancía. Va guardando un total sumando <b>valores variables</b> (lo que el usuario ingrese).
+                    </p>
+                    <div style="background: #000; padding: 10px; border-radius: 8px; text-align: center; margin-top: 10px;">
+                        <code style="color: var(--accent); font-size: 1.2rem;">suma = suma + valor</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        
+        <section class="info-card" style="border: 2px solid var(--primary);">
+            <h2 class="section-title" style="color: var(--primary);">🚀 Ejemplos para practicar en Flowgorithm</h2>
+            <p style="color: white;">Prueba estos dos esquemas lógicos para ver la diferencia en acción:</p>
+        
+            <div style="margin-bottom: 30px; border-bottom: 1px solid #334155; padding-bottom: 25px;">
+                <h3 style="color: var(--secondary); font-family: 'Outfit', sans-serif;">Ejemplo A: Contador de Intentos</h3>
+                <p style="color: var(--text-dim);">Simula un sistema que registra cuántas veces se ha intentado una acción.</p>
+                <div style="background: #0b1120; padding: 15px; border-radius: 10px; font-family: monospace; border-left: 4px solid var(--primary);">
+                    1. <b>Declarar:</b> <code style="color: #818cf8;">intentos</code> (Integer)<br>
+                    2. <b>Asignación (Inicializar):</b> <code style="color: var(--primary);">intentos = 0</code><br>
+                    3. <b>Asignación (Incremento):</b> <code style="color: var(--primary);">intentos = intentos + 1</code><br>
+                    4. <b>Asignación (Incremento):</b> <code style="color: var(--primary);">intentos = intentos + 1</code><br>
+                    5. <b>Salida:</b> "Se han realizado " & <code style="color: var(--primary);">intentos</code> & " intentos."
+                </div>
+            </div>
+        
+            <div>
+                <h3 style="color: var(--secondary); font-family: 'Outfit', sans-serif;">Ejemplo B: Acumulador de Puntos</h3>
+                <p style="color: var(--text-dim);">Un sistema que suma puntajes variables obtenidos en diferentes niveles.</p>
+                <div style="background: #0b1120; padding: 15px; border-radius: 10px; font-family: monospace; border-left: 4px solid var(--accent);">
+                    1. <b>Declarar:</b> <code style="color: #818cf8;">totalPuntos, nuevoPuntaje</code> (Integer)<br>
+                    2. <b>Asignación (Inicializar):</b> <code style="color: var(--primary);">totalPuntos = 0</code><br>
+                    3. <b>Entrada:</b> Leer <code style="color: var(--primary);">nuevoPuntaje</code><br>
+                    4. <b>Asignación (Acumular):</b> <code style="color: var(--primary);">totalPuntos = totalPuntos + nuevoPuntaje</code><br>
+                    5. <b>Salida:</b> "Tu puntaje acumulado es de: " & <code style="color: var(--primary);">totalPuntos</code>
+                </div>
+            </div>
+        </section>
+
+                <section class="info-card">
+            <h2 class="section-title">7. El Núcleo Técnico: Constantes y Funciones</h2>
+            <p style="font-family: 'Outfit', sans-serif; color: white; font-size: 1.1rem;">
+                Flowgorithm ya tiene herramientas predefinidas que te ahorrarán tiempo. Son imprescindibles para el análisis de datos:
+            </p>
+        
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                <div style="background: rgba(129, 140, 248, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--secondary);">
+                    <h3 style="color: var(--secondary); margin-top: 0;">Constantes del Sistema</h3>
+                    <ul style="color: var(--text-dim); padding-left: 20px;">
+                        <li><b>PI:</b> $3.14159...$</li>
+                        <li><b>Euler:</b> $2.71828...$</li>
+                        <li><b>True / False:</b> Valores booleanos puros.</li>
+                    </ul>
+                </div>
+                
+                <div style="background: rgba(34, 211, 238, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--primary);">
+                    <h3 style="color: var(--primary); margin-top: 0;">Transformación</h3>
+                    <ul style="color: var(--text-dim); padding-left: 20px; font-size: 0.95rem;">
+                        <li><code>Abs(n)</code>: Valor absoluto $|x|$.</li>
+                        <li><code>Sqrt(n)</code>: Raíz cuadrada $\sqrt{n}$.</li>
+                        <li><code>Int(n)</code>: Trunca decimales (corta el número).</li>
                         <li><code>Random(n)</code>: Aleatorio entre $0$ y $n-1$.</li>
                     </ul>
                 </div>
-                <div style="background: rgba(244, 113, 181, 0.1); padding: 20px; border-radius: 15px; border: 1px solid var(--accent);">
-                    <h3 style="color: var(--accent);">🎯 Truco: Redondeo</h3>
-                    <p class="texto-detalle">Para 2 decimales:</p>
-                    <code>Int(n * 100 + 0.5) / 100.0</code>
+            </div>
+        
+            <div style="margin-top: 25px; background: rgba(244, 113, 181, 0.1); border: 1px solid var(--accent); padding: 20px; border-radius: 15px;">
+                <h3 style="color: var(--accent); margin-top: 0; font-family: 'Outfit', sans-serif;">🎯 El Arte de Redondear</h3>
+                <p style="color: white; font-size: 0.95rem;">
+                    En Flowgorithm, para redondear usamos la lógica: <b>Multiplicar → Sumar 0.5 → Truncar → Dividir</b>.
+                </p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
+                    <div style="background: #000; padding: 10px; border-radius: 8px;">
+                        <p style="color: var(--primary); font-weight: bold; margin: 0;">Para 1 decimal:</p>
+                        <code style="font-size: 0.9rem;">Int(n * 10 + 0.5) / 10.0</code>
+                    </div>
+                    <div style="background: #000; padding: 10px; border-radius: 8px;">
+                        <p style="color: var(--primary); font-weight: bold; margin: 0;">Para 2 decimales:</p>
+                        <code style="font-size: 0.9rem;">Int(n * 100 + 0.5) / 100.0</code>
+                    </div>
                 </div>
             </div>
-
+        </section>
+        
+        
+        
+        <section class="info-card">
             <h2 class="section-title">8. Operadores Relacionales</h2>
-            <table>
+            <p style="font-family: 'Outfit', sans-serif; color: white;">
+                [cite_start]Para clasificar perfiles (como en tu tesis doctoral [cite: 1]) o evaluar rangos, necesitas dominar las comparaciones:
+            </p>
+            
+            <table style="width: 100%; border-collapse: collapse; margin-top: 20px; font-family: 'Outfit', sans-serif; color: white; background: #0b1120; border-radius: 15px; overflow: hidden;">
                 <thead>
-                    <tr><th>Operador</th><th>Significado</th><th>Ejemplo</th></tr>
+                    <tr style="background: var(--primary); color: #000; text-align: left;">
+                        <th style="padding: 15px;">Operador</th>
+                        <th style="padding: 15px;">Significado</th>
+                        <th style="padding: 15px;">Ejemplo</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td><code>==</code></td><td>Igual a</td><td><code>x == 10</code></td></tr>
-                    <tr><td><code>!=</code></td><td>Diferente de</td><td><code>usu != "admin"</code></td></tr>
-                    <tr><td><code>&gt; / &lt;</code></td><td>Mayor / Menor</td><td><code>nota < 3.0</code></td></tr>
-                    <tr><td><code>&gt;=</code></td><td>Mayor o igual</td><td><code>edad >= 18</code></td></tr>
+                    <tr style="border-bottom: 1px solid #1e293b;">
+                        <td style="padding: 15px;"><code>==</code> o <code>=</code></td>
+                        <td style="padding: 15px;">Igual a</td>
+                        <td style="padding: 15px;"><code>x = 10</code></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #1e293b;">
+                        <td style="padding: 15px;"><code>!=</code> o <code><></code></td>
+                        <td style="padding: 15px;">Diferente de</td>
+                        <td style="padding: 15px;"><code>usuario != "admin"</code></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #1e293b;">
+                        <td style="padding: 15px;"><code>></code> / <code><</code></td>
+                        <td style="padding: 15px;">Mayor / Menor que</td>
+                        <td style="padding: 15px;"><code>nota < 3.0</code></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 15px;"><code>>=</code> / <code><=</code></td>
+                        <td style="padding: 15px;">Mayor o igual / Menor o igual</td>
+                        <td style="padding: 15px;"><code>edad >= 18</code></td>
+                    </tr>
                 </tbody>
             </table>
         </section>
-
-        <section class="info-card" style="border: 2px solid var(--secondary); text-align: center;">
-            <h2 class="section-title" style="border: none; margin-top: 0;">📚 Material de Trabajo</h2>
-            <p>Descarga el taller oficial para aplicar estos conceptos en clase.</p>
-            <a href="Taller_1_Diagramas_de_flujo_y_condicionales.pdf" download class="btn-download">
-                📥 Descargar Taller 1
-            </a>
+        
+        <section class="info-card" style="border: 2px solid var(--accent);">
+            <h2 class="section-title" style="color: var(--accent);">🚀 Ejemplos para practicar en Flowgorithm</h2>
+            
+            <div style="margin-bottom: 30px; border-bottom: 1px solid #334155; padding-bottom: 25px;">
+                <h3 style="color: var(--primary); font-family: 'Outfit', sans-serif;">Ejemplo A: Formateador de Promedios</h3>
+                <p style="color: var(--text-dim);">Toma una nota con muchos decimales y redondéala a dos cifras para el boletín final.</p>
+                <div style="background: #0b1120; padding: 15px; border-radius: 10px; font-family: monospace; border-left: 4px solid var(--primary);">
+                    1. <b>Declarar:</b> <code style="color: #818cf8;">notaSucia, notaFinal</code> (Real)<br>
+                    2. <b>Entrada:</b> <code style="color: var(--primary);">notaSucia = 4.357892</code><br>
+                    3. <b>Redondeo:</b> <code style="color: var(--primary);">notaFinal = Int(notaSucia * 100 + 0.5) / 100.0</code><br>
+                    4. <b>Salida:</b> "Su nota definitiva es: " & <code style="color: var(--primary);">notaFinal</code>
+                </div>
+            </div>
+        
+            <div>
+                <h3 style="color: var(--primary); font-family: 'Outfit', sans-serif;">Ejemplo B: Validador de Mayoría de Edad</h3>
+                <p style="color: var(--text-dim);">Compara la edad ingresada con la constante de mayoría de edad.</p>
+                <div style="background: #0b1120; padding: 15px; border-radius: 10px; font-family: monospace; border-left: 4px solid var(--secondary);">
+                    1. <b>Declarar:</b> <code style="color: #818cf8;">edad</code> (Integer)<br>
+                    2. <b>Entrada:</b> Leer <code style="color: var(--primary);">edad</code><br>
+                    3. <b>Decisión:</b> ¿ <code>edad >= 18</code> ?<br>
+                    4. <b>Salida (Verdadero):</b> "Acceso permitido"<br>
+                    5. <b>Salida (Falso):</b> "Acceso denegado"
+                </div>
+            </div>
         </section>
 
-        <footer style="text-align: center; margin-top: 50px; padding: 20px; color: var(--text-dim); border-top: 1px solid #334155;">
-            <p>Programación I - Universidad Externado de Colombia</p>
-        </footer>
-
-    </div>
+                <section class="info-card" style="border: 2px solid var(--secondary); background: rgba(129, 140, 248, 0.05);">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h2 class="section-title" style="color: var(--secondary); margin-top: 0; border: none;">📚 Taller de Práctica</h2>
+                    <p style="color: white; font-family: 'Outfit', sans-serif;">
+                        Descarga el <b>Taller 1: Diagramas de flujo y condicionales</b>. Este documento contiene los ejercicios base sobre lógica, conversiones y operaciones matemáticas que trabajaremos en la sesión.
+                    </p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <a href="Taller_1_Diagramas_de_flujo_y_condicionales.pdf" download style="text-decoration: none;">
+                        <div style="background: var(--secondary); color: #000; padding: 20px 40px; border-radius: 50px; font-family: 'Outfit', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; box-shadow: 0 0 20px rgba(129, 140, 248, 0.4);">
+                            📥 Descargar Taller 1
+                        </div>
+                    </a>
+                    <p style="color: var(--text-dim); font-size: 0.8rem; margin-top: 10px; font-style: italic;">Formato: PDF | Fuente: U. Externado</p>
+                </div>
+            </div>
+        </section>
 
 </body>
 </html>
