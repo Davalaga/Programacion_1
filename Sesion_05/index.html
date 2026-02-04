@@ -11,14 +11,15 @@
         :root { 
             --bg: #0f172a; 
             --card-bg: #1e293b; 
-            --primary: #22d3ee; 
-            --secondary: #818cf8; 
-            --accent: #f471b5; 
+            --primary: #22d3ee; /* Cian */
+            --secondary: #818cf8; /* Indigo */
+            --accent: #f471b5; /* Rosa */
             --text: #ffffff;    
             --text-dim: #cbd5e1; 
             --warning: #f59e0b; 
         }
 
+        /* Configuración Global */
         body { 
             margin: 0; 
             padding: 0; 
@@ -28,8 +29,13 @@
             line-height: 1.6;
         }
 
-        .main-container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        .main-container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+        }
 
+        /* Hero Section */
         .hero { 
             text-align: center; 
             padding: 60px 30px; 
@@ -39,9 +45,16 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.4);
         }
         
-        .hero h1 { font-size: 3.5rem; margin: 0; text-transform: uppercase; font-weight: 900; color: white; }
-        .hero p { font-size: 1.3rem; opacity: 0.95; font-weight: 400; margin-top: 10px; }
+        .hero h1 { 
+            font-size: 3.5rem; 
+            margin: 0; 
+            text-transform: uppercase; 
+            font-weight: 900; 
+            color: white;
+            letter-spacing: -1px;
+        }
 
+        /* Caja de Objetivo/Propósito */
         .objetivo-box { 
             background: rgba(244, 113, 181, 0.1); 
             border-left: 8px solid var(--accent); 
@@ -50,6 +63,7 @@
             margin-bottom: 40px;
         }
 
+        /* Títulos y Tarjetas */
         .section-title { 
             color: var(--primary); 
             font-size: 2.2rem; 
@@ -66,49 +80,76 @@
             border-radius: 24px; 
             border: 1px solid #334155; 
             margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
-        .svg-font { font-family: 'Outfit', sans-serif !important; }
-
-        .proyecto-card-pro {
-            background: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 20px;
-            padding: 35px;
-            margin-bottom: 30px;
-            transition: 0.3s;
-            border-left: 10px solid var(--primary);
+        /* Estilos de los Ejemplos */
+        .ejemplo-box {
+            background: #0b1120;
+            padding: 20px;
+            border-radius: 12px;
+            font-family: 'Courier New', Courier, monospace;
+            border-left: 5px solid var(--primary);
+            margin-top: 15px;
         }
 
-        .nivel-tag {
-            font-size: 0.8rem;
-            font-weight: 900;
-            padding: 5px 15px;
-            border-radius: 50px;
-            text-transform: uppercase;
-            float: right;
+        .subtitulo-interno { 
+            color: var(--accent); 
+            font-weight: 800; 
+            font-size: 1.1rem; 
+            text-transform: uppercase; 
+            display: block; 
+            margin-bottom: 8px; 
         }
 
-        .subtitulo-interno { color: var(--accent); font-weight: 800; font-size: 1.1rem; text-transform: uppercase; display: block; margin-bottom: 8px; }
         .texto-detalle { color: var(--text-dim); font-size: 1.05rem; }
-        
+
         code {
             background: #000000;
             color: var(--primary);
             padding: 3px 8px;
             border-radius: 6px;
-            font-family: 'Courier New', monospace;
+            font-weight: bold;
         }
 
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #0b1120; border-radius: 15px; overflow: hidden; }
+        /* Tablas */
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 20px; 
+            background: #0b1120; 
+            border-radius: 15px; 
+            overflow: hidden; 
+        }
         th { background: var(--primary); color: #000; padding: 15px; text-align: left; }
-        td { padding: 15px; border-bottom: 1px solid #1e293b; }
+        td { padding: 15px; border-bottom: 1px solid #1e293b; color: white; }
+
+        /* Botón de Descarga */
+        .btn-download {
+            display: inline-block;
+            background: var(--secondary);
+            color: #000;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 0 20px rgba(129, 140, 248, 0.4);
+        }
+        .btn-download:hover { transform: scale(1.05); background: var(--primary); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .grid-2-cols { grid-template-columns: 1fr !important; }
+        }
     </style>
     
     <script>
         window.MathJax = {
           tex: {
-            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']]
           }
         };
     </script>
@@ -118,6 +159,174 @@
 <body>
 
     <div class="main-container">
+        
+        <header class="hero">
+            <div style="text-transform: uppercase; font-weight: 700; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 10px; color: #ffffff;">
+                Ciencia de Datos | Programación I
+            </div>
+            <h1>Sesión 05</h1>
+            <p>Funciones e Intérpretes: Transformación de Datos</p>
+        </header>
+
+        <div class="objetivo-box">
+            <span style="color: var(--accent); font-weight: 900; text-transform: uppercase; display: block; margin-bottom: 5px;">El Propósito de Hoy:</span> 
+            <p style="margin: 0; font-size: 1.2rem;">
+                Antes de construir algoritmos que tomen decisiones o repitan pasos, es fundamental aprender a <b>transformar el dato</b>. El objetivo de hoy es dominar el uso de <b>funciones básicas de programación</b> (matemáticas, de cadena y de conversión) para manipular información de manera precisa.
+            </p>
+        </div>
+
+        <section class="info-card">
+            <p style="font-size: 1.15rem; margin-bottom: 30px;">
+                Para aprender a programar "bien", lo más importante es entender cómo fluyen los datos y cómo puedes manipularlos. Aquí tienes las funciones esenciales de <b>Flowgorithm</b>:
+            </p>
+
+            <h2 class="section-title">1. El manejo de Cadenas (Strings)</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="grid-2-cols">
+                <div style="background: rgba(34, 211, 238, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--primary);">
+                    <code>Len(s)</code>
+                    <p class="texto-detalle"><b>Longitud:</b> Devuelve cuántos caracteres tiene una cadena. Vital para validaciones.</p>
+                </div>
+                <div style="background: rgba(244, 113, 181, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--accent);">
+                    <code>Char(s, i)</code>
+                    <p class="texto-detalle"><b>Carácter:</b> Obtiene una letra específica en la posición <i>i</i> (empezando desde 0).</p>
+                </div>
+            </div>
+
+            <div class="ejemplo-box" style="border-left-color: var(--warning); margin-top: 30px;">
+                <h3 class="subtitulo-interno" style="color: var(--warning);">Ejemplo A: Extractor de Inicial</h3>
+                <p class="texto-detalle">1. <b>Declarar:</b> <code>ciudad, inicial</code> (String)<br>
+                2. <b>Asignación:</b> <code>inicial = Char(ciudad, 0)</code></p>
+            </div>
+        </section>
+
+        <section class="info-card">
+            <h2 class="section-title">2. Conversión de Tipos (Casting)</h2>
+            <p>Transformar el dato para que las operaciones matemáticas no fallen:</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div style="background: rgba(129, 140, 248, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--secondary);">
+                    <code style="color: var(--secondary);">ToInteger(s)</code>
+                    <p class="texto-detalle">Texto ("123") a número entero.</p>
+                </div>
+                <div style="background: rgba(34, 211, 238, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--primary);">
+                    <code style="color: var(--primary);">ToReal(s)</code>
+                    <p class="texto-detalle">Texto a número con decimales.</p>
+                </div>
+                <div style="background: rgba(244, 113, 181, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--accent);">
+                    <code style="color: var(--accent);">ToString(n)</code>
+                    <p class="texto-detalle">Número a texto para mensajes.</p>
+                </div>
+            </div>
+
+            <div class="ejemplo-box" style="border-left-color: var(--secondary);">
+                <h3 class="subtitulo-interno">Ejemplo: Edad desde Texto</h3>
+                <p class="texto-detalle"><code>añoNum = ToInteger(añoTexto)</code><br>
+                <code>edad = 2026 - añoNum</code></p>
+            </div>
+        </section>
+
+        <section class="info-card">
+            <h2 class="section-title">3. El Operador Módulo (MOD)</h2>
+            <div style="background: #0b1120; padding: 25px; border-radius: 20px; border: 1px solid var(--warning); text-align: center;">
+                <span style="font-size: 2rem;">$$A \pmod B = R$$</span>
+                <p>En Flowgorithm: <code>n MOD 2</code> | En Python: <code>n % 2</code></p>
+            </div>
+            <div class="ejemplo-box" style="border-left-color: var(--warning);">
+                <h3 class="subtitulo-interno" style="color: var(--warning);">Ejemplo: Par o Impar</h3>
+                <p class="texto-detalle">Si <code>n % 2 == 0</code> el número es <b>PAR</b>.</p>
+            </div>
+        </section>
+
+        <section class="info-card">
+            <h2 class="section-title">4. División Entera</h2>
+            <div style="background: #0b1120; padding: 25px; border-radius: 20px; border: 1px solid var(--primary); text-align: center;">
+                <span style="font-size: 1.5rem;">$$Dividendo = (Divisor \times Cociente) + Residuo$$</span>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;" class="grid-2-cols">
+                    <div style="padding: 10px; background: rgba(34, 211, 238, 0.1); border-radius: 10px;">
+                        <p style="color: var(--primary); font-weight: bold;">COCIENTE (\)</p>
+                        <code>13 \ 5 = 2</code>
+                    </div>
+                    <div style="padding: 10px; background: rgba(245, 158, 11, 0.1); border-radius: 10px;">
+                        <p style="color: var(--warning); font-weight: bold;">RESIDUO (%)</p>
+                        <code>13 % 5 = 3</code>
+                    </div>
+                </div>
+            </div>
+            <div class="ejemplo-box">
+                <h3 class="subtitulo-interno">Ejemplo: Minutos a Horas</h3>
+                <p class="texto-detalle"><code>horas = totalMin \ 60</code><br>
+                <code>sobraMin = totalMin % 60</code></p>
+            </div>
+        </section>
+
+        <section class="info-card">
+            <h2 class="section-title">5. Operadores Lógicos (Pegamento)</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                <div style="background: #0b1120; padding: 15px; border-radius: 10px; border: 1px solid var(--primary);"><b>AND (&&):</b> Todo debe ser verdad.</div>
+                <div style="background: #0b1120; padding: 15px; border-radius: 10px; border: 1px solid var(--secondary);"><b>OR (||):</b> Al menos uno es verdad.</div>
+                <div style="background: #0b1120; padding: 15px; border-radius: 10px; border: 1px solid var(--accent);"><b>NOT (!):</b> Invierte el valor.</div>
+            </div>
+            <div class="ejemplo-box" style="border-left-color: var(--accent);">
+                <h3 class="subtitulo-interno">Ejemplo: Filtro de Beca</h3>
+                <p class="texto-detalle"><code>promedio >= 4.5 AND estrato <= 2</code></p>
+            </div>
+        </section>
+
+        <section class="info-card">
+            <h2 class="section-title">6. Contador vs Acumulador</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="grid-2-cols">
+                <div style="background: rgba(34, 211, 238, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--primary);">
+                    <h3 style="color: var(--primary); margin-top: 0;">🔢 Contador</h3>
+                    <code>i = i + 1</code>
+                    <p class="texto-detalle">Aumenta de 1 en 1 (constante).</p>
+                </div>
+                <div style="background: rgba(244, 113, 181, 0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--accent);">
+                    <h3 style="color: var(--accent); margin-top: 0;">💰 Acumulador</h3>
+                    <code>suma = suma + valor</code>
+                    <p class="texto-detalle">Suma valores variables (alcancía).</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-card">
+            <h2 class="section-title">7. Núcleo Técnico y Redondeo</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="grid-2-cols">
+                <div style="background: #0b1120; padding: 20px; border-radius: 15px;">
+                    <h3 style="color: var(--primary);">Funciones</h3>
+                    <ul class="texto-detalle">
+                        <li><code>Abs(n)</code>: $|x|$</li>
+                        <li><code>Sqrt(n)</code>: $\sqrt{n}$</li>
+                        <li><code>Int(n)</code>: Truncar decimales.</li>
+                        <li><code>Random(n)</code>: Aleatorio entre $0$ y $n-1$.</li>
+                    </ul>
+                </div>
+                <div style="background: rgba(244, 113, 181, 0.1); padding: 20px; border-radius: 15px; border: 1px solid var(--accent);">
+                    <h3 style="color: var(--accent);">🎯 Truco: Redondeo</h3>
+                    <p class="texto-detalle">Para 2 decimales:</p>
+                    <code>Int(n * 100 + 0.5) / 100.0</code>
+                </div>
+            </div>
+
+            <h2 class="section-title">8. Operadores Relacionales</h2>
+            <table>
+                <thead>
+                    <tr><th>Operador</th><th>Significado</th><th>Ejemplo</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>==</code></td><td>Igual a</td><td><code>x == 10</code></td></tr>
+                    <tr><td><code>!=</code></td><td>Diferente de</td><td><code>usu != "admin"</code></td></tr>
+                    <tr><td><code>&gt; / &lt;</code></td><td>Mayor / Menor</td><td><code>nota < 3.0</code></td></tr>
+                    <tr><td><code>&gt;=</code></td><td>Mayor o igual</td><td><code>edad >= 18</code></td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="info-card" style="border: 2px solid var(--secondary); text-align: center;">
+            <h2 class="section-title" style="border: none; margin-top: 0;">📚 Material de Trabajo</h2>
+            <p>Descarga el taller oficial para aplicar estos conceptos en clase.</p>
+            <a href="Taller_1_Diagramas_de_flujo_y_condicionales.pdf" download class="btn-download">
+                📥 Descargar Taller 1
+            </a>
+        </section>
 
         <footer style="text-align: center; margin-top: 50px; padding: 20px; color: var(--text-dim); border-top: 1px solid #334155;">
             <p>Programación I - Universidad Externado de Colombia</p>
