@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Hacer"/>
+        <attribute name="authors" value="diani"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-02-05 05:55:35 p.&#160;m."/>
+        <attribute name="created" value="ZGlhbmk7REFWQUxBR0E7MjAyNi0wMi0wNTswNTo0NDowMiBwLsKgbS47MjY3MA=="/>
+        <attribute name="edited" value="ZGlhbmk7REFWQUxBR0E7MjAyNi0wMi0wNTswNTo1NTozNSBwLsKgbS47MTsyNzg2"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n1, n2, resultado" type="Real" array="False" size=""/>
+            <declare name="opcion, continuar" type="Integer" array="False" size=""/>
+            <do expression="continuar ==1">
+                <output expression="&quot;Ingrese el primer n&#250;mero:&quot;" newline="True"/>
+                <input variable="n1"/>
+                <output expression="&quot;Ingrese el segundo n&#250;mero:&quot;" newline="True"/>
+                <input variable="n2"/>
+                <output expression="&quot;Elija operaci&#243;n: 1.Suma, 2.Resta&quot;" newline="True"/>
+                <input variable="opcion"/>
+                <if expression="opcion==1">
+                    <then>
+                        <output expression="&quot;la suma tiene como resultado. &quot; &amp; n1+n2" newline="True"/>
+                    </then>
+                    <else>
+                        <output expression="&quot;la resta tiene como resultado. &quot; &amp; n1-n2" newline="True"/>
+                    </else>
+                </if>
+                <output expression="&quot;&#191;Desea realizar otra operaci&#243;n? (1 para S&#237;, 0 para No)&quot;" newline="True"/>
+                <input variable="continuar"/>
+            </do>
+            <output expression="&quot;Hemos terminado nuestro trabajo&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

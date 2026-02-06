@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="mujer_hombre"/>
+        <attribute name="authors" value="diani"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-02-05 05:39:32 p.&#160;m."/>
+        <attribute name="created" value="ZGlhbmk7REFWQUxBR0E7MjAyNi0wMi0wNTswNToxNjoyMiBwLsKgbS47MjY3MQ=="/>
+        <attribute name="edited" value="ZGlhbmk7REFWQUxBR0E7MjAyNi0wMi0wNTswNTozOTozMiBwLsKgbS47MTsyNzg1"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="nombre" type="String" array="False" size=""/>
+            <declare name="opcion" type="String" array="False" size=""/>
+            <assign variable="opcion" expression="&quot;si&quot;"/>
+            <while expression="opcion==&quot;si&quot;">
+                <output expression="&quot;Ingrese un nombre&quot;" newline="True"/>
+                <input variable="nombre"/>
+                <if expression="Char(nombre, Len(nombre)-1)==&quot;a&quot;">
+                    <then>
+                        <output expression="&quot;Parece se un nombre de mujer&quot;" newline="True"/>
+                    </then>
+                    <else>
+                        <output expression="&quot;Parece ser nombre de hombre&quot;" newline="True"/>
+                    </else>
+                </if>
+                <output expression="&quot;Desea analizar otro nombre (si/no)&quot;" newline="True"/>
+                <input variable="opcion"/>
+            </while>
+            <output expression="&quot;Hemos finalizado el an&#225;lisis&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

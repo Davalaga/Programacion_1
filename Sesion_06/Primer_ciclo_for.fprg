@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Primer_ciclo_for"/>
+        <attribute name="authors" value="diani"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-02-05 05:43:13 p.&#160;m."/>
+        <attribute name="created" value="ZGlhbmk7REFWQUxBR0E7MjAyNi0wMi0wNTswNTozOTo0MyBwLsKgbS47MjY3OQ=="/>
+        <attribute name="edited" value="ZGlhbmk7REFWQUxBR0E7MjAyNi0wMi0wNTswNTo0MzoxMyBwLsKgbS47MTsyNzc5"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="5" direction="inc" step="1">
+                <output expression="&quot;Ingrese un n&#250;mero entero&quot;" newline="True"/>
+                <declare name="n" type="Integer" array="False" size=""/>
+                <input variable="n"/>
+                <if expression="n %2 == 0">
+                    <then>
+                        <output expression="&quot;N&#250;mero par&quot;" newline="True"/>
+                    </then>
+                    <else>
+                        <output expression="&quot;N&#250;mero impar&quot;" newline="True"/>
+                    </else>
+                </if>
+            </for>
+            <output expression="&quot;Ya terminamos todas las iteraciones&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
