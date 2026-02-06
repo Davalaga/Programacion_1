@@ -112,125 +112,262 @@
 </head>
 <body>
 
-    <div class="main-container">
-        
-        <header class="hero">
-            <div style="text-transform: uppercase; font-weight: 700; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 10px;">
+        <div class="main-container">
+        <header class="hero" style="background: linear-gradient(135deg, #0f172a 0%, #4f46e5 100%);">
+            <div style="text-transform: uppercase; font-weight: 700; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 10px; color: #ffffff;">
                 Ciencia de Datos | Programación I
             </div>
-            <h1>Sesión 06</h1>
-            <p>Estructuras Cíclicas: El Arte de la Automatización</p>
+            <h1 style="font-family: 'Outfit', sans-serif !important; color: #ffffff;">Sesión 06</h1>
+            <p style="font-family: 'Outfit', sans-serif !important; color: #ffffff;">Estructuras Cíclicas: El Arte de la Automatización</p>
         </header>
-
-        <div class="objetivo-box">
-            <span style="color: var(--primary); font-weight: 900; text-transform: uppercase; display: block; margin-bottom: 5px;">El Propósito de Hoy:</span> 
-            <p style="margin: 0; font-size: 1.2rem;">
-                Hoy aprenderás a dominar los <b>ciclos o bucles (loops)</b>, las estructuras que permiten que un algoritmo repita una tarea de forma controlada hasta alcanzar un objetivo o procesar la totalidad de un set de datos.
+    
+        <div class="objetivo-box" style="border-left-color: var(--primary); background: rgba(34, 211, 238, 0.05);">
+            <span style="color: var(--primary); font-weight: 900; text-transform: uppercase; display: block; margin-bottom: 5px; font-family: 'Outfit', sans-serif !important;">
+                El Propósito de Hoy:
+            </span> 
+            <p style="font-family: 'Outfit', sans-serif !important; margin: 0; font-size: 1.2rem;">
+                En la Ciencia de Datos, el volumen de información hace imposible procesar registro por registro manualmente. Hoy aprenderás a dominar los <b>ciclos o bucles (loops)</b>, las estructuras que permiten que un algoritmo repita una tarea de forma controlada hasta alcanzar un objetivo o procesar la totalidad de un set de datos.
             </p>
         </div>
+    </div>
 
-        <section class="info-card">
-            <h2 class="section-title">1. ¿Qué es un ciclo?</h2>
-            <p>Un ciclo es una estructura que permite ejecutar un bloque de código varias veces mientras una condición se mantenga verdadera. Para que funcione, necesita tres pilares:</p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; text-align: center;">
-                <div style="padding: 15px; background: rgba(244, 113, 181, 0.1); border-radius: 12px; border: 1px solid var(--accent);">
-                    <b style="color: var(--accent);">INICIO</b><br>¿Desde dónde empezamos?
+            <section class="info-card">
+        <h2 class="section-title">1. ¿Qué es un ciclo en programación?</h2>
+        <p style="font-family: 'Outfit', sans-serif; color: white; font-size: 1.15rem; margin-bottom: 25px;">
+            Entender los ciclos (o bucles) es el momento en que pasas de escribir "instrucciones simples" a crear verdaderos programas. La programación es, en esencia, el arte de delegar tareas repetitivas a una máquina que no se cansa ni se aburre.
+        </p>
+    
+        <div style="background: rgba(34, 211, 238, 0.05); padding: 25px; border-radius: 20px; border: 1px solid var(--primary); margin-bottom: 30px;">
+            <p style="color: white; margin-top: 0;">
+                Un <b>ciclo</b> es una estructura que permite ejecutar un bloque de código varias veces mientras una condición específica se mantenga verdadera.
+            </p>
+            <p style="color: var(--text-dim);">
+                Imagina que quieres imprimir los números del 1 al 100. Sin ciclos, tendrías que usar 100 bloques de salida. Con un ciclo, solo necesitas dominar estos tres elementos:
+            </p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
+                <div style="background: #0b1120; padding: 15px; border-radius: 12px; border-top: 4px solid var(--accent); text-align: center;">
+                    <b style="color: var(--accent); display: block; margin-bottom: 5px;">INICIO</b>
+                    ¿Desde dónde empezamos?<br><small>(Inicialización)</small>
                 </div>
-                <div style="padding: 15px; background: rgba(245, 158, 11, 0.1); border-radius: 12px; border: 1px solid var(--warning);">
-                    <b style="color: var(--warning);">CONDICIÓN</b><br>¿Cuándo debemos parar?
+                <div style="background: #0b1120; padding: 15px; border-radius: 12px; border-top: 4px solid var(--warning); text-align: center;">
+                    <b style="color: var(--warning); display: block; margin-bottom: 5px;">CONDICIÓN</b>
+                    ¿Cuándo debemos parar?<br><small>(Prueba lógica)</small>
                 </div>
-                <div style="padding: 15px; background: rgba(34, 211, 238, 0.1); border-radius: 12px; border: 1px solid var(--primary);">
-                    <b style="color: var(--primary);">ACTUALIZACIÓN</b><br>¿Cómo avanzamos?
+                <div style="background: #0b1120; padding: 15px; border-radius: 12px; border-top: 4px solid var(--primary); text-align: center;">
+                    <b style="color: var(--primary); display: block; margin-bottom: 5px;">ACTUALIZACIÓN</b>
+                    ¿Cómo avanzamos?<br><small>(Paso o incremento)</small>
                 </div>
             </div>
-        </section>
+        </div>
+    
+        <h3 style="color: var(--secondary); font-family: 'Outfit', sans-serif; font-size: 1.6rem; margin-top: 40px;">💡 Lógica de Ciclos en la Vida Real</h3>
+        <p style="color: var(--text-dim); margin-bottom: 20px;">Para entender cómo "piensa" un ciclo, analicemos estos tres escenarios cotidianos:</p>
+    
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+            <div style="background: rgba(255, 255, 255, 0.03); padding: 20px; border-radius: 15px; border: 1px dashed #475569;">
+                <h4 style="color: var(--accent); margin-top: 0;">A. Correr 10 vueltas en una pista</h4>
+                <ul style="padding-left: 20px; color: var(--text-dim); font-size: 0.95rem;">
+                    <li><b>Inicio:</b> Estás en la línea de salida (Vuelta = 0).</li>
+                    <li><b>Condición:</b> ¿He corrido menos de 10 vueltas?</li>
+                    <li><b>Actualización:</b> Al pasar por la meta, sumas 1 vuelta.</li>
+                </ul>
+            </div>
+    
+            <div style="background: rgba(255, 255, 255, 0.03); padding: 20px; border-radius: 15px; border: 1px dashed #475569;">
+                <h4 style="color: var(--primary); margin-top: 0;">B. Llenar un vaso de agua</h4>
+                <ul style="padding-left: 20px; color: var(--text-dim); font-size: 0.95rem;">
+                    <li><b>Inicio:</b> El vaso está vacío.</li>
+                    <li><b>Condición:</b> ¿El agua está por debajo del borde?</li>
+                    <li><b>Actualización:</b> Sigues vertiendo agua constantemente.</li>
+                </ul>
+            </div>
+    
+            <div style="background: rgba(255, 255, 255, 0.03); padding: 20px; border-radius: 15px; border: 1px dashed #475569;">
+                <h4 style="color: var(--warning); margin-top: 0;">C. Lavar los platos</h4>
+                <ul style="padding-left: 20px; color: var(--text-dim); font-size: 0.95rem;">
+                    <li><b>Inicio:</b> Tienes una pila de 5 platos sucios.</li>
+                    <li><b>Condición:</b> ¿Todavía quedan platos en el fregadero?</li>
+                    <li><b>Actualización:</b> Lavas un plato y lo pones a secar (quedan n-1).</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
         
 
-        <section class="info-card">
+                <section class="info-card">
             <h2 class="section-title">2. Los tres ciclos de Flowgorithm</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                <div style="padding: 20px; border: 1px solid var(--primary); border-radius: 15px;">
-                    <h3 style="color: var(--primary);">Mientras (While)</h3>
-                    <p class="texto-detalle"><b>Preventivo:</b> Pregunta antes de actuar. Útil si no sabes cuántas veces repetirás la acción.</p>
+            <p style="font-family: 'Outfit', sans-serif; color: white; font-size: 1.1rem;">
+                Flowgorithm ofrece tres herramientas para repetir acciones. Aunque parecen similares, cada una tiene su <b>"personalidad"</b> y uso ideal:
+            </p>
+        
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 25px;">
+                <div style="background: rgba(34, 211, 238, 0.05); padding: 25px; border-radius: 20px; border: 1px solid var(--primary); display: flex; flex-direction: column;">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                        <span style="font-size: 1.5rem;">🛡️</span>
+                        <h3 style="color: var(--primary); margin: 0; font-family: 'Outfit', sans-serif;">A. Mientras (While)</h3>
+                    </div>
+                    <p style="color: var(--text-dim); font-size: 0.95rem; flex-grow: 1;">
+                        Es un ciclo <b>preventivo</b>. Primero pregunta y, si la respuesta es afirmativa, actúa. Si la condición es falsa desde el inicio, el código nunca se ejecuta.
+                    </p>
+                    <div style="background: #000; padding: 10px; border-radius: 8px; margin-top: 15px; font-size: 0.85rem;">
+                        <b style="color: var(--primary);">Uso ideal:</b> Cuando NO sabes cuántas veces se repetirá (ej. validar una clave).
+                    </div>
                 </div>
-                <div style="padding: 20px; border: 1px solid var(--secondary); border-radius: 15px;">
-                    <h3 style="color: var(--secondary);">Para (For)</h3>
-                    <p class="texto-detalle"><b>Organizado:</b> Se usa cuando conoces el número exacto de repeticiones.</p>
+        
+                <div style="background: rgba(129, 140, 248, 0.05); padding: 25px; border-radius: 20px; border: 1px solid var(--secondary); display: flex; flex-direction: column;">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                        <span style="font-size: 1.5rem;">📅</span>
+                        <h3 style="color: var(--secondary); margin: 0; font-family: 'Outfit', sans-serif;">B. Para (For)</h3>
+                    </div>
+                    <p style="color: var(--text-dim); font-size: 0.95rem; flex-grow: 1;">
+                        Es un ciclo <b>organizado</b>. Se usa cuando sabes exactamente cuántas veces quieres repetir algo. Maneja solo el inicio, el conteo y el final.
+                    </p>
+                    <div style="background: #000; padding: 10px; border-radius: 8px; margin-top: 15px; font-size: 0.85rem;">
+                        <b style="color: var(--secondary);">Uso ideal:</b> Tablas de multiplicar o recorrer listas de datos.
+                    </div>
                 </div>
-                <div style="padding: 20px; border: 1px solid var(--accent); border-radius: 15px;">
-                    <h3 style="color: var(--accent);">Hacer (Do)</h3>
-                    <p class="texto-detalle"><b>Arriesgado:</b> Actúa y luego pregunta. Garantiza al menos una ejecución.</p>
+        
+                <div style="background: rgba(244, 113, 181, 0.05); padding: 25px; border-radius: 20px; border: 1px solid var(--accent); display: flex; flex-direction: column;">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                        <span style="font-size: 1.5rem;">⚡</span>
+                        <h3 style="color: var(--accent); margin: 0; font-family: 'Outfit', sans-serif;">C. Hacer (Do)</h3>
+                    </div>
+                    <p style="color: var(--text-dim); font-size: 0.95rem; flex-grow: 1;">
+                        Es un ciclo <b>arriesgado</b>. Primero actúa y después pregunta. Esto garantiza que el código se ejecute <b>al menos una vez</b>.
+                    </p>
+                    <div style="background: #000; padding: 10px; border-radius: 8px; margin-top: 15px; font-size: 0.85rem;">
+                        <b style="color: var(--accent);">Uso ideal:</b> Menús de usuario (mostrar opciones antes de preguntar).
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <table>
+            <section class="info-card">
+            <h2 class="section-title">3. Cuadro Comparativo de Control</h2>
+            <p style="font-family: 'Outfit', sans-serif; color: white; font-size: 1.1rem; margin-bottom: 20px;">
+                Usa esta tabla para elegir el ciclo correcto según la naturaleza de tus datos:
+            </p>
+            
+            <table style="width: 100%; border-collapse: collapse; font-family: 'Outfit', sans-serif; color: white; background: #0b1120; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
                 <thead>
-                    <tr><th>Ciclo</th><th>¿Cuándo evalúa?</th><th>¿Cuántas veces se ejecuta?</th></tr>
+                    <tr style="background: var(--secondary); color: #000; text-align: left;">
+                        <th style="padding: 18px; font-weight: 900;">Ciclo</th>
+                        <th style="padding: 18px; font-weight: 900;">¿Cuándo evalúa?</th>
+                        <th style="padding: 18px; font-weight: 900;">¿Cuántas veces se ejecuta?</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td>Mientras (While)</td><td>Al inicio</td><td>0 o más veces</td></tr>
-                    <tr><td>Hacer (Do)</td><td>Al final</td><td>1 o más veces</td></tr>
-                    <tr><td>Para (For)</td><td>Al inicio</td><td>Número fijo</td></tr>
+                    <tr style="border-bottom: 1px solid #1e293b;">
+                        <td style="padding: 18px; font-weight: bold; color: var(--primary);">Mientras (While)</td>
+                        <td style="padding: 18px;">Al inicio (Antes de actuar)</td>
+                        <td style="padding: 18px;"><span style="color: var(--accent);">0 o más veces</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #1e293b;">
+                        <td style="padding: 18px; font-weight: bold; color: var(--accent);">Hacer (Do)</td>
+                        <td style="padding: 18px;">Al final (Después de actuar)</td>
+                        <td style="padding: 18px;"><span style="color: var(--warning);">1 o más veces</span></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 18px; font-weight: bold; color: var(--secondary);">Para (For)</td>
+                        <td style="padding: 18px;">Al inicio (Automático)</td>
+                        <td style="padding: 18px;">Un número fijo de veces</td>
+                    </tr>
                 </tbody>
             </table>
-        </section>
-
-        <section class="info-card">
-            <h2 class="section-title">3. Laboratorio de Pruebas</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                <div style="text-align: center; padding: 20px; background: #0b1120; border-radius: 15px;">
-                    <h4 style="color: var(--primary);">Clasificador Género</h4>
-                    <p class="texto-detalle">Usa <code>While</code> para determinar género según entrada.</p>
-                    <a href="mujer_hombre.fprg" download class="btn-download" style="font-size: 0.8rem;">📥 mujer_hombre.fprg</a>
-                </div>
-                <div style="text-align: center; padding: 20px; background: #0b1120; border-radius: 15px;">
-                    <h4 style="color: var(--secondary);">Filtro Par/Impar</h4>
-                    <p class="texto-detalle">Usa <code>For</code> para clasificar una serie numérica.</p>
-                    <a href="Primer_ciclo_for.fprg" download class="btn-download" style="font-size: 0.8rem; background: var(--secondary);">📥 ciclo_for.fprg</a>
-                </div>
-                <div style="text-align: center; padding: 20px; background: #0b1120; border-radius: 15px;">
-                    <h4 style="color: var(--accent);">Cálculo Aritmético</h4>
-                    <p class="texto-detalle">Usa <code>Do</code> para sumar o restar dinámicamente.</p>
-                    <a href="Hacer.fprg" download class="btn-download" style="font-size: 0.8rem; background: var(--accent);">📥 Hacer.fprg</a>
-                </div>
+        
+            <div style="margin-top: 25px; padding: 15px; background: rgba(245, 158, 11, 0.1); border-radius: 12px; border: 1px dashed var(--warning);">
+                <p style="color: var(--warning); margin: 0; font-size: 0.9rem; font-style: italic;">
+                    <b>Dato Pro:</b> En Ciencia de Datos, el 90% de las veces usarás el ciclo <b>Para (For)</b> para recorrer bases de datos, pero el ciclo <b>Mientras (While)</b> es indispensable para procesos que dependen de condiciones externas o sensores.
+                </p>
             </div>
         </section>
 
         <section class="info-card">
-            <h2 class="section-title">4. Desafíos de Clase</h2>
-            
-            <div class="proyecto-card-pro">
-                <span class="nivel-tag" style="background: var(--primary); color: #000;">Baja</span>
-                <h3 style="color: var(--primary);">📉 Promediador de Datos</h3>
-                <p class="texto-detalle">Pide $N$ datos al usuario y calcula el promedio final usando un ciclo <code>Para</code>.</p>
+            <h2 class="section-title">4. Laboratorio de Pruebas: Algoritmos en Acción</h2>
+            <p style="font-family: 'Outfit', sans-serif; color: white; font-size: 1.1rem;">
+                Descarga estos tres ejemplos fundamentales para analizar cómo Flowgorithm gestiona la repetición en diferentes contextos:
+            </p>
+        
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 25px;">
+                
+                <div style="background: rgba(34, 211, 238, 0.05); padding: 25px; border-radius: 20px; border: 1px solid var(--primary); text-align: center;">
+                    <h3 style="color: var(--primary); margin-top: 0;">👩‍🦱 Clasificador de Género</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem; min-height: 70px;">
+                        <b>Archivo: mujer_hombre.fprg</b><br>
+                        Implementa un ciclo <b>Mientras (While)</b> para evaluar nombres y determinar si corresponden a hombre o mujer según los datos ingresados.
+                    </p>
+                    <a href="mujer_hombre.fprg" download class="btn-download" style="padding: 10px 20px; font-size: 0.8rem;">
+                        📥 Descargar .fprg
+                    </a>
+                </div>
+        
+                <div style="background: rgba(129, 140, 248, 0.05); padding: 25px; border-radius: 20px; border: 1px solid var(--secondary); text-align: center;">
+                    <h3 style="color: var(--secondary); margin-top: 0;">🔢 Filtro Par/Impar</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem; min-height: 70px;">
+                        <b>Archivo: Primer_ciclo_for.fprg</b><br>
+                        Usa un ciclo <b>Para (For)</b> para recorrer una serie de números y clasificarlos automáticamente según su paridad.
+                    </p>
+                    <a href="Primer_ciclo_for.fprg" download class="btn-download" style="padding: 10px 20px; font-size: 0.8rem; background: var(--secondary);">
+                        📥 Descargar .fprg
+                    </a>
+                </div>
+        
+                <div style="background: rgba(244, 113, 181, 0.05); padding: 25px; border-radius: 20px; border: 1px solid var(--accent); text-align: center;">
+                    <h3 style="color: var(--accent); margin-top: 0;">➕ Calculadora Iterativa</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem; min-height: 70px;">
+                        <b>Archivo: Hacer.fprg</b><br>
+                        Un programa que realiza sumas o restas dinámicas utilizando el ciclo <b>Hacer (Do)</b>, asegurando que el proceso inicie de inmediato.
+                    </p>
+                    <a href="Hacer.fprg" download class="btn-download" style="padding: 10px 20px; font-size: 0.8rem; background: var(--accent);">
+                        📥 Descargar .fprg
+                    </a>
+                </div>
+        
             </div>
+        </section>
 
+        <section class="info-card">
+            <h2 class="section-title">5. Desafíos de Automatización</h2>
+            <p style="font-family: 'Outfit', sans-serif; color: white; font-size: 1.1rem; margin-bottom: 30px;">
+                Aplica lo aprendido sobre ciclos para resolver estos tres niveles de complejidad algorítmica:
+            </p>
+        
+            <div class="proyecto-card-pro" style="border-left-color: var(--primary);">
+                <span class="nivel-tag" style="background: var(--primary); color: #000;">Nivel: Bronce</span>
+                <h3 style="color: var(--primary); margin-top: 0;">📉 El Promediador de Datos</h3>
+                <p class="texto-detalle">
+                    <b>Problema:</b> Crea un programa que pregunte al usuario cuántos datos desea ingresar ($N$). Luego, mediante un ciclo <code>Para</code>, solicita cada número y al final muestra el promedio exacto de la muestra.
+                </p>
+                <p style="font-size: 0.85rem; color: var(--text-dim);">
+                    <i>Conceptos clave: Acumulador (suma), Contador (N) y Ciclo For.</i>
+                </p>
+            </div>
+        
             <div class="proyecto-card-pro" style="border-left-color: var(--warning);">
-                <span class="nivel-tag" style="background: var(--warning); color: #000;">Media</span>
-                <h3 style="color: var(--warning);">🛡️ Validador de Rango</h3>
-                <p class="texto-detalle">Usa un <code>Mientras</code> para pedir una temperatura hasta que esté entre $18^{\circ}C$ y $25^{\circ}C$.</p>
+                <span class="nivel-tag" style="background: var(--warning); color: #000;">Nivel: Plata</span>
+                <h3 style="color: var(--warning); margin-top: 0;">🛡️ Validador de Rango Crítico</h3>
+                <p class="texto-detalle">
+                    <b>Problema:</b> En un laboratorio, un sensor debe estar entre $18^{\circ}C$ y $25^{\circ}C$. Crea un programa con un ciclo <code>Mientras</code> que pida la temperatura. Si el valor está fuera de rango, debe lanzar una alerta y volver a pedirlo. El programa solo termina cuando el valor es seguro.
+                </p>
+                <p style="font-size: 0.85rem; color: var(--text-dim);">
+                    <i>Conceptos clave: Ciclo While, Operadores Lógicos (OR / AND) y Centinelas.</i>
+                </p>
             </div>
-
+        
             <div class="proyecto-card-pro" style="border-left-color: var(--accent);">
-                <span class="nivel-tag" style="background: var(--accent); color: #000;">Alta</span>
-                <h3 style="color: var(--accent);">💰 Meta de Ahorro</h3>
-                <p class="texto-detalle">Pide una meta y aportes mensuales. Suma hasta alcanzar el objetivo mostrando el progreso mes a mes.</p>
+                <span class="nivel-tag" style="background: var(--accent); color: #000;">Nivel: Oro</span>
+                <h3 style="color: var(--accent); margin-top: 0;">💰 Simulador de Ahorro Programado</h3>
+                <p class="texto-detalle">
+                    <b>Problema:</b> Un usuario quiere ahorrar para su maestría. Pide una "Meta de Ahorro" y un "Aporte Mensual". Usa un ciclo para ir sumando el aporte mes a mes y mostrar en pantalla: <i>"Mes X: Llevas $Y acumulados"</i>. El ciclo debe detenerse automáticamente cuando el acumulador iguale o supere la meta.
+                </p>
+                <p style="font-size: 0.85rem; color: var(--text-dim);">
+                    <i>Conceptos clave: Ciclo Hacer, Acumuladores dinámicos y Proyecciones.</i>
+                </p>
             </div>
         </section>
 
-        <section class="info-card" style="border: 2px solid var(--secondary); text-align: center;">
-            <h2 class="section-title" style="border: none; margin: 0;">📚 Taller 2: Estructuras de Control</h2>
-            <p>Descarga el taller oficial para profundizar en ciclos y series.</p>
-            <a href="Taller_2_Estructuras_de_control.pdf" download class="btn-download" style="background: var(--secondary);">
-                📥 Descargar Taller 2 (PDF)
-            </a>
-        </section>
-
-        <footer style="text-align: center; margin-top: 40px; color: var(--text-dim);">
-            <p>Programación I - Universidad Externado de Colombia</p>
-        </footer>
-
-    </div>
+    
 </body>
 </html>
