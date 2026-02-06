@@ -1,1 +1,236 @@
-dd
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesión 06: Estructuras Cíclicas - Ciencia de Datos | U. Externado</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root { 
+            --bg: #0f172a; 
+            --card-bg: #1e293b; 
+            --primary: #22d3ee; 
+            --secondary: #818cf8; 
+            --accent: #f471b5; 
+            --text: #ffffff;    
+            --text-dim: #cbd5e1; 
+            --warning: #f59e0b; 
+        }
+
+        body { 
+            margin: 0; 
+            padding: 0; 
+            background-color: var(--bg); 
+            color: var(--text); 
+            font-family: 'Outfit', sans-serif; 
+            line-height: 1.6;
+        }
+
+        .main-container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+        /* Hero Section */
+        .hero { 
+            text-align: center; 
+            padding: 60px 30px; 
+            background: linear-gradient(135deg, #0f172a 0%, #4f46e5 100%); 
+            border-radius: 30px; 
+            margin-bottom: 40px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+        .hero h1 { font-size: 3.5rem; margin: 0; text-transform: uppercase; font-weight: 900; }
+
+        /* Estructura de Tarjetas */
+        .info-card { 
+            background: var(--card-bg); 
+            padding: 35px; 
+            border-radius: 24px; 
+            border: 1px solid #334155; 
+            margin-bottom: 30px;
+        }
+
+        .objetivo-box { 
+            background: rgba(34, 211, 238, 0.05); 
+            border-left: 8px solid var(--primary); 
+            padding: 30px; 
+            border-radius: 15px; 
+            margin-bottom: 40px;
+        }
+
+        .section-title { 
+            color: var(--primary); 
+            font-size: 2.2rem; 
+            font-weight: 800;
+            border-bottom: 2px solid rgba(34, 211, 238, 0.2); 
+            padding-bottom: 12px; 
+            margin-top: 10px; 
+            margin-bottom: 25px;
+        }
+
+        /* Tablas y Listas */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #0b1120; border-radius: 15px; overflow: hidden; }
+        th { background: var(--secondary); color: #000; padding: 15px; text-align: left; }
+        td { padding: 15px; border-bottom: 1px solid #1e293b; }
+
+        /* Botones de Descarga */
+        .btn-download {
+            display: inline-block;
+            background: var(--primary);
+            color: #000;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .btn-download:hover { transform: scale(1.05); opacity: 0.9; }
+
+        /* Retos */
+        .proyecto-card-pro {
+            background: #0b1120;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-left: 10px solid var(--primary);
+        }
+        .nivel-tag {
+            font-size: 0.8rem;
+            font-weight: 900;
+            padding: 5px 15px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            float: right;
+        }
+
+        .texto-detalle { color: var(--text-dim); }
+        code { background: #000; color: var(--primary); padding: 2px 6px; border-radius: 4px; }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <header class="hero">
+            <div style="text-transform: uppercase; font-weight: 700; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 10px;">
+                Ciencia de Datos | Programación I
+            </div>
+            <h1>Sesión 06</h1>
+            <p>Estructuras Cíclicas: El Arte de la Automatización</p>
+        </header>
+
+        <div class="objetivo-box">
+            <span style="color: var(--primary); font-weight: 900; text-transform: uppercase; display: block; margin-bottom: 5px;">El Propósito de Hoy:</span> 
+            <p style="margin: 0; font-size: 1.2rem;">
+                Hoy aprenderás a dominar los <b>ciclos o bucles (loops)</b>, las estructuras que permiten que un algoritmo repita una tarea de forma controlada hasta alcanzar un objetivo o procesar la totalidad de un set de datos.
+            </p>
+        </div>
+
+        <section class="info-card">
+            <h2 class="section-title">1. ¿Qué es un ciclo?</h2>
+            <p>Un ciclo es una estructura que permite ejecutar un bloque de código varias veces mientras una condición se mantenga verdadera. Para que funcione, necesita tres pilares:</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; text-align: center;">
+                <div style="padding: 15px; background: rgba(244, 113, 181, 0.1); border-radius: 12px; border: 1px solid var(--accent);">
+                    <b style="color: var(--accent);">INICIO</b><br>¿Desde dónde empezamos?
+                </div>
+                <div style="padding: 15px; background: rgba(245, 158, 11, 0.1); border-radius: 12px; border: 1px solid var(--warning);">
+                    <b style="color: var(--warning);">CONDICIÓN</b><br>¿Cuándo debemos parar?
+                </div>
+                <div style="padding: 15px; background: rgba(34, 211, 238, 0.1); border-radius: 12px; border: 1px solid var(--primary);">
+                    <b style="color: var(--primary);">ACTUALIZACIÓN</b><br>¿Cómo avanzamos?
+                </div>
+            </div>
+        </section>
+
+        
+
+        <section class="info-card">
+            <h2 class="section-title">2. Los tres ciclos de Flowgorithm</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <div style="padding: 20px; border: 1px solid var(--primary); border-radius: 15px;">
+                    <h3 style="color: var(--primary);">Mientras (While)</h3>
+                    <p class="texto-detalle"><b>Preventivo:</b> Pregunta antes de actuar. Útil si no sabes cuántas veces repetirás la acción.</p>
+                </div>
+                <div style="padding: 20px; border: 1px solid var(--secondary); border-radius: 15px;">
+                    <h3 style="color: var(--secondary);">Para (For)</h3>
+                    <p class="texto-detalle"><b>Organizado:</b> Se usa cuando conoces el número exacto de repeticiones.</p>
+                </div>
+                <div style="padding: 20px; border: 1px solid var(--accent); border-radius: 15px;">
+                    <h3 style="color: var(--accent);">Hacer (Do)</h3>
+                    <p class="texto-detalle"><b>Arriesgado:</b> Actúa y luego pregunta. Garantiza al menos una ejecución.</p>
+                </div>
+            </div>
+
+            <table>
+                <thead>
+                    <tr><th>Ciclo</th><th>¿Cuándo evalúa?</th><th>¿Cuántas veces se ejecuta?</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Mientras (While)</td><td>Al inicio</td><td>0 o más veces</td></tr>
+                    <tr><td>Hacer (Do)</td><td>Al final</td><td>1 o más veces</td></tr>
+                    <tr><td>Para (For)</td><td>Al inicio</td><td>Número fijo</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="info-card">
+            <h2 class="section-title">3. Laboratorio de Pruebas</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <div style="text-align: center; padding: 20px; background: #0b1120; border-radius: 15px;">
+                    <h4 style="color: var(--primary);">Clasificador Género</h4>
+                    <p class="texto-detalle">Usa <code>While</code> para determinar género según entrada.</p>
+                    <a href="mujer_hombre.fprg" download class="btn-download" style="font-size: 0.8rem;">📥 mujer_hombre.fprg</a>
+                </div>
+                <div style="text-align: center; padding: 20px; background: #0b1120; border-radius: 15px;">
+                    <h4 style="color: var(--secondary);">Filtro Par/Impar</h4>
+                    <p class="texto-detalle">Usa <code>For</code> para clasificar una serie numérica.</p>
+                    <a href="Primer_ciclo_for.fprg" download class="btn-download" style="font-size: 0.8rem; background: var(--secondary);">📥 ciclo_for.fprg</a>
+                </div>
+                <div style="text-align: center; padding: 20px; background: #0b1120; border-radius: 15px;">
+                    <h4 style="color: var(--accent);">Cálculo Aritmético</h4>
+                    <p class="texto-detalle">Usa <code>Do</code> para sumar o restar dinámicamente.</p>
+                    <a href="Hacer.fprg" download class="btn-download" style="font-size: 0.8rem; background: var(--accent);">📥 Hacer.fprg</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-card">
+            <h2 class="section-title">4. Desafíos de Clase</h2>
+            
+            <div class="proyecto-card-pro">
+                <span class="nivel-tag" style="background: var(--primary); color: #000;">Baja</span>
+                <h3 style="color: var(--primary);">📉 Promediador de Datos</h3>
+                <p class="texto-detalle">Pide $N$ datos al usuario y calcula el promedio final usando un ciclo <code>Para</code>.</p>
+            </div>
+
+            <div class="proyecto-card-pro" style="border-left-color: var(--warning);">
+                <span class="nivel-tag" style="background: var(--warning); color: #000;">Media</span>
+                <h3 style="color: var(--warning);">🛡️ Validador de Rango</h3>
+                <p class="texto-detalle">Usa un <code>Mientras</code> para pedir una temperatura hasta que esté entre $18^{\circ}C$ y $25^{\circ}C$.</p>
+            </div>
+
+            <div class="proyecto-card-pro" style="border-left-color: var(--accent);">
+                <span class="nivel-tag" style="background: var(--accent); color: #000;">Alta</span>
+                <h3 style="color: var(--accent);">💰 Meta de Ahorro</h3>
+                <p class="texto-detalle">Pide una meta y aportes mensuales. Suma hasta alcanzar el objetivo mostrando el progreso mes a mes.</p>
+            </div>
+        </section>
+
+        <section class="info-card" style="border: 2px solid var(--secondary); text-align: center;">
+            <h2 class="section-title" style="border: none; margin: 0;">📚 Taller 2: Estructuras de Control</h2>
+            <p>Descarga el taller oficial para profundizar en ciclos y series.</p>
+            <a href="Taller_2_Estructuras_de_control.pdf" download class="btn-download" style="background: var(--secondary);">
+                📥 Descargar Taller 2 (PDF)
+            </a>
+        </section>
+
+        <footer style="text-align: center; margin-top: 40px; color: var(--text-dim);">
+            <p>Programación I - Universidad Externado de Colombia</p>
+        </footer>
+
+    </div>
+</body>
+</html>
